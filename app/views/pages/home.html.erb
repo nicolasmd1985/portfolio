@@ -1,0 +1,77 @@
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background with overlay -->
+  <div 
+    class="absolute inset-0 bg-fixed bg-cover bg-center"
+    style="background-image: url(<%= asset_path 'smart_house.jpg' %>); filter: blur(2px); transform: scale(1.1);"
+  ></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70"></div>
+
+  <!-- Content container -->
+  <div class="relative z-10 text-center px-4 w-full max-w-[1400px] mx-auto pt-32">
+    <!-- Main title -->
+    <h1 class="main-title font-extrabold text-white orbitron-font">
+      Nicolas Mahecha
+    </h1>
+
+    <!-- Tagline -->
+    <p class="text-xl sm:text-2xl md:text-3xl text-slate-200 max-w-4xl mx-auto inter-font leading-relaxed mb-20">
+      Integrating cutting-edge security and automation with eco-friendly technology.
+    </p>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      <!-- Smart Device Integration -->
+      <div class="service-item">
+        <div class="icon-container">
+          <i class="mdi mdi-home-automation icon-large text-slate-300"></i>
+        </div>
+        <h2 class="service-title text-slate-300">Smart Device Integration</h2>
+      </div>
+
+      <!-- Sustainable Energy -->
+      <div class="service-item">
+        <div class="icon-container">
+          <i class="mdi mdi-solar-power-variant icon-large text-slate-300"></i>
+        </div>
+        <h2 class="service-title text-slate-300">Sustainable Energy</h2>
+      </div>
+
+      <!-- Software Development -->
+      <div class="service-item">
+        <div class="icon-container">
+          <i class="mdi mdi-code-braces icon-large text-slate-300"></i>
+        </div>
+        <h2 class="service-title text-slate-300">Software Development</h2>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <a
+      href="#about"
+      class="mt-20 inline-block btn-primary"
+    >
+      Discover More
+    </a>
+  </div>
+</section>
+
+<section id="about" class="py-20 bg-gray-800 text-center">
+  <div class="container mx-auto px-8 max-w-4xl">
+    <h2 class="text-4xl font-bold mb-6 text-white">About Me</h2>
+    <p class="text-lg leading-relaxed text-gray-300">
+      I'm Nicolas Mahecha, an expert in security systems, IoT, and sustainable energy integration.
+      With experience in smart device automation, fire alarm installations, and renewable technology,
+      I create solutions that are both innovative and eco-friendly.
+    </p>
+    <p class="text-lg leading-relaxed text-gray-300 mt-4">
+      My mission is to bridge security and sustainability, ensuring efficient, connected,
+      and environmentally responsible technology solutions.
+    </p>
+
+    <div class="about-buttons">
+      <a href="/about" class="btn-secondary">About Me</a>
+      <a href="/projects" class="btn-primary">Explore Projects</a>
+      <a href="/contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<section class="py-20 bg-gray-800">
+  <div class="container mx-auto px-8">
+    <h2 class="text-4xl font-bold mb-8 text-center text-white">Projects</h2>
+    
+    <% if @projects.any? %>
+      <div class="flex overflow-x-auto space-x-4 snap-x snap-mandatory">
+        <% @projects.each do |project| %>
+          <div class="min-w-[300px] bg-gray-800 rounded-lg shadow-lg snap-start">
+            <% if project.image.present? %>
+              <%= image_tag project.image, alt: project.title, class: "w-full h-48 object-cover rounded-t-lg" %>
+            <% end %>
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-white"><%= project.title %></h3>
+              <p class="text-gray-400"><%= project.description %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-center text-gray-400">
+        <p class="text-xl">No projects available yet.</p>
+        <p class="mt-4">Check back soon for updates!</p>
+      </div>
+    <% end %>
+  </div>
+</section>

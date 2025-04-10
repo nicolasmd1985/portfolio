@@ -1,0 +1,81 @@
+<section class="py-20 bg-gray-800">
+  <div class="container mx-auto px-8 max-w-4xl">
+    <h2 class="text-4xl font-bold mb-8 text-center text-white">Contact Me</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-gray-700 rounded-lg p-8 shadow-lg">
+        <h3 class="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+        
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4">
+            <i class="mdi mdi-email text-cyan-400 text-2xl"></i>
+            <div>
+              <p class="text-gray-400">Email</p>
+              <a href="mailto:your.email@example.com" class="text-white hover:text-cyan-400 transition-colors">
+                your.email@example.com
+              </a>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <i class="mdi mdi-phone text-cyan-400 text-2xl"></i>
+            <div>
+              <p class="text-gray-400">Phone</p>
+              <a href="tel:+1234567890" class="text-white hover:text-cyan-400 transition-colors">
+                +1 (234) 567-890
+              </a>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <i class="mdi mdi-map-marker text-cyan-400 text-2xl"></i>
+            <div>
+              <p class="text-gray-400">Location</p>
+              <p class="text-white">Bogotá, Colombia</p>
+            </div>
+          </div>
+          
+          <div class="flex space-x-4 mt-6">
+            <a href="https://www.linkedin.com/in/nm85/" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
+              <i class="mdi mdi-linkedin text-2xl"></i>
+            </a>
+            <a href="https://github.com/nicolasmd1985" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
+              <i class="mdi mdi-github text-2xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
+              <i class="mdi mdi-twitter text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-gray-700 rounded-lg p-8 shadow-lg">
+        <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
+        
+        <%= form_with(url: "#", local: true, class: "space-y-4") do |form| %>
+          <div>
+            <%= form.label :name, "Your Name", class: "block text-gray-300 mb-2" %>
+            <%= form.text_field :name, class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400" %>
+          </div>
+          
+          <div>
+            <%= form.label :email, "Your Email", class: "block text-gray-300 mb-2" %>
+            <%= form.email_field :email, class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400" %>
+          </div>
+          
+          <div>
+            <%= form.label :subject, "Subject", class: "block text-gray-300 mb-2" %>
+            <%= form.text_field :subject, class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400" %>
+          </div>
+          
+          <div>
+            <%= form.label :message, "Message", class: "block text-gray-300 mb-2" %>
+            <%= form.text_area :message, rows: 4, class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400" %>
+          </div>
+          
+          <%= form.submit "Send Message", class: "w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

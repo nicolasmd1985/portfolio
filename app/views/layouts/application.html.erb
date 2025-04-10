@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= content_for(:title) || "Nicolas Mahecha - Portfolio" %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  
+  <!-- Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    .icon-stroke {
+      stroke-width: 1.5;
+      stroke: currentColor;
+    }
+    .icon-fill {
+      fill: none;
+    }
+    .icon-large {
+      font-size: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-transparent z-50">
+    <div class="container mx-auto px-8 py-6 flex justify-end">
+      <nav class="space-x-8">
+        <a href="/about" class="hover:text-teal-400 transition-colors">About</a>
+        <a href="/projects" class="hover:text-teal-400 transition-colors">Projects</a>
+        <a href="/contact" class="hover:text-teal-400 transition-colors">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Yield content for pages -->
+  <%= yield %>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-800 py-10">
+    <div class="container mx-auto px-8 text-center">
+      <h4 class="text-xl font-bold">Nicolas Mahecha</h4>
+      <p class="text-gray-400">Security Systems | Smart Device Integration | Software Development</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="https://www.linkedin.com/in/nm85/" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors">LinkedIn</a>
+        <a href="https://github.com/nicolasmd1985" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors">GitHub</a>
+      </div>
+      <p class="text-gray-500 mt-6">&copy; 2025 Nicolas Mahecha. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
