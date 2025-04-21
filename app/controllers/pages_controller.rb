@@ -34,5 +34,51 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @contact = Contact.new
+  end
+
+  def create_message
+    @contact = Contact.new(contact_params)
+
+    # Bot prevention: Check honeypot field
+    if params[:contact][:website].present?
+      head :ok
+      return
+    end
+
+    # Bot prevention: Check submission timing
+    submission_time = params[:contact][:submitted_at].to_i
+    if Time.current.to_i - submission_time < 3
+      head :ok
+      return
+    end
+
+    respond_to do |format|
+      if @contact.valid?
+        # Here you would typically send the email
+        # ContactMailer.contact_email(@contact).deliver_later
+
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace(
+            "contact_form",
+            partial: "pages/contact_success"
+          )
+        }
+      else
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.replace(
+            "contact_form",
+            partial: "pages/contact_form",
+            locals: { contact: @contact }
+          )
+        }
+      end
+    end
+  end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:name, :email, :subject, :message, :website, :submitted_at)
   end
 end

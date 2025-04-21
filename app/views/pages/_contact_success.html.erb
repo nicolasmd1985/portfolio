@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "contact_form" do %>
+  <div class="bg-green-500/10 border border-green-500 rounded-lg p-6 text-center">
+    <i class="mdi mdi-check-circle text-4xl text-green-500 mb-4"></i>
+    <h3 class="text-xl font-semibold text-white mb-2">Message Sent Successfully!</h3>
+    <p class="text-gray-300 mb-4">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+    <%= link_to "Send Another Message", contact_path, 
+        class: "inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors",
+        data: { turbo_frame: "contact_form" } %>
+  </div>
+<% end %> 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "projects", to: "pages#projects"
   get "services", to: "pages#services"
   get "contact", to: "pages#contact"
+  post "contact", to: "pages#create_message", as: :create_message
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
