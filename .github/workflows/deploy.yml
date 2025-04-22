@@ -1,0 +1,143 @@
+name: Build, Push, and Deploy Portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_push_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: |
+            nicolasmd/portfolio:latest
+            nicolasmd/portfolio:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Create .env file
+        run: |
+          echo "SECRET_KEY_BASE=${{ secrets.SECRET_KEY_BASE }}" >> .env.production
+          echo "RDS_HOST=${{ secrets.RDS_HOST }}" >> .env.production
+          echo "RDS_USERNAME=${{ secrets.RDS_USERNAME }}" >> .env.production
+          echo "RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}" >> .env.production
+          echo "RDS_PORT=${{ secrets.RDS_PORT }}" >> .env.production
+          echo "RAILS_ENV=production" >> .env.production
+          echo "RAILS_SERVE_STATIC_FILES=true" >> .env.production
+          #echo "aws_access_key_id=${{ secrets.aws_access_key_id }}" >> .env.production
+          #echo "aws_secret_access_key=${{ secrets.aws_secret_access_key }}" >> .env.production
+          #echo "S3_BUCKET_NAME=${{ secrets.S3_BUCKET_NAME }}" >> .env.production
+          #echo "AWS_REGION=${{ secrets.AWS_REGION }}" >> .env.production
+          #echo "GOOGLE_MAPS_API_SERVER_KEY=${{ secrets.GOOGLE_MAPS_API_SERVER_KEY }}" >> .env.production
+          #echo "REDIS_URL=${{ secrets.REDIS_URL }}" >> .env.production
+          # echo "EMAIL_HOST=${{ secrets.EMAIL_HOST }}" >> .env.production
+          # echo "EMAIL_PORT=${{ secrets.EMAIL_PORT }}" >> .env.production
+          # echo "EMAIL_USERNAME=${{ secrets.EMAIL_USERNAME }}" >> .env.production
+          # echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env.production
+          # echo "HOST=${{ secrets.HOST }}" >> .env.production
+          # echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env.production
+          # echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env.production
+          # echo "RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }}" >> .env.production
+          # echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env.production
+
+      - name: Create deploy script
+        run: |
+          cat > deploy_script.sh << 'EOF'
+          #!/bin/bash
+          set -e  # Exit on error
+
+          # Change to the directory of the script
+          cd "$(dirname "$0")"
+
+          echo "Starting deployment process..."
+
+          # Stop any running containers
+          echo "Stopping existing containers..."
+          docker compose down || true
+
+          # Pull the latest images
+          echo "Pulling latest images..."
+          docker compose pull
+
+          # Run migrations
+          echo "Running database migrations..."
+          docker compose run --rm web bundle exec rails db:migrate
+
+          # Start the containers in detached mode
+          echo "Starting containers..."
+          docker compose up -d --remove-orphans
+
+          # Wait for containers to be healthy
+          echo "Waiting for containers to be healthy..."
+          sleep 10
+
+          # Check if web container is running
+          if ! docker compose ps web | grep -q "Up"; then
+            echo "Error: Web container failed to start"
+            docker compose logs web
+            exit 1
+          fi
+
+          # Clean up old images and volumes
+          echo "Cleaning up old images and volumes..."
+          docker image prune -f
+          docker volume prune -f
+
+          echo "Deployment completed successfully!"
+          EOF
+          chmod +x deploy_script.sh
+
+      - name: Ensure deploy directory exists
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'mkdir -p /home/ubuntu/portfolio && chmod 755 /home/ubuntu/portfolio'
+
+      - name: Copy files to server
+        run: |
+          scp -o StrictHostKeyChecking=no .env.production ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
+          scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
+          scp -o StrictHostKeyChecking=no deploy_script.sh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
+
+      - name: Run deploy script
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/portfolio/
+            chmod +x deploy_script.sh
+            ./deploy_script.sh
+
+      - name: Verify deployment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/portfolio/
+            docker compose ps
+            docker compose logs web --tail=50
