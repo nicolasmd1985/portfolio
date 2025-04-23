@@ -31,7 +31,8 @@ COPY . .
 
 # Install JavaScript dependencies and precompile assets
 RUN yarn install --frozen-lockfile \
-    && RAILS_ENV=production bundle exec rake assets:precompile \
+    && mkdir -p tmp/cache \
+    && RAILS_ENV=production bundle exec rails assets:precompile --trace \
     && apt-get clean
 
 # Final stage
