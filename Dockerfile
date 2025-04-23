@@ -29,6 +29,9 @@ RUN bundle config set --local deployment 'true' \
 # Copy the rest of the application code
 COPY . .
 
+# Set a temporary SECRET_KEY_BASE for asset compilation
+ENV SECRET_KEY_BASE=temp_key_for_asset_compilation
+
 # Install JavaScript dependencies and precompile assets
 RUN yarn install --frozen-lockfile \
     && mkdir -p tmp/cache \
