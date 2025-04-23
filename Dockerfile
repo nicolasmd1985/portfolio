@@ -35,6 +35,7 @@ ENV SECRET_KEY_BASE=temp_key_for_asset_compilation
 # Install JavaScript dependencies and precompile assets
 RUN yarn install --frozen-lockfile \
     && mkdir -p tmp/cache \
+    && yarn build \
     && RAILS_ENV=production bundle exec rails assets:precompile --trace \
     && apt-get clean
 
