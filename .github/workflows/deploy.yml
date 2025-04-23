@@ -121,7 +121,7 @@ jobs:
           scp -o StrictHostKeyChecking=no deploy_script.sh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
 
       - name: Run deploy script
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -132,7 +132,7 @@ jobs:
             ./deploy_script.sh
 
       - name: Verify deployment
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
