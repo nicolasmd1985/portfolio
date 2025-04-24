@@ -3,8 +3,7 @@ FROM ruby:3.2.2
 # Install dependencies (Node includes npm, remove yarn from apt)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
-    # yarn \ # REMOVED yarn from apt install
-    npm \ # Explicitly ensure npm is installed (usually comes with nodejs)
+    npm \
     postgresql-client \
     wget \
     fontconfig \
