@@ -1,73 +1,43 @@
-# Use Ruby 3.2.2 as the base image
-FROM ruby:3.2.2 AS builder
-
-# Install essential build dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    git \
-    pkg-config \
-    postgresql-client \
-    curl \
-    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get update \
-    && apt-get install -y nodejs yarn \
-    && apt-get clean
-
-# Set the working directory
-WORKDIR /app
-
-# Copy Gemfile and Gemfile.lock for caching
-COPY Gemfile Gemfile.lock ./
-
-# Configure bundler for deployment
-RUN bundle config set --local deployment 'true' \
-    && bundle config set --local without 'development test' \
-    && bundle install
-
-# Copy the rest of the application code
-COPY . .
-
-# Set a temporary SECRET_KEY_BASE for asset compilation
-ENV SECRET_KEY_BASE=temp_key_for_asset_compilation
-
-# Install JavaScript dependencies and precompile assets
-RUN yarn install --frozen-lockfile \
-    && mkdir -p tmp/cache \
-    && yarn build \
-    && RAILS_ENV=production bundle exec rails assets:precompile --trace \
-    && apt-get clean
-
-# Final stage
 FROM ruby:3.2.2
 
-# Install only essential runtime dependencies
+# Install dependencies
 RUN apt-get update && apt-get install -y \
+    nodejs \
+    yarn \
     postgresql-client \
-    && apt-get clean
+    wget \
+    fontconfig \
+    libfreetype6 \
+    libjpeg62-turbo \
+    libpng16-16 \
+    libx11-6 \
+    libxcb1 \
+    libxext6 \
+    libxrender1 \
+    xfonts-75dpi \
+    xfonts-base \
+    libjpeg62-turbo
 
-# Create a non-root user
-RUN useradd -m appuser
-USER appuser
+# Download and install wkhtmltopdf
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb
+RUN dpkg -i wkhtmltox_0.12.6.1-3.bookworm_amd64.deb || true
+RUN apt-get install -f -y
 
-# Set the working directory
+# Clean up
+RUN rm wkhtmltox_0.12.6.1-3.bookworm_amd64.deb
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir /app
 WORKDIR /app
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler
+RUN bundle install
+COPY . .
 
-# Copy necessary artifacts from the builder stage
-COPY --from=builder /usr/local/bundle /usr/local/bundle
-COPY --from=builder /app /app
+RUN rake assets:precompile
 
-# Set production environment variables
-ENV RAILS_ENV=production \
-    RAILS_LOG_TO_STDOUT=true \
-    RAILS_SERVE_STATIC_FILES=true \
-    PORT=3000 \
-    LANG=C.UTF-8 \
-    MALLOC_ARENA_MAX=2
-
-# Expose port 3000
+# Expose the port
 EXPOSE 3000
 
-# Command to run the application
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+# Start the server
+CMD ["rails", "server", "-b", "0.0.0.0"]
