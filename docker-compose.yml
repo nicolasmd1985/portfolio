@@ -24,7 +24,7 @@ services:
       RAILS_LOG_TO_STDOUT: "true"
       RAILS_SERVE_STATIC_FILES: "true"
     ports:
-      - "3000:3000"
+      - "3002:3000"
     restart: always
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -33,6 +33,3 @@ services:
 
 volumes:
   redis_data:
-
-networks:
-  app_network:

@@ -75,9 +75,13 @@ jobs:
 
           echo "Starting deployment process..."
 
-          # Stop any running containers
+          # Stop any running containers and remove them
           echo "Stopping existing containers..."
-          docker-compose down || true
+          docker-compose down --remove-orphans || true
+
+          # Remove any dangling containers
+          echo "Cleaning up dangling containers..."
+          docker container prune -f
 
           # Pull the latest images
           echo "Pulling latest images..."
