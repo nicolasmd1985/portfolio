@@ -144,4 +144,4 @@ jobs:
           script: |
             cd /home/ubuntu/portfolio/
             docker-compose ps
-            docker-compose logs web --tail=50
+            docker-compose logs --tail=50 web
