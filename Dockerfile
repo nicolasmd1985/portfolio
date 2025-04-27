@@ -53,10 +53,11 @@ RUN yarn install --frozen-lockfile
 
 # 2. Set environment variables necessary for asset precompilation
 ENV RAILS_ENV=production
-# ENV SECRET_KEY_BASE=dummy_secret_key_for_build # Keep commented unless proven necessary by logs
+ENV SECRET_KEY_BASE=7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
+ENV RAILS_MASTER_KEY=7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
 
 # 3. Precompile assets
-RUN rake assets:precompile # Check build logs if this fails again
+RUN bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
 
 # Expose the port
 EXPOSE 3000
