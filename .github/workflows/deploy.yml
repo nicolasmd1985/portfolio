@@ -77,28 +77,28 @@ jobs:
 
           # Stop any running containers
           echo "Stopping existing containers..."
-          docker compose down || true
+          docker-compose down || true
 
           # Pull the latest images
           echo "Pulling latest images..."
-          docker compose pull
+          docker-compose pull
 
           # Run migrations
           echo "Running database migrations..."
-          docker compose run --rm web bundle exec rails db:migrate
+          docker-compose run --rm web bundle exec rails db:migrate
 
           # Start the containers in detached mode
           echo "Starting containers..."
-          docker compose up -d --remove-orphans
+          docker-compose up -d --remove-orphans
 
           # Wait for containers to be healthy
           echo "Waiting for containers to be healthy..."
           sleep 10
 
           # Check if web container is running
-          if ! docker compose ps web | grep -q "Up"; then
+          if ! docker-compose ps web | grep -q "Up"; then
             echo "Error: Web container failed to start"
-            docker compose logs web
+            docker-compose logs web
             exit 1
           fi
 
@@ -139,5 +139,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/portfolio/
-            docker compose ps
-            docker compose logs web --tail=50
+            docker-compose ps
+            docker-compose logs web --tail=50
