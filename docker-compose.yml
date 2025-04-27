@@ -21,12 +21,8 @@ services:
     env_file: .env.production
     environment:
       RAILS_ENV: production
-      DATABASE_URL: postgres://nicolasmd:4dm1nOrdenapp@host.docker.internal:5432/portfolio_production
-      REDIS_URL: redis://redis:6379/0
       RAILS_LOG_TO_STDOUT: true
       RAILS_SERVE_STATIC_FILES: true
-      SECRET_KEY_BASE: 7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
-      RAILS_MASTER_KEY: 7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
     ports:
       - "3000:3000"
     restart: always

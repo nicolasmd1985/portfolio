@@ -1,7 +1,8 @@
 FROM ruby:3.2.2
 
-# Install dependencies (Node includes npm, remove yarn from apt)
+# Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \ 
     nodejs \
     npm \
     postgresql-client \
@@ -18,49 +19,49 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xfonts-base \
     && rm -rf /var/lib/apt/lists/*
 
-# <<< Install Yarn using NPM >>>
+# Install Yarn using NPM
 RUN npm install -g yarn
-# Optional: check the version installed
 RUN yarn --version
 
-# Download and install wkhtmltopdf
+# Download and install wkhtmltopdf (ensure bookworm package is correct for base image)
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb \
     && dpkg -i wkhtmltox_0.12.6.1-3.bookworm_amd64.deb \
     && apt-get install -f -y --no-install-recommends \
     && rm wkhtmltox_0.12.6.1-3.bookworm_amd64.deb \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /app
 WORKDIR /app
 
 # Install Bundler
-RUN gem install bundler
+RUN gem install bundler --conservative
 
-# Copy Gemfile and install gems
+# Copy Gemfile and install gems first for layer caching
 COPY Gemfile Gemfile.lock ./
 RUN bundle install --jobs $(nproc) --retry 3
+
+# Copy package.json and install yarn packages
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 # Copy the rest of the application code
 COPY . .
 
-# <<< Add debug step to list files >>>
-RUN echo "--- Contents of /app ---" && ls -la && echo "------------------------"
+# Set production environment for asset precompilation
+ENV RAILS_ENV=production \
+    RAILS_SERVE_STATIC_FILES=true \
+    RAILS_LOG_TO_STDOUT=true
 
-# === Fixes Area ===
-# 1. Ensure Yarn packages are installed (use --frozen-lockfile for consistency)
-RUN yarn install --frozen-lockfile
-# === End Fixes Area ===
+# Precompile assets with a temporary secret key base
+RUN SECRET_KEY_BASE=precompile_placeholder bundle exec rake assets:precompile
 
-# 2. Set environment variables necessary for asset precompilation
-ENV RAILS_ENV=production
-ENV SECRET_KEY_BASE=7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
-ENV RAILS_MASTER_KEY=7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
-
-# 3. Precompile assets
-RUN bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=7b1a0b8c3d9e2f5a4b6c8d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
+# Clean up unnecessary files
+RUN rm -rf /app/tmp/* /app/log/* \
+    && rm -rf /usr/local/bundle/cache/*.gem \
+    && find /usr/local/bundle/gems/ -name "*.c" -delete \
+    && find /usr/local/bundle/gems/ -name "*.o" -delete
 
 # Expose the port
 EXPOSE 3000
 
 # Start the server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

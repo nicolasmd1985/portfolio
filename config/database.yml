@@ -85,21 +85,27 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: ordenapp_production
+  username: <%= ENV['RDS_USERNAME'] || Rails.application.credentials[:RDS_USERNAME] %>
+  password: <%= ENV['RDS_PASSWORD'] || Rails.application.credentials[:RDS_PASSWORD] %>
+  host: <%= ENV['RDS_HOST'] || Rails.application.credentials[:RDS_HOST] %>
+  port: <%= ENV['RDS_PORT'] || Rails.application.credentials[:RDS_PORT] || 5432 %>
   primary: &primary_production
     <<: *default
-    database: portfolio_production
-    username: portfolio
-    password: <%= ENV["PORTFOLIO_DATABASE_PASSWORD"] %>
+    database: ordenapp_production
+    username: <%= ENV['RDS_USERNAME'] || Rails.application.credentials[:RDS_USERNAME] %>
+    password: <%= ENV['RDS_PASSWORD'] || Rails.application.credentials[:RDS_PASSWORD] %>
+    host: <%= ENV['RDS_HOST'] || Rails.application.credentials[:RDS_HOST] %>
+    port: <%= ENV['RDS_PORT'] || Rails.application.credentials[:RDS_PORT] || 5432 %>
   cache:
     <<: *primary_production
-    database: portfolio_production_cache
+    database: ordenapp_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: portfolio_production_queue
+    database: ordenapp_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: portfolio_production_cable
+    database: ordenapp_production_cable
     migrations_paths: db/cable_migrate
