@@ -1,16 +1,18 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const path = require('path')
 
 module.exports = {
   content: [
-    './public/*.html',
+    './app/views/**/*.{erb,haml,html,slim}',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/components/**/*.{erb,haml,html,slim}',
+    './app/assets/stylesheets/**/*.css'
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', require('tailwindcss/defaultTheme').fontFamily.sans],
       },
     },
   },
