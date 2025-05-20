@@ -46,13 +46,16 @@ RUN yarn install --frozen-lockfile
 # Copy the rest of the application code
 COPY . .
 
-# Set production environment for asset precompilation
-ENV RAILS_ENV=production \
+# Set environment variables
+ARG RAILS_ENV=production
+ENV RAILS_ENV=${RAILS_ENV} \
     RAILS_SERVE_STATIC_FILES=true \
     RAILS_LOG_TO_STDOUT=true
 
 # Precompile assets with a temporary secret key base
-RUN SECRET_KEY_BASE=precompile_placeholder bundle exec rake assets:precompile
+RUN if [ "$RAILS_ENV" = "production" ]; then \
+    SECRET_KEY_BASE=precompile_placeholder bundle exec rake assets:precompile; \
+    fi
 
 # Clean up unnecessary files
 RUN rm -rf /app/tmp/* /app/log/* \
