@@ -3,6 +3,25 @@
 <head>
   <title><%= content_for(:title) || "Nicolas Mahecha - Portfolio" %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= content_for(:description) || 'Expert in security systems, IoT, and sustainable energy integration. Specializing in smart device automation, fire alarm installations, and renewable technology solutions.' %>">
+  <meta name="keywords" content="security systems, IoT, sustainable energy, smart home, automation, fire alarms, renewable technology, technology integration">
+  <meta name="author" content="Nicolas Mahecha">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= request.original_url %>">
+  <meta property="og:title" content="<%= content_for(:title) || 'Nicolas Mahecha - Portfolio' %>">
+  <meta property="og:description" content="<%= content_for(:description) || 'Expert in security systems, IoT, and sustainable energy integration. Specializing in smart device automation, fire alarm installations, and renewable technology solutions.' %>">
+  <meta property="og:image" content="<%= asset_url('profile.jpg') %>">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="<%= request.original_url %>">
+  <meta property="twitter:title" content="<%= content_for(:title) || 'Nicolas Mahecha - Portfolio' %>">
+  <meta property="twitter:description" content="<%= content_for(:description) || 'Expert in security systems, IoT, and sustainable energy integration. Specializing in smart device automation, fire alarm installations, and renewable technology solutions.' %>">
+  <meta property="twitter:image" content="<%= asset_url('profile.jpg') %>">
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 

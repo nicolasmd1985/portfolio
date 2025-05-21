@@ -30,10 +30,10 @@ services:
       - "host.docker.internal:host-gateway"
     logging:
       driver: "json-file"
-    # volumes:
-    #   - .:/app
-    #   - /app/log
-    #   - /app/tmp
+    volumes:
+      - .:/app
+      - /app/log
+      - /app/tmp
 
 volumes:
   redis_data:
