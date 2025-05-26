@@ -40,13 +40,17 @@
 
 <body class="bg-gray-900 text-white font-sans">
   <!-- Header -->
-  <header class="nav-container">
+  <header class="nav-container flex items-center justify-between">
     <a href="/" class="nav-brand">Nicolas Mahecha</a>
-    <nav class="nav-menu">
+    <nav class="nav-menu flex space-x-8">
       <a href="/about" class="nav-link">About</a>
       <a href="/projects" class="nav-link">Projects</a>
       <a href="/contact" class="nav-link">Contact</a>
     </nav>
+    <div class="flex items-center space-x-2 ml-6">
+      <a href="?lang=en" class="nav-link" title="English">🇺🇸</a>
+      <a href="?lang=es" class="nav-link" title="Español">🇪🇸</a>
+    </div>
   </header>
 
   <!-- Yield content for pages -->
