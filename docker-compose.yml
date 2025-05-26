@@ -30,11 +30,11 @@ services:
       - "host.docker.internal:host-gateway"
     logging:
       driver: "json-file"
-    volumes:
-      - .:/app
-      - .:/config
-      - .:/public
-      - .:/app/assets
+    # volumes:
+    #   - .:/app
+    #   - .:/config
+    #   - .:/public
+    #   - .:/app/assets
 
 
 volumes:
