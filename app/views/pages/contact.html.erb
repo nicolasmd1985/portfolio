@@ -1,28 +1,36 @@
-<% content_for :title, "Contact Nicolas Mahecha - Technology Integration Specialist" %>
-<% content_for :description, "Get in touch with Nicolas Mahecha for expert consultation on security systems, IoT integration, and sustainable energy solutions. Based in Kissimmee, Florida." %>
+<% content_for :title, t('contact.meta.title') %>
+<% content_for :description, t('contact.meta.description') %>
 
 <section class="py-20 bg-gray-800">
   <div class="container mx-auto px-8 max-w-4xl">
-    <h2 class="text-4xl font-bold mb-8 text-center text-white">Contact Me</h2>
+    <h2 class="text-4xl font-bold mb-8 text-center text-white"><%= t('contact.title') %></h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-gray-700 rounded-lg p-8 shadow-lg">
-        <h3 class="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= t('contact.get_in_touch') %></h3>
         
         <div class="space-y-6">
           <div class="flex items-center space-x-4">
             <i class="mdi mdi-map-marker text-cyan-400 text-2xl"></i>
             <div>
-              <p class="text-gray-400">Location</p>
-              <p class="text-white">Kissimmee, FL</p>
+              <p class="text-gray-400"><%= t('contact.location.label') %></p>
+              <p class="text-white"><%= t('contact.location.value') %></p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <i class="mdi mdi-phone text-cyan-400 text-2xl"></i>
+            <div>
+              <p class="text-gray-400"><%= t('contact.phone.label') %></p>
+              <p class="text-white"><%= t('contact.phone.value') %></p>
             </div>
           </div>
           
           <div class="flex items-center space-x-4">
             <i class="mdi mdi-information text-cyan-400 text-2xl"></i>
             <div>
-              <p class="text-gray-400">Response Time</p>
-              <p class="text-white">Within 24-48 hours</p>
+              <p class="text-gray-400"><%= t('contact.response_time.label') %></p>
+              <p class="text-white"><%= t('contact.response_time.value') %></p>
             </div>
           </div>
           
@@ -38,7 +46,7 @@
       </div>
       
       <div class="bg-gray-700 rounded-lg p-8 shadow-lg">
-        <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= t('contact.send_message') %></h3>
         <%= render "contact_form", contact: @contact %>
       </div>
     </div>

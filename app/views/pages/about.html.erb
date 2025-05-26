@@ -1,9 +1,9 @@
-<% content_for :title, "About Nicolas Mahecha - Technology Integration Expert" %>
-<% content_for :description, "Learn about Nicolas Mahecha's 10+ years of experience in security systems, IoT automation, and sustainable energy integration. Based in Kissimmee, Florida." %>
+<% content_for :title, t('about.meta.title') %>
+<% content_for :description, t('about.meta.description') %>
 
 <section class="py-20 bg-gray-800">
   <div class="container mx-auto px-8 max-w-4xl">
-    <h2 class="text-4xl font-bold mb-8 text-center text-white">About Me</h2>
+    <h2 class="text-4xl font-bold mb-8 text-center text-white"><%= t('about.title') %></h2>
     
     <div class="bg-gray-700 rounded-lg p-8 shadow-lg">
       <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
@@ -12,52 +12,52 @@
         </div>
         <div class="text-center md:text-left">
           <h3 class="text-2xl font-bold text-white mb-2">Nicolas Mahecha</h3>
-          <p class="text-cyan-400 mb-2">Technology Integration Specialist (Security, IoT, Sustainability)</p>
-          <p class="text-gray-400">Kissimmee, Florida, USA</p>
+          <p class="text-cyan-400 mb-2"><%= t('about.role') %></p>
+          <p class="text-gray-400"><%= t('about.location') %></p>
         </div>
       </div>
 
       <div class="space-y-6">
         <div>
-          <h4 class="text-xl font-semibold text-white mb-3">Professional Summary</h4>
+          <h4 class="text-xl font-semibold text-white mb-3"><%= t('about.professional_summary.title') %></h4>
           <p class="text-gray-300 leading-relaxed">
-            With 10+ years dedicated to designing, implementing, and managing advanced technology solutions, I bring deep expertise in security systems (fire alarms, access control, intrusion detection), IoT automation, and sustainable energy integration (solar power, energy storage). I focus on creating holistic systems where security protocols enhance efficiency, smart devices contribute to sustainability, and renewable energy powers resilient infrastructure. My goal is to bridge security and sustainability, delivering tailored, eco-friendly solutions for a connected future.
+            <%= t('about.professional_summary.body') %>
           </p>
         </div>
 
         <div>
-          <h4 class="text-xl font-semibold text-white mb-3">Expertise</h4>
+          <h4 class="text-xl font-semibold text-white mb-3"><%= t('about.expertise.title') %></h4>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2">Security Systems</h5>
+              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.security.title') %></h5>
               <ul class="text-gray-300 list-disc list-inside">
-                <li>Fire Alarm Systems</li>
-                <li>Access Control</li>
-                <li>Surveillance Systems</li>
+                <li><%= t('about.expertise.security.fire_alarm') %></li>
+                <li><%= t('about.expertise.security.access_control') %></li>
+                <li><%= t('about.expertise.security.surveillance') %></li>
               </ul>
             </div>
             <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2">Smart Technology</h5>
+              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.smart_tech.title') %></h5>
               <ul class="text-gray-300 list-disc list-inside">
-                <li>IoT Integration</li>
-                <li>Home Automation</li>
-                <li>Smart Device Configuration</li>
+                <li><%= t('about.expertise.smart_tech.iot') %></li>
+                <li><%= t('about.expertise.smart_tech.automation') %></li>
+                <li><%= t('about.expertise.smart_tech.device_config') %></li>
               </ul>
             </div>
             <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2">Sustainable Energy</h5>
+              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.sustainable.title') %></h5>
               <ul class="text-gray-300 list-disc list-inside">
-                <li>Renewable Energy Systems</li>
-                <li>Energy Efficiency</li>
-                <li>Green Technology</li>
+                <li><%= t('about.expertise.sustainable.renewable') %></li>
+                <li><%= t('about.expertise.sustainable.efficiency') %></li>
+                <li><%= t('about.expertise.sustainable.green_tech') %></li>
               </ul>
             </div>
             <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2">Software Development</h5>
+              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.software.title') %></h5>
               <ul class="text-gray-300 list-disc list-inside">
-                <li>Web Applications</li>
-                <li>System Integration</li>
-                <li>Custom Solutions</li>
+                <li><%= t('about.expertise.software.web_apps') %></li>
+                <li><%= t('about.expertise.software.integration') %></li>
+                <li><%= t('about.expertise.software.custom') %></li>
               </ul>
             </div>
           </div>
@@ -66,7 +66,7 @@
         <div class="text-center mt-8">
           <a href="https://www.linkedin.com/in/nm85/" target="_blank" 
              class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg transition-colors">
-            View Full Profile on LinkedIn
+            <%= t('about.linkedin') %>
           </a>
         </div>
       </div>

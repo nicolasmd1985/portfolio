@@ -1,0 +1,100 @@
+es:
+  site:
+    title: "Mi Portafolio"
+    description: "Bienvenido a mi portafolio profesional"
+  navigation:
+    home: "Inicio"
+    about: "Acerca de"
+    projects: "Proyectos"
+    contact: "Contacto"
+  common:
+    language: "Idioma"
+    english: "Inglés"
+    spanish: "Español"
+  footer:
+    rights: "Todos los derechos reservados"
+    made_with: "Hecho con"
+    in: "en"
+  home:
+    meta:
+      title: "Nicolas Mahecha - Especialista en Integración Tecnológica"
+      description: "Experto en sistemas de seguridad, IoT e integración de energía sostenible. Especialista en automatización de dispositivos inteligentes, instalaciones de alarmas contra incendios y soluciones de tecnología renovable."
+    tagline: "Integrando seguridad de vanguardia potenciada por IA y automatización inteligente con tecnología ecológica."
+    services:
+      smart_device: "Integración de Dispositivos Inteligentes"
+      sustainable_energy: "Energía Sostenible"
+      software_development: "Desarrollo de Software"
+    cta: "Descubre Más"
+    about:
+      title: "Sobre Mí"
+      description: "Soy Nicolas Mahecha, especialista en sistemas de seguridad, IoT e integración de energía sostenible, con pasión por aprovechar la IA para ofrecer un rendimiento superior. Mi experiencia abarca la automatización de dispositivos inteligentes, la instalación de alarmas contra incendios y de intrusión, y soluciones de tecnología renovable. Me dedico a crear sistemas innovadores, impulsados por IA y ecológicos, que integran perfectamente seguridad y sostenibilidad. Mi misión es cerrar la brecha entre la seguridad y la responsabilidad ambiental, proporcionando soluciones tecnológicas eficientes, conectadas e inteligentes para un futuro más verde y seguro."
+      buttons:
+        about_me: "Sobre Mí"
+        explore_projects: "Explorar Proyectos"
+        get_in_touch: "Contáctame"
+
+  about:
+    meta:
+      title: "Sobre Nicolas Mahecha - Experto en Integración Tecnológica"
+      description: "Soy Nicolas Mahecha, especialista en sistemas de seguridad, IoT e integración de energía sostenible, con pasión por aprovechar la IA para ofrecer un rendimiento superior. Mi experiencia abarca la automatización de dispositivos inteligentes, la instalación de alarmas contra incendios y de intrusión, y soluciones de tecnología renovable. Me dedico a crear sistemas innovadores, impulsados por IA y ecológicos, que integran perfectamente seguridad y sostenibilidad. Mi misión es cerrar la brecha entre la seguridad y la responsabilidad ambiental, proporcionando soluciones tecnológicas eficientes, conectadas e inteligentes para un futuro más verde y seguro."
+    title: "Sobre Mí"
+    role: "Especialista en Integración Tecnológica (Seguridad, IoT, Sostenibilidad)"
+    location: "Kissimmee, Florida, EE.UU."
+    professional_summary:
+      title: "Resumen Profesional"
+      body: "Con más de 10 años dedicados al diseño, implementación y gestión de soluciones tecnológicas avanzadas, aporto una profunda experiencia en sistemas de seguridad (alarmas contra incendios, control de acceso, detección de intrusos), automatización IoT e integración de energía sostenible (energía solar, almacenamiento de energía). Me enfoco en crear sistemas holísticos donde los protocolos de seguridad mejoran la eficiencia, los dispositivos inteligentes contribuyen a la sostenibilidad y la energía renovable impulsa infraestructuras resilientes. Mi objetivo es unir seguridad y sostenibilidad, entregando soluciones personalizadas y ecológicas para un futuro conectado."
+    expertise:
+      title: "Especialidades"
+      security:
+        title: "Sistemas de Seguridad"
+        fire_alarm: "Sistemas de Alarma contra Incendios"
+        access_control: "Control de Acceso"
+        surveillance: "Sistemas de Vigilancia"
+      smart_tech:
+        title: "Tecnología Inteligente"
+        iot: "Integración IoT"
+        automation: "Automatización del Hogar"
+        device_config: "Configuración de Dispositivos Inteligentes"
+      sustainable:
+        title: "Energía Sostenible"
+        renewable: "Sistemas de Energía Renovable"
+        efficiency: "Eficiencia Energética"
+        green_tech: "Tecnología Verde"
+      software:
+        title: "Desarrollo de Software"
+        web_apps: "Aplicaciones Web"
+        integration: "Integración de Sistemas"
+        custom: "Soluciones Personalizadas"
+    linkedin: "Ver Perfil Completo en LinkedIn"
+
+  contact:
+    meta:
+      title: "Contacto Nicolas Mahecha - Especialista en Integración Tecnológica"
+      description: "Contacta a Nicolas Mahecha para asesoría experta en sistemas de seguridad, integración IoT y soluciones de energía sostenible. Con base en Kissimmee, Florida."
+    title: "Contáctame"
+    get_in_touch: "Contáctame"
+    send_message: "Enviar Mensaje"
+    location:
+      label: "Ubicación"
+      value: "Kissimmee, FL"
+    phone:
+      label: "Teléfono"
+      value: "+1 (904) 385-0725"
+    response_time:
+      label: "Tiempo de Respuesta"
+      value: "En 24-48 horas"
+    form:
+      name: "Tu Nombre"
+      email: "Tu Correo Electrónico"
+      subject: "Asunto"
+      message: "Mensaje"
+      send: "Enviar Mensaje"
+    success:
+      title: "¡Mensaje enviado exitosamente!"
+      body: "Gracias por contactarme. Te responderé lo antes posible."
+      another: "Enviar Otro Mensaje"
+
+  projects:
+    title: "Proyectos"
+    none: "Aún no hay proyectos disponibles."
+    check_back: "¡Vuelve pronto para ver novedades!" 

@@ -32,8 +32,10 @@ services:
       driver: "json-file"
     # volumes:
     #   - .:/app
-    #   - /app/log
-    #   - /app/tmp
+    #   - .:/config
+    #   - .:/public
+    #   - .:/app/assets
+
 
 volumes:
   redis_data:

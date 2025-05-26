@@ -4,7 +4,7 @@
     <%= form.hidden_field :submitted_at, value: Time.current.to_i %>
 
     <div>
-      <%= form.label :name, "Your Name", class: "block text-gray-300 mb-2" %>
+      <%= form.label :name, t('contact.form.name'), class: "block text-gray-300 mb-2" %>
       <%= form.text_field :name, 
           class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400 #{'border-red-500' if contact&.errors&.include?(:name)}" %>
       <% if contact&.errors&.include?(:name) %>
@@ -13,7 +13,7 @@
     </div>
 
     <div>
-      <%= form.label :email, "Your Email", class: "block text-gray-300 mb-2" %>
+      <%= form.label :email, t('contact.form.email'), class: "block text-gray-300 mb-2" %>
       <%= form.email_field :email, 
           class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400 #{'border-red-500' if contact&.errors&.include?(:email)}" %>
       <% if contact&.errors&.include?(:email) %>
@@ -22,7 +22,7 @@
     </div>
 
     <div>
-      <%= form.label :subject, "Subject", class: "block text-gray-300 mb-2" %>
+      <%= form.label :subject, t('contact.form.subject'), class: "block text-gray-300 mb-2" %>
       <%= form.text_field :subject, 
           class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400 #{'border-red-500' if contact&.errors&.include?(:subject)}" %>
       <% if contact&.errors&.include?(:subject) %>
@@ -31,7 +31,7 @@
     </div>
 
     <div>
-      <%= form.label :message, "Message", class: "block text-gray-300 mb-2" %>
+      <%= form.label :message, t('contact.form.message'), class: "block text-gray-300 mb-2" %>
       <%= form.text_area :message, rows: 4, 
           class: "w-full px-4 py-2 rounded bg-gray-600 border border-gray-500 text-white focus:outline-none focus:border-cyan-400 #{'border-red-500' if contact&.errors&.include?(:message)}" %>
       <% if contact&.errors&.include?(:message) %>
@@ -39,7 +39,7 @@
       <% end %>
     </div>
 
-    <%= form.submit "Send Message", 
+    <%= form.submit t('contact.form.send'), 
         class: "w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors cursor-pointer" %>
   <% end %>
 <% end %> 
