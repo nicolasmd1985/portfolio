@@ -1,5 +1,5 @@
-<% content_for :title, "Nicolas Mahecha - Technology Integration Specialist" %>
-<% content_for :description, "Expert in security systems, IoT, and sustainable energy integration. Specializing in smart device automation, fire alarm installations, and renewable technology solutions." %>
+<% content_for :title, t('home.meta.title') %>
+<% content_for :description, t('home.meta.description') %>
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <!-- Background with overlay -->
@@ -18,7 +18,7 @@
 
     <!-- Tagline -->
     <p class="text-xl sm:text-2xl md:text-3xl text-white max-w-4xl mx-auto inter-font leading-relaxed mb-20 font-semibold tracking-wide" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-    Integrating AI-enhanced cutting-edge security and intelligent automation with eco-friendly technology.
+      <%= t('home.tagline') %>
     </p>
 
     <!-- Services Grid -->
@@ -29,7 +29,7 @@
           <div class="icon-container mb-4">
             <i class="mdi mdi-home-automation icon-large"></i>
           </div>
-          <h2 class="service-title">Smart Device Integration</h2>
+          <h2 class="service-title"><%= t('home.services.smart_device') %></h2>
         </a>
       </div>
 
@@ -39,7 +39,7 @@
           <div class="icon-container mb-4">
             <i class="mdi mdi-solar-power-variant icon-large"></i>
           </div>
-          <h2 class="service-title">Sustainable Energy</h2>
+          <h2 class="service-title"><%= t('home.services.sustainable_energy') %></h2>
         </a>
       </div>
 
@@ -49,7 +49,7 @@
           <div class="icon-container mb-4">
             <i class="mdi mdi-code-braces icon-large"></i>
           </div>
-          <h2 class="service-title">Software Development</h2>
+          <h2 class="service-title"><%= t('home.services.software_development') %></h2>
         </a>
       </div>
     </div>
@@ -57,7 +57,7 @@
     <!-- CTA Button Container -->
     <div class="flex justify-center mt-20">
       <a href="#about" class="btn-primary">
-        Discover More
+        <%= t('home.cta') %>
       </a>
     </div>
   </div>
@@ -65,22 +65,15 @@
 
 <section id="about" class="py-20 bg-gray-800 text-center">
   <div class="container mx-auto px-8 max-w-4xl">
-    <h2 class="text-4xl font-bold mb-6 text-white">About Me</h2>
+    <h2 class="text-4xl font-bold mb-6 text-white"><%= t('home.about.title') %></h2>
     <p class="text-lg leading-relaxed text-gray-300">
-      I'm Nicolas Mahecha, an expert in security systems, IoT, and sustainable energy
-      integration, with a focus on leveraging AI for enhanced performance. With experience 
-      in smart device automation, fire alarm installations, and renewable technology, I create 
-      solutions that are both innovative, AI-optimized, and eco-friendly. My mission is to 
-      bridge security and sustainability, ensuring efficient, connected,
-      and environmentally responsible technology solutions, often enhanced by intelligent systems
+      <%= t('home.about.description') %>
     </p>
 
     <div class="about-buttons">
-      <a href="/about" class="btn-secondary">About Me</a>
-      <a href="/projects" class="btn-primary">Explore Projects</a>
-      <a href="/contact" class="btn-secondary">Get in Touch</a>
+      <a href="/about" class="btn-secondary"><%= t('home.about.buttons.about_me') %></a>
+      <a href="/projects" class="btn-primary"><%= t('home.about.buttons.explore_projects') %></a>
+      <a href="/contact" class="btn-secondary"><%= t('home.about.buttons.get_in_touch') %></a>
     </div>
-
-
   </div>
 </section>

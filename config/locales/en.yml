@@ -28,4 +28,103 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  site:
+    title: "My Portfolio"
+    description: "Welcome to my professional portfolio"
+  navigation:
+    home: "Home"
+    about: "About"
+    projects: "Projects"
+    contact: "Contact"
+  common:
+    language: "Language"
+    english: "English"
+    spanish: "Spanish"
+  footer:
+    rights: "All rights reserved"
+    made_with: "Made with"
+    in: "in"
+
+  home:
+    meta:
+      title: "Nicolas Mahecha - Technology Integration Specialist"
+      description: "Expert in security systems, IoT, and sustainable energy integration. Specializing in smart device automation, fire alarm installations, and renewable technology solutions."
+    tagline: "Integrating AI-enhanced cutting-edge security and intelligent automation with eco-friendly technology."
+    services:
+      smart_device: "Smart Device Integration"
+      sustainable_energy: "Sustainable Energy"
+      software_development: "Software Development"
+    cta: "Discover More"
+    about:
+      title: "About Me"
+      description: "I'm Nicolas Mahecha, a specialist in security systems, IoT, and sustainable energy integration, with a passion for harnessing AI to deliver superior performance. My expertise spans smart device automation, fire alarm and burglary alarm installations, and renewable technology solutions. I am dedicated to creating innovative, AI-driven, and eco-friendly systems that seamlessly blend security and sustainability. My mission is to bridge the gap between safety and environmental responsibility, providing efficient, connected, and intelligent technology solutions for a smarter, greener future."
+      buttons:
+        about_me: "About Me"
+        explore_projects: "Explore Projects"
+        get_in_touch: "Get in Touch"
+
+  about:
+    meta:
+      title: "About Nicolas Mahecha - Technology Integration Expert"
+      description: "I'm Nicolas Mahecha, a specialist in security systems, IoT, and sustainable energy integration, with a passion for harnessing AI to deliver superior performance. My expertise spans smart device automation, fire alarm and burglary alarm installations, and renewable technology solutions. I am dedicated to creating innovative, AI-driven, and eco-friendly systems that seamlessly blend security and sustainability. My mission is to bridge the gap between safety and environmental responsibility, providing efficient, connected, and intelligent technology solutions for a smarter, greener future."
+    title: "About Me"
+    role: "Technology Integration Specialist (Security, IoT, Sustainability)"
+    location: "Kissimmee, Florida, USA"
+    professional_summary:
+      title: "Professional Summary"
+      body: "With 10+ years dedicated to designing, implementing, and managing advanced technology solutions, I bring deep expertise in security systems (fire alarms, access control, intrusion detection), IoT automation, and sustainable energy integration (solar power, energy storage). I focus on creating holistic systems where security protocols enhance efficiency, smart devices contribute to sustainability, and renewable energy powers resilient infrastructure. My goal is to bridge security and sustainability, delivering tailored, eco-friendly solutions for a connected future."
+    expertise:
+      title: "Expertise"
+      security:
+        title: "Security Systems"
+        fire_alarm: "Fire Alarm Systems"
+        access_control: "Access Control"
+        surveillance: "Surveillance Systems"
+      smart_tech:
+        title: "Smart Technology"
+        iot: "IoT Integration"
+        automation: "Home Automation"
+        device_config: "Smart Device Configuration"
+      sustainable:
+        title: "Sustainable Energy"
+        renewable: "Renewable Energy Systems"
+        efficiency: "Energy Efficiency"
+        green_tech: "Green Technology"
+      software:
+        title: "Software Development"
+        web_apps: "Web Applications"
+        integration: "System Integration"
+        custom: "Custom Solutions"
+    linkedin: "View Full Profile on LinkedIn"
+
+  contact:
+    meta:
+      title: "Contact Nicolas Mahecha - Technology Integration Specialist"
+      description: "Get in touch with Nicolas Mahecha for expert consultation on security systems, IoT integration, and sustainable energy solutions. Based in Kissimmee, Florida."
+    title: "Contact Me"
+    get_in_touch: "Get in Touch"
+    send_message: "Send a Message"
+    location:
+      label: "Location"
+      value: "Kissimmee, FL"
+    phone:
+      label: "Phone"
+      value: "+1 (904) 385-0725"
+    response_time:
+      label: "Response Time"
+      value: "Within 24-48 hours"
+    form:
+      name: "Your Name"
+      email: "Your Email"
+      subject: "Subject"
+      message: "Message"
+      send: "Send Message"
+    success:
+      title: "Message Sent Successfully!"
+      body: "Thank you for reaching out. I'll get back to you as soon as possible."
+      another: "Send Another Message"
+
+  projects:
+    title: "Projects"
+    none: "No projects available yet."
+    check_back: "Check back soon for updates!"

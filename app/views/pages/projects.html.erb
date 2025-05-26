@@ -1,6 +1,6 @@
 <section class="py-20 bg-gray-800">
   <div class="container mx-auto px-8">
-    <h2 class="text-4xl font-bold mb-8 text-center text-white">Projects</h2>
+    <h2 class="text-4xl font-bold mb-8 text-center text-white"><%= t('projects.title') %></h2>
     
     <% if @projects.any? %>
       <div class="flex overflow-x-auto space-x-4 snap-x snap-mandatory">
@@ -18,8 +18,8 @@
       </div>
     <% else %>
       <div class="text-center text-gray-400">
-        <p class="text-xl">No projects available yet.</p>
-        <p class="mt-4">Check back soon for updates!</p>
+        <p class="text-xl"><%= t('projects.none') %></p>
+        <p class="mt-4"><%= t('projects.check_back') %></p>
       </div>
     <% end %>
   </div>
