@@ -50,15 +50,32 @@
 
 <body class="bg-gray-900 text-white font-sans">
   <!-- Header -->
-  <header class="nav-container flex items-center justify-between">
+  <header class="nav-container flex items-center justify-between flex-wrap">
     <a href="/" class="nav-brand">Nicolas Mahecha</a>
-    <nav class="nav-menu flex space-x-8">
+    <!-- Hamburger for mobile -->
+    <button id="mobile-menu-button" class="sm:hidden ml-auto text-white focus:outline-none" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+    <!-- Desktop Nav -->
+    <nav class="nav-menu hidden sm:flex space-x-8">
       <a href="<%= about_path %>" class="nav-link"><%= t('navigation.about') %></a>
       <a href="<%= projects_path %>" class="nav-link"><%= t('navigation.projects') %></a>
       <a href="<%= contact_path %>" class="nav-link"><%= t('navigation.contact') %></a>
     </nav>
-    <div class="flex items-center space-x-2 ml-6">
+    <!-- Language Switcher always visible on right -->
+    <div class="flex items-center space-x-2 ml-4">
       <%= render "shared/language_switcher" %>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="w-full sm:hidden hidden mt-4">
+      <nav class="flex flex-col space-y-2 bg-gray-900 rounded-lg p-4">
+        <a href="<%= about_path %>" class="nav-link"><%= t('navigation.about') %></a>
+        <a href="<%= projects_path %>" class="nav-link"><%= t('navigation.projects') %></a>
+        <a href="<%= contact_path %>" class="nav-link"><%= t('navigation.contact') %></a>
+        <div class="mt-2">
+          <%= render "shared/language_switcher" %>
+        </div>
+      </nav>
     </div>
   </header>
 
