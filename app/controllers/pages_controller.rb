@@ -54,7 +54,7 @@ class PagesController < ApplicationController
     end
 
     respond_to do |format|
-      if @contact.valid?
+      if @contact.save
         # Here you would typically send the email
         # ContactMailer.contact_email(@contact).deliver_later
 

@@ -43,6 +43,7 @@ jobs:
         run: |
           echo "SECRET_KEY_BASE=${{ secrets.SECRET_KEY_BASE }}" >> .env.production
           echo "RDS_HOST=${{ secrets.RDS_HOST }}" >> .env.production
+          echo "RDS_USERNAME=${{ secrets.RDS_HOST }}" >> .env.production
           echo "RDS_USERNAME=${{ secrets.RDS_USERNAME }}" >> .env.production
           echo "RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}" >> .env.production
           echo "RDS_PORT=${{ secrets.RDS_PORT }}" >> .env.production

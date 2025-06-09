@@ -12,11 +12,28 @@ services:
       timeout: 5s
       retries: 5
 
+  postgres:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   web:
     build: .
     image: ${DOCKERHUB_USERNAME:-nicolasmd}/portfolio:latest
     depends_on:
       redis:
+        condition: service_healthy
+      postgres:
         condition: service_healthy
     env_file: .env.${ENV:-production}
     environment:
@@ -32,10 +49,10 @@ services:
       driver: "json-file"
     # volumes:
     #   - .:/app
-    #   - .:/config
-    #   - .:/public
-    #   - .:/app/assets
-
+      # - .:/config
+      # - .:/public
+      # - .:/app/assets
 
 volumes:
   redis_data:
+  postgres_data:
