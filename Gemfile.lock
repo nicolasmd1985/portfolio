@@ -254,6 +254,7 @@ GEM
     rake (13.2.1)
     rdoc (6.11.0)
       psych (>= 4.0.0)
+    recaptcha (5.19.0)
     redis (4.8.1)
     regexp_parser (2.10.0)
     reline (0.6.0)
@@ -386,6 +387,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
+  recaptcha
   redis
   rubocop-rails-omakase
   selenium-webdriver

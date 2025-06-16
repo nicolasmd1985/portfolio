@@ -54,6 +54,8 @@ jobs:
           echo "SMTP_DOMAIN=${{ secrets.SMTP_DOMAIN }}" >> .env.production
           echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" >> .env.production
           echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env.production
+          echo "RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }}" >> .env.production
+          echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env.production
 
           #echo "aws_access_key_id=${{ secrets.aws_access_key_id }}" >> .env.production
           #echo "aws_secret_access_key=${{ secrets.aws_secret_access_key }}" >> .env.production
@@ -68,8 +70,7 @@ jobs:
           # echo "HOST=${{ secrets.HOST }}" >> .env.production
           # echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env.production
           # echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env.production
-          # echo "RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }}" >> .env.production
-          # echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env.production
+
 
       - name: Create deploy script
         run: |

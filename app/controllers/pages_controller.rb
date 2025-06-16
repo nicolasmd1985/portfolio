@@ -1,4 +1,11 @@
 class PagesController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  include Recaptcha::Adapters::ControllerMethods
+  
+  # Rate limiting for contact form
+  RATE_LIMIT = 5  # Maximum number of submissions
+  RATE_LIMIT_WINDOW = 1.hour  # Time window for rate limiting
+
   def home
     @projects = Project.all rescue []
   end
@@ -39,6 +46,7 @@ class PagesController < ApplicationController
 
   def create_message
     @contact = Contact.new(contact_params)
+    @contact.recaptcha_response = params['g-recaptcha-response']
 
     # Bot prevention: Check honeypot field
     if params[:contact][:website].present?
@@ -53,8 +61,21 @@ class PagesController < ApplicationController
       return
     end
 
+    # Rate limiting check
+    ip = request.remote_ip
+    key = "contact_form:#{ip}"
+    submissions = Rails.cache.read(key) || 0
+
+    if submissions >= RATE_LIMIT
+      render json: { error: "Too many submissions. Please try again later." }, status: :too_many_requests
+      return
+    end
+
     respond_to do |format|
       if @contact.save
+        # Increment submission count
+        Rails.cache.write(key, submissions + 1, expires_in: RATE_LIMIT_WINDOW)
+        
         # Send the email
         ContactMailer.contact_email(@contact).deliver_later
 

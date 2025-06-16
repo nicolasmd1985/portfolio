@@ -2,6 +2,10 @@
   <%= form_with(model: contact, url: create_message_path, class: "space-y-6") do |form| %>
     <%= form.hidden_field :website, value: "", class: "hidden" %>
     <%= form.hidden_field :submitted_at, value: Time.current.to_i %>
+    <%= recaptcha_tags site_key: ENV['RECAPTCHA_SITE_KEY'], 
+                       theme: 'dark',
+                       callback: 'enableSubmit',
+                       expired_callback: 'disableSubmit' %>
 
     <div>
       <%= form.label :name, t('contact.form.name'), class: "block text-gray-300 mb-2" %>
@@ -40,6 +44,18 @@
     </div>
 
     <%= form.submit t('contact.form.send'), 
-        class: "w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors cursor-pointer" %>
+        class: "w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors cursor-pointer",
+        id: "submit-button",
+        disabled: true %>
   <% end %>
-<% end %> 
+<% end %>
+
+<script>
+function enableSubmit() {
+  document.getElementById('submit-button').disabled = false;
+}
+
+function disableSubmit() {
+  document.getElementById('submit-button').disabled = true;
+}
+</script> 
