@@ -58,7 +58,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   # Set host to be used by links generated in mailer templates.
-  # config.action_mailer.default_url_options = { host: "nicolasmahecha.com" }
+  config.action_mailer.default_url_options = { host: "nicolasmahecha.com" }
 
   # Configure email delivery
   config.action_mailer.delivery_method = :smtp
@@ -83,10 +83,10 @@ Rails.application.configure do
   config.active_record.attributes_for_inspect = [ :id ]
 
   # Enable DNS rebinding protection and other `Host` header attacks.
-  # config.hosts = [
-  #   "nicolasmahecha.com",     # Allow requests from main domain
-  #   /.*\.nicolasmahecha\.com/ # Allow requests from subdomains
-  # ]
+  config.hosts = [
+    "nicolasmahecha.com",     # Allow requests from main domain
+    /.*\.nicolasmahecha\.com/ # Allow requests from subdomains
+  ]
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
