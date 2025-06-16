@@ -55,8 +55,8 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        # Here you would typically send the email
-        # ContactMailer.contact_email(@contact).deliver_later
+        # Send the email
+        ContactMailer.contact_email(@contact).deliver_later
 
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace(

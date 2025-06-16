@@ -49,6 +49,12 @@ jobs:
           echo "RDS_PORT=${{ secrets.RDS_PORT }}" >> .env.production
           echo "RAILS_ENV=production" >> .env.production
           echo "RAILS_SERVE_STATIC_FILES=true" >> .env.production
+          echo "SMTP_ADDRESS=${{ secrets.SMTP_ADDRESS }}" >> .env.production
+          echo "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env.production
+          echo "SMTP_DOMAIN=${{ secrets.SMTP_DOMAIN }}" >> .env.production
+          echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" >> .env.production
+          echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env.production
+
           #echo "aws_access_key_id=${{ secrets.aws_access_key_id }}" >> .env.production
           #echo "aws_secret_access_key=${{ secrets.aws_secret_access_key }}" >> .env.production
           #echo "S3_BUCKET_NAME=${{ secrets.S3_BUCKET_NAME }}" >> .env.production
