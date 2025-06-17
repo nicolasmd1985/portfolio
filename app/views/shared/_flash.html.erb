@@ -1,0 +1,70 @@
+<%# Flash message with animation %>
+<div class="flash-message <%= type %>" 
+     data-controller="flash"
+     data-action="animationend->flash#remove">
+  <div class="flex items-center p-4 mb-4 rounded-lg shadow-lg <%= type == 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' %>">
+    <div class="flex-shrink-0">
+      <% if type == 'success' %>
+        <i class="mdi mdi-check-circle text-2xl"></i>
+      <% else %>
+        <i class="mdi mdi-alert-circle text-2xl"></i>
+      <% end %>
+    </div>
+    <div class="ml-3">
+      <p class="text-sm font-medium"><%= message %></p>
+    </div>
+    <div class="ml-auto pl-3">
+      <div class="-mx-1.5 -my-1.5">
+        <button type="button" 
+                class="inline-flex rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 <%= type == 'success' ? 'bg-green-100 text-green-500 hover:bg-green-200 focus:ring-green-600' : 'bg-red-100 text-red-500 hover:bg-red-200 focus:ring-red-600' %>"
+                data-action="click->flash#remove">
+          <span class="sr-only">Dismiss</span>
+          <i class="mdi mdi-close text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Add some JavaScript for the flash message animation %>
+<script>
+  document.addEventListener('turbo:load', function() {
+    const flashMessages = document.querySelectorAll('.flash-message');
+    flashMessages.forEach(function(flash) {
+      // Add entrance animation
+      flash.style.animation = 'slideIn 0.5s ease-out';
+      
+      // Auto-remove after 5 seconds
+      setTimeout(function() {
+        flash.style.animation = 'slideOut 0.5s ease-out';
+        flash.addEventListener('animationend', function() {
+          flash.remove();
+        });
+      }, 5000);
+    });
+  });
+</script>
+
+<style>
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+</style> 

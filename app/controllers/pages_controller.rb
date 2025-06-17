@@ -110,21 +110,26 @@ class PagesController < ApplicationController
         ContactMailer.contact_email(@contact).deliver_later
 
         format.turbo_stream {
-          render turbo_stream: turbo_stream.replace(
-            "contact_form",
-            partial: "pages/contact_success"
-          )
+          render turbo_stream: [
+            turbo_stream.replace("contact_form", partial: "pages/contact_success"),
+            turbo_stream.append("flash", partial: "shared/flash", locals: { 
+              type: "success",
+              message: t('contact.success_message')
+            })
+          ]
         }
         format.html {
-          render partial: "pages/contact_success"
+          redirect_to contact_path, notice: t('contact.success_message')
         }
       else
         format.turbo_stream {
-          render turbo_stream: turbo_stream.replace(
-            "contact_form",
-            partial: "pages/contact_form",
-            locals: { contact: @contact }
-          )
+          render turbo_stream: [
+            turbo_stream.replace("contact_form", partial: "pages/contact_form", locals: { contact: @contact }),
+            turbo_stream.append("flash", partial: "shared/flash", locals: { 
+              type: "error",
+              message: t('contact.error_message')
+            })
+          ]
         }
         format.html {
           render :contact, status: :unprocessable_entity
