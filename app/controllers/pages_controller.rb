@@ -74,8 +74,14 @@ class PagesController < ApplicationController
     # Verify reCAPTCHA v3
     if Rails.env.production?
       recaptcha_response = params[:contact][:recaptcha_token]
-      unless verify_recaptcha?(model: @contact, response: recaptcha_response, action: 'contact_form', minimum_score: RECAPTCHA_MIN_SCORE)
-        render json: { error: "reCAPTCHA verification failed" }, status: :unprocessable_entity
+      begin
+        unless verify_recaptcha?(model: @contact, response: recaptcha_response, action: 'contact_form', minimum_score: RECAPTCHA_MIN_SCORE)
+          render json: { error: "reCAPTCHA verification failed" }, status: :unprocessable_entity
+          return
+        end
+      rescue => e
+        Rails.logger.error "reCAPTCHA verification error: #{e.message}"
+        render json: { error: "reCAPTCHA verification error" }, status: :unprocessable_entity
         return
       end
     end
