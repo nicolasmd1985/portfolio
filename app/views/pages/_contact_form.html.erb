@@ -5,10 +5,7 @@
     <%= form.hidden_field :recaptcha_token, id: "recaptcha_token" %>
     
     <% if Rails.env.production? %>
-      <%= recaptcha_tags site_key: ENV['RECAPTCHA_SITE_KEY'], 
-                         theme: 'dark',
-                         action: 'contact_form',
-                         size: 'invisible' %>
+      <script src="https://www.google.com/recaptcha/api.js?render=<%= ENV['RECAPTCHA_SITE_KEY'] %>"></script>
     <% end %>
 
     <div>
@@ -55,15 +52,28 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    grecaptcha.ready(function() {
-      grecaptcha.execute('<%= ENV['RECAPTCHA_SITE_KEY'] %>', {action: 'contact_form'})
-        .then(function(token) {
-          document.getElementById('recaptcha_token').value = token;
-          form.submit();
+  const siteKey = '<%= ENV['RECAPTCHA_SITE_KEY'] %>';
+  
+  if (siteKey && siteKey.length > 0) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.ready(function() {
+          grecaptcha.execute(siteKey, {action: 'contact_form'})
+            .then(function(token) {
+              document.getElementById('recaptcha_token').value = token;
+              form.submit();
+            })
+            .catch(function(error) {
+              console.error('reCAPTCHA error:', error);
+              form.submit(); // Fallback to submit without token
+            });
         });
+      } else {
+        console.error('reCAPTCHA not loaded');
+        form.submit(); // Fallback to submit without token
+      }
     });
-  });
+  }
 });
 </script>
