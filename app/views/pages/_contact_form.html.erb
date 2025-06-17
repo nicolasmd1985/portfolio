@@ -55,25 +55,34 @@ document.addEventListener('DOMContentLoaded', function() {
   const siteKey = '<%= ENV['RECAPTCHA_SITE_KEY'] %>';
   
   if (siteKey && siteKey.length > 0) {
+    console.log('reCAPTCHA site key found:', siteKey);
+    
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      if (typeof grecaptcha !== 'undefined') {
-        grecaptcha.ready(function() {
-          grecaptcha.execute(siteKey, {action: 'contact_form'})
-            .then(function(token) {
-              document.getElementById('recaptcha_token').value = token;
-              form.submit();
-            })
-            .catch(function(error) {
-              console.error('reCAPTCHA error:', error);
-              form.submit(); // Fallback to submit without token
-            });
-        });
-      } else {
+      console.log('Form submission intercepted');
+      
+      if (typeof grecaptcha === 'undefined') {
         console.error('reCAPTCHA not loaded');
-        form.submit(); // Fallback to submit without token
+        form.submit();
+        return;
       }
+      
+      grecaptcha.ready(function() {
+        console.log('reCAPTCHA ready');
+        grecaptcha.execute(siteKey, {action: 'contact_form'})
+          .then(function(token) {
+            console.log('reCAPTCHA token received');
+            document.getElementById('recaptcha_token').value = token;
+            form.submit();
+          })
+          .catch(function(error) {
+            console.error('reCAPTCHA error:', error);
+            form.submit();
+          });
+      });
     });
+  } else {
+    console.error('reCAPTCHA site key missing');
   }
 });
 </script>
