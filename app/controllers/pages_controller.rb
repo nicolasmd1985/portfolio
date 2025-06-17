@@ -115,6 +115,9 @@ class PagesController < ApplicationController
             partial: "pages/contact_success"
           )
         }
+        format.html {
+          redirect_to contact_path, notice: t('contact.success_message')
+        }
       else
         format.turbo_stream {
           render turbo_stream: turbo_stream.replace(
@@ -122,6 +125,9 @@ class PagesController < ApplicationController
             partial: "pages/contact_form",
             locals: { contact: @contact }
           )
+        }
+        format.html {
+          render :contact, status: :unprocessable_entity
         }
       end
     end
