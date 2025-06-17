@@ -116,7 +116,7 @@ class PagesController < ApplicationController
           )
         }
         format.html {
-          redirect_to contact_path, notice: t('contact.success_message')
+          render partial: "pages/contact_success"
         }
       else
         format.turbo_stream {
