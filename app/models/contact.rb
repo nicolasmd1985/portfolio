@@ -1,5 +1,5 @@
 class Contact < ApplicationRecord
-  include Recaptcha::Adapters::ModelMethods
+  include Recaptcha::Rails::ModelMethods
   
   validates :name, presence: true, length: { minimum: 2, maximum: 100 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
