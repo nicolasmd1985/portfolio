@@ -2,12 +2,13 @@
   <%= form_with(model: contact, url: create_message_path, class: "space-y-6") do |form| %>
     <%= form.hidden_field :website, value: "", class: "hidden" %>
     <%= form.hidden_field :submitted_at, value: Time.current.to_i %>
+    <%= form.hidden_field :recaptcha_token, id: "recaptcha_token" %>
     
     <% if Rails.env.production? %>
       <%= recaptcha_tags site_key: ENV['RECAPTCHA_SITE_KEY'], 
                          theme: 'dark',
-                         callback: 'enableSubmit',
-                         expired_callback: 'disableSubmit' %>
+                         action: 'contact_form',
+                         size: 'invisible' %>
     <% end %>
 
     <div>
@@ -47,18 +48,22 @@
     </div>
 
     <%= form.submit t('contact.form.send'), 
-        class: "w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors cursor-pointer",
-        id: "submit-button",
-        disabled: Rails.env.production? %>
+        class: "w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors cursor-pointer" %>
   <% end %>
 <% end %>
 
 <script>
-function enableSubmit() {
-  document.getElementById('submit-button').disabled = false;
-}
-
-function disableSubmit() {
-  document.getElementById('submit-button').disabled = true;
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    grecaptcha.ready(function() {
+      grecaptcha.execute('<%= ENV['RECAPTCHA_SITE_KEY'] %>', {action: 'contact_form'})
+        .then(function(token) {
+          document.getElementById('recaptcha_token').value = token;
+          form.submit();
+        });
+    });
+  });
+});
 </script>

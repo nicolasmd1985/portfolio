@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   # Rate limiting for contact form
   RATE_LIMIT = 5  # Maximum number of submissions
   RATE_LIMIT_WINDOW = 1.hour  # Time window for rate limiting
+  RECAPTCHA_MIN_SCORE = 0.5  # Minimum score to consider the request valid
 
   def home
     @projects = Project.all rescue []
@@ -46,7 +47,6 @@ class PagesController < ApplicationController
 
   def create_message
     @contact = Contact.new(contact_params)
-    @contact.recaptcha_response = params['g-recaptcha-response']
 
     # Bot prevention: Check honeypot field
     if params[:contact][:website].present?
@@ -69,6 +69,15 @@ class PagesController < ApplicationController
     if submissions >= RATE_LIMIT
       render json: { error: "Too many submissions. Please try again later." }, status: :too_many_requests
       return
+    end
+
+    # Verify reCAPTCHA v3
+    if Rails.env.production?
+      recaptcha_response = params[:contact][:recaptcha_token]
+      unless verify_recaptcha?(model: @contact, response: recaptcha_response, action: 'contact_form', minimum_score: RECAPTCHA_MIN_SCORE)
+        render json: { error: "reCAPTCHA verification failed" }, status: :unprocessable_entity
+        return
+      end
     end
 
     respond_to do |format|
@@ -100,6 +109,6 @@ class PagesController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :subject, :message, :website, :submitted_at)
+    params.require(:contact).permit(:name, :email, :subject, :message, :website, :submitted_at, :recaptcha_token)
   end
 end
