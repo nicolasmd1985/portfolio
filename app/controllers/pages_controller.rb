@@ -79,7 +79,7 @@ class PagesController < ApplicationController
       Rails.logger.info "reCAPTCHA secret key: #{ENV['RECAPTCHA_SECRET_KEY'].present? ? 'present' : 'missing'}"
       
       begin
-        verification_result = verify_recaptcha?(
+        verification_result = verify_recaptcha(
           model: @contact,
           response: recaptcha_response,
           action: 'contact_form',

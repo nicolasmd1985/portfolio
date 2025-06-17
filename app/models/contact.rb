@@ -1,5 +1,5 @@
 class Contact < ApplicationRecord
-  include Recaptcha::Adapters::ControllerMethods
+  include Recaptcha::Adapters::ModelMethods
   
   validates :name, presence: true, length: { minimum: 2, maximum: 100 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -8,7 +8,6 @@ class Contact < ApplicationRecord
   
   # Prevent common spam patterns
   validate :no_spam_patterns
-  validate :verify_recaptcha, on: :create
   
   private
   
@@ -27,14 +26,6 @@ class Contact < ApplicationRecord
     
     if subject.present? && spam_patterns.any? { |pattern| subject.match?(pattern) }
       errors.add(:subject, "contains spam-like content")
-    end
-  end
-
-  def verify_recaptcha
-    return if Rails.env.test?
-    
-    unless verify_recaptcha?(model: self, response: recaptcha_response)
-      errors.add(:base, "reCAPTCHA verification failed")
     end
   end
 end
