@@ -46,7 +46,7 @@ class PagesController < ApplicationController
   end
 
   def create_message
-    @contact = Contact.new(contact_params)
+    @contact = Contact.new(contact_params.except(:recaptcha_token))
 
     # Bot prevention: Check honeypot field
     if params[:contact][:website].present?
