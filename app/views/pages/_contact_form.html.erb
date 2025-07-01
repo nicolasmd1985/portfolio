@@ -65,57 +65,38 @@ function initializeRecaptcha() {
   const siteKey = '<%= ENV['RECAPTCHA_SITE_KEY'] %>';
   
   if (siteKey && siteKey.length > 0) {
-    console.log('reCAPTCHA site key found:', siteKey);
-    
     // Check if reCAPTCHA script is loaded
     if (typeof grecaptcha === 'undefined') {
-      console.error('reCAPTCHA script not loaded. Checking script tag...');
       const script = document.querySelector('script[src*="recaptcha/api.js"]');
       if (!script) {
-        console.error('reCAPTCHA script tag not found in DOM');
-      } else {
-        console.log('reCAPTCHA script tag found:', script.src);
+        console.error('reCAPTCHA script not loaded');
       }
     }
     
     // Remove existing event listener to prevent duplicates
     form.removeEventListener('submit', handleFormSubmit);
     form.addEventListener('submit', handleFormSubmit);
-  } else {
-    console.error('reCAPTCHA site key missing or empty');
   }
 }
 
 function handleFormSubmit(e) {
   e.preventDefault();
-  console.log('Form submission intercepted');
   
   const form = e.target;
   
   if (typeof grecaptcha === 'undefined') {
-    console.error('reCAPTCHA not loaded. Submitting form without verification.');
     form.submit();
     return;
   }
   
-  console.log('Calling grecaptcha.ready()');
   grecaptcha.ready(function() {
-    console.log('reCAPTCHA ready, executing with action: contact_form');
     grecaptcha.execute('<%= ENV['RECAPTCHA_SITE_KEY'] %>', {action: 'contact_form'})
       .then(function(token) {
-        console.log('reCAPTCHA token received, length:', token.length);
         document.getElementById('recaptcha_token').value = token;
-        console.log('Token set in hidden field, submitting form');
         form.submit();
       })
       .catch(function(error) {
-        console.error('reCAPTCHA error:', error);
-        console.error('Error details:', {
-          name: error.name,
-          message: error.message,
-          stack: error.stack
-        });
-        console.log('Submitting form without verification due to error');
+        console.error('reCAPTCHA error:', error.message);
         form.submit();
       });
   });
