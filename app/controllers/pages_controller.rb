@@ -45,6 +45,20 @@ class PagesController < ApplicationController
     @contact = Contact.new
   end
 
+  def debug_recaptcha
+    if Rails.env.production?
+      render json: {
+        site_key_present: ENV['RECAPTCHA_SITE_KEY'].present?,
+        site_key_value: ENV['RECAPTCHA_SITE_KEY'],
+        secret_key_present: ENV['RECAPTCHA_SECRET_KEY'].present?,
+        secret_key_value: ENV['RECAPTCHA_SECRET_KEY'],
+        environment: Rails.env
+      }
+    else
+      render json: { message: "Debug endpoint only available in production" }
+    end
+  end
+
   def create_message
     @contact = Contact.new(contact_params.except(:recaptcha_token))
 
@@ -71,35 +85,42 @@ class PagesController < ApplicationController
       return
     end
 
-    # Verify reCAPTCHA v3
-    if Rails.env.production?
-      recaptcha_response = params[:contact][:recaptcha_token]
-      Rails.logger.info "reCAPTCHA response received: #{recaptcha_response.present? ? 'present' : 'missing'}"
-      Rails.logger.info "reCAPTCHA site key: #{ENV['RECAPTCHA_SITE_KEY'].present? ? 'present' : 'missing'}"
-      Rails.logger.info "reCAPTCHA secret key: #{ENV['RECAPTCHA_SECRET_KEY'].present? ? 'present' : 'missing'}"
-      
-      begin
-        verification_result = verify_recaptcha(
-          model: @contact,
-          response: recaptcha_response,
-          action: 'contact_form',
-          minimum_score: RECAPTCHA_MIN_SCORE
-        )
-        
-        Rails.logger.info "reCAPTCHA verification result: #{verification_result}"
-        
-        unless verification_result
-          Rails.logger.error "reCAPTCHA verification failed"
-          render json: { error: "reCAPTCHA verification failed" }, status: :unprocessable_entity
-          return
-        end
-      rescue => e
-        Rails.logger.error "reCAPTCHA verification error: #{e.message}"
-        Rails.logger.error e.backtrace.join("\n")
-        render json: { error: "reCAPTCHA verification error: #{e.message}" }, status: :unprocessable_entity
-        return
-      end
-    end
+    # Verify reCAPTCHA v3 (Temporarily disabled for debugging)
+    # if Rails.env.production?
+    #   recaptcha_response = params[:contact][:recaptcha_token]
+    #   Rails.logger.info "=== reCAPTCHA DEBUG START ==="
+    #   Rails.logger.info "reCAPTCHA response received: #{recaptcha_response.present? ? 'present' : 'missing'}"
+    #   Rails.logger.info "reCAPTCHA response value: #{recaptcha_response}"
+    #   Rails.logger.info "reCAPTCHA site key: #{ENV['RECAPTCHA_SITE_KEY'].present? ? 'present' : 'missing'}"
+    #   Rails.logger.info "reCAPTCHA site key value: #{ENV['RECAPTCHA_SITE_KEY']}"
+    #   Rails.logger.info "reCAPTCHA secret key: #{ENV['RECAPTCHA_SECRET_KEY'].present? ? 'present' : 'missing'}"
+    #   Rails.logger.info "reCAPTCHA secret key value: #{ENV['RECAPTCHA_SECRET_KEY']}"
+    #   
+    #   begin
+    #     verification_result = verify_recaptcha(
+    #       model: @contact,
+    #       response: recaptcha_response,
+    #       action: 'contact_form',
+    #       minimum_score: RECAPTCHA_MIN_SCORE
+    #     )
+    #     
+    #     Rails.logger.info "reCAPTCHA verification result: #{verification_result}"
+    #     
+    #     unless verification_result
+    #       Rails.logger.error "reCAPTCHA verification failed"
+    #       Rails.logger.error "reCAPTCHA errors: #{@contact.errors.full_messages}"
+    #       render json: { error: "reCAPTCHA verification failed", details: @contact.errors.full_messages }, status: :unprocessable_entity
+    #       return
+    #     end
+    #   rescue => e
+    #     Rails.logger.error "reCAPTCHA verification error: #{e.message}"
+    #     Rails.logger.error e.backtrace.join("\n")
+    #     render json: { error: "reCAPTCHA verification error: #{e.message}" }, status: :unprocessable_entity
+    #       return
+    #     end
+    #   end
+    #   Rails.logger.info "=== reCAPTCHA DEBUG END ==="
+    # end
 
     respond_to do |format|
       if @contact.save
