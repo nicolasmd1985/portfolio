@@ -71,36 +71,35 @@ class PagesController < ApplicationController
       return
     end
 
-    # Verify reCAPTCHA v3 (Temporarily disabled for debugging)
-    # if Rails.env.production?
-    #   recaptcha_response = params[:contact][:recaptcha_token]
-    #   Rails.logger.info "reCAPTCHA response received: #{recaptcha_response.present? ? 'present' : 'missing'}"
-    #   Rails.logger.info "reCAPTCHA site key: #{ENV['RECAPTCHA_SITE_KEY'].present? ? 'present' : 'missing'}"
-    #   Rails.logger.info "reCAPTCHA secret key: #{ENV['RECAPTCHA_SECRET_KEY'].present? ? 'present' : 'missing'}"
-    #   
-    #   begin
-    #     verification_result = verify_recaptcha(
-    #       model: @contact,
-    #       response: recaptcha_response,
-    #       action: 'contact_form',
-    #       minimum_score: RECAPTCHA_MIN_SCORE
-    #     )
-    #     
-    #     Rails.logger.info "reCAPTCHA verification result: #{verification_result}"
-    #     
-    #     unless verification_result
-    #       Rails.logger.error "reCAPTCHA verification failed"
-    #       render json: { error: "reCAPTCHA verification failed" }, status: :unprocessable_entity
-    #       return
-    #     end
-    #   rescue => e
-    #     Rails.logger.error "reCAPTCHA verification error: #{e.message}"
-    #     Rails.logger.error e.backtrace.join("\n")
-    #     render json: { error: "reCAPTCHA verification error: #{e.message}" }, status: :unprocessable_entity
-    #       return
-    #     end
-    #   end
-    # end
+    # Verify reCAPTCHA v3
+    if Rails.env.production?
+      recaptcha_response = params[:contact][:recaptcha_token]
+      Rails.logger.info "reCAPTCHA response received: #{recaptcha_response.present? ? 'present' : 'missing'}"
+      Rails.logger.info "reCAPTCHA site key: #{ENV['RECAPTCHA_SITE_KEY'].present? ? 'present' : 'missing'}"
+      Rails.logger.info "reCAPTCHA secret key: #{ENV['RECAPTCHA_SECRET_KEY'].present? ? 'present' : 'missing'}"
+      
+      begin
+        verification_result = verify_recaptcha(
+          model: @contact,
+          response: recaptcha_response,
+          action: 'contact_form',
+          minimum_score: RECAPTCHA_MIN_SCORE
+        )
+        
+        Rails.logger.info "reCAPTCHA verification result: #{verification_result}"
+        
+        unless verification_result
+          Rails.logger.error "reCAPTCHA verification failed"
+          render json: { error: "reCAPTCHA verification failed" }, status: :unprocessable_entity
+          return
+        end
+      rescue => e
+        Rails.logger.error "reCAPTCHA verification error: #{e.message}"
+        Rails.logger.error e.backtrace.join("\n")
+        render json: { error: "reCAPTCHA verification error: #{e.message}" }, status: :unprocessable_entity
+        return
+      end
+    end
 
     respond_to do |format|
       if @contact.save
