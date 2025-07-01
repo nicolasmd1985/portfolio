@@ -29,6 +29,14 @@
 <%# Add some JavaScript for the flash message animation %>
 <script>
   document.addEventListener('turbo:load', function() {
+    initializeFlashMessages();
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeFlashMessages();
+  });
+  
+  function initializeFlashMessages() {
     const flashMessages = document.querySelectorAll('.flash-message');
     flashMessages.forEach(function(flash) {
       // Add entrance animation
@@ -42,7 +50,7 @@
         });
       }, 5000);
     });
-  });
+  }
 </script>
 
 <style>
