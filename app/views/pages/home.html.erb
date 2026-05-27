@@ -1,79 +1,339 @@
 <% content_for :title, t('home.meta.title') %>
 <% content_for :description, t('home.meta.description') %>
 
+<!-- HERO SECTION -->
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background with overlay -->
+  <!-- Background Image with Overlay -->
   <div 
     class="absolute inset-0 bg-fixed bg-cover bg-center"
-    style="background-image: url(<%= asset_path 'smart_house.jpg' %>); filter: blur(2px); transform: scale(1.1);"
+    style="background-image: url(<%= asset_path 'smart_house.jpg' %>); filter: blur(3px) brightness(0.4); transform: scale(1.05);"
   ></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-gray-900/60 to-gray-900"></div>
 
-  <!-- Content container -->
-  <div class="relative z-10 text-center px-4 w-full max-w-[1400px] mx-auto pt-32">
-    <!-- Main title -->
-    <h1 class="main-title font-extrabold orbitron-font">
-      Nicolas Mahecha
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center px-6 w-full max-w-5xl mx-auto pt-32 pb-20">
+    <span class="inline-block bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider orbitron-font">
+      <%= t('home.hero.subtitle') %>
+    </span>
+    
+    <h1 class="text-5xl md:text-7xl font-extrabold orbitron-font tracking-tight text-white mb-6" style="text-shadow: 0 0 30px rgba(20,184,166,0.3);">
+      <%= t('home.hero.title') %>
     </h1>
 
-    <!-- Tagline -->
-    <p class="text-xl sm:text-2xl md:text-3xl text-white max-w-4xl mx-auto inter-font leading-relaxed mb-20 font-semibold tracking-wide" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-      <%= t('home.tagline') %>
+    <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12 font-medium tracking-wide">
+      <%= t('home.hero.tagline') %>
     </p>
 
-    <!-- Services Grid -->
-    <div class="services-grid">
-      <!-- Smart Device Integration -->
-      <div class="service-item">
-        <a href="/about" class="flex flex-col items-center hover:opacity-80 transition-opacity">
-          <div class="icon-container mb-4">
-            <i class="mdi mdi-home-automation icon-large"></i>
-          </div>
-          <h2 class="service-title"><%= t('home.services.smart_device') %></h2>
-        </a>
-      </div>
-
-      <!-- Sustainable Energy -->
-      <div class="service-item">
-        <a href="/about" class="flex flex-col items-center hover:opacity-80 transition-opacity">
-          <div class="icon-container mb-4">
-            <i class="mdi mdi-solar-power-variant icon-large"></i>
-          </div>
-          <h2 class="service-title"><%= t('home.services.sustainable_energy') %></h2>
-        </a>
-      </div>
-
-      <!-- Software Development -->
-      <div class="service-item">
-        <a href="/about" class="flex flex-col items-center hover:opacity-80 transition-opacity">
-          <div class="icon-container mb-4">
-            <i class="mdi mdi-code-braces icon-large"></i>
-          </div>
-          <h2 class="service-title"><%= t('home.services.software_development') %></h2>
-        </a>
-      </div>
+    <!-- HIBRID CALL TO ACTIONS (CTAs) -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16">
+      <a href="<%= contact_path %>#calendly" class="btn-primary flex items-center gap-2 group w-full sm:w-auto text-center justify-center">
+        <i class="mdi mdi-calendar-check text-xl"></i>
+        <span><%= t('home.hero.cta_calendly') %></span>
+        <i class="mdi mdi-arrow-right transition-transform group-hover:translate-x-1"></i>
+      </a>
+      <a href="/resume_nicolas_mahecha.pdf" target="_blank" class="btn-secondary flex items-center gap-2 w-full sm:w-auto text-center justify-center">
+        <i class="mdi mdi-file-download-outline text-xl"></i>
+        <span><%= t('home.hero.cta_resume') %></span>
+      </a>
     </div>
 
-    <!-- CTA Button Container -->
-    <div class="flex justify-center mt-20">
-      <a href="#about" class="btn-primary">
-        <%= t('home.cta') %>
-      </a>
+    <!-- Quick Audience Badges -->
+    <div class="flex flex-wrap justify-center items-center gap-8 text-gray-400 text-sm border-t border-white/5 pt-8 max-w-2xl mx-auto">
+      <span class="flex items-center gap-2">
+        <i class="mdi mdi-briefcase text-teal-500 text-lg"></i>
+        <span>Looking to Hire? Florida Statewide</span>
+      </span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gray-600 hidden sm:block"></span>
+      <span class="flex items-center gap-2">
+        <i class="mdi mdi-domain text-teal-500 text-lg"></i>
+        <span>B2B Automation & SCADA Solutions</span>
+      </span>
     </div>
   </div>
 </section>
 
-<section id="about" class="py-20 bg-gray-800 text-center">
-  <div class="container mx-auto px-8 max-w-4xl">
-    <h2 class="text-4xl font-bold mb-6 text-white"><%= t('home.about.title') %></h2>
-    <p class="text-lg leading-relaxed text-gray-300">
-      <%= t('home.about.description') %>
-    </p>
+<!-- ABOUT ME & VALUE PROP SECTION -->
+<section id="about" class="py-24 bg-gray-900 border-t border-gray-800">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Portrait Graphic -->
+      <div class="lg:col-span-4 flex justify-center">
+        <div class="relative group">
+          <!-- Ambient Glow Behind Portrait -->
+          <div class="absolute -inset-1.5 bg-gradient-to-r from-teal-500 to-indigo-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+          <div class="relative bg-gray-800 rounded-2xl p-4 border border-white/10 w-72 h-72 flex items-center justify-center overflow-hidden">
+            <% if asset_path('profile.jpg').present? %>
+              <%= image_tag 'profile.jpg', alt: 'Nicolas Mahecha', class: 'w-full h-full object-cover rounded-xl transition duration-500 group-hover:scale-105' %>
+            <% else %>
+              <div class="w-full h-full bg-gradient-to-br from-teal-600 to-indigo-800 rounded-xl flex flex-col items-center justify-center text-center p-4">
+                <i class="mdi mdi-account-cog text-6xl text-teal-200 mb-2"></i>
+                <span class="text-white font-bold orbitron-font text-lg">Nicolas Mahecha</span>
+                <span class="text-xs text-teal-300">Edge-to-Cloud Specialist</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-    <div class="about-buttons">
-      <a href="/about" class="btn-secondary"><%= t('home.about.buttons.about_me') %></a>
-      <a href="/projects" class="btn-primary"><%= t('home.about.buttons.explore_projects') %></a>
-      <a href="/contact" class="btn-secondary"><%= t('home.about.buttons.get_in_touch') %></a>
+      <!-- About Description -->
+      <div class="lg:col-span-8">
+        <h2 class="text-3xl md:text-4xl font-bold orbitron-font text-white mb-6 tracking-wide flex items-center gap-3">
+          <i class="mdi mdi-shield-check-outline text-teal-500"></i>
+          <%= t('home.about.title') %>
+        </h2>
+        <p class="text-lg leading-relaxed text-gray-300 mb-8 font-light">
+          <%= t('home.about.description') %>
+        </p>
+
+        <!-- Brief Bullet Points for Quick Scan -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div class="flex items-start gap-2">
+            <i class="mdi mdi-checkbox-marked-circle-outline text-teal-400 text-xl mt-0.5"></i>
+            <span class="text-gray-300 font-medium">10+ Years SCADA & BAS Expertise</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i class="mdi mdi-checkbox-marked-circle-outline text-teal-400 text-xl mt-0.5"></i>
+            <span class="text-gray-300 font-medium">FASA/BASA Florida Safety Certified</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i class="mdi mdi-checkbox-marked-circle-outline text-teal-400 text-xl mt-0.5"></i>
+            <span class="text-gray-300 font-medium">Full-Stack Ruby on Rails & Python</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i class="mdi mdi-checkbox-marked-circle-outline text-teal-400 text-xl mt-0.5"></i>
+            <span class="text-gray-300 font-medium">Master's in Sustainable Energy (UBA)</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="<%= about_path %>" class="btn-secondary"><%= t('home.about.buttons.about_me') %></a>
+          <a href="<%= contact_path %>" class="btn-primary"><%= t('home.about.buttons.get_in_touch') %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PILLARS SECTION -->
+<section id="services" class="py-24 bg-gray-950 border-t border-gray-800 relative">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(20,184,166,0.05),transparent_50%)]"></div>
+  <div class="container mx-auto px-6 max-w-5xl relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold orbitron-font text-white mb-4"><%= t('home.services.title') %></h2>
+      <p class="text-xl text-teal-400 font-semibold mb-2"><%= t('home.services.subtitle') %></p>
+      <div class="w-24 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- 3 B2B Services Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Pillar 1: Industrial Automation -->
+      <div class="service-item group relative border border-white/5 hover:border-teal-500/30 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="icon-container mb-6 bg-teal-500/10 text-teal-400 group-hover:bg-teal-500/20">
+            <i class="mdi mdi-factory text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-teal-400 transition-colors">
+            <%= t('home.services.industrial_automation.title') %>
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            <%= t('home.services.industrial_automation.description') %>
+          </p>
+        </div>
+        <a href="<%= services_path %>#industrial" class="text-teal-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1 group/link mt-auto">
+          <span>Learn Scope & Specs</span>
+          <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
+        </a>
+      </div>
+
+      <!-- Pillar 2: Custom Web Apps -->
+      <div class="service-item group relative border border-white/5 hover:border-violet-500/30 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="icon-container mb-6 bg-violet-500/10 text-violet-400 group-hover:bg-violet-500/20">
+            <i class="mdi mdi-code-braces text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-violet-400 transition-colors">
+            <%= t('home.services.fullstack_apps.title') %>
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            <%= t('home.services.fullstack_apps.description') %>
+          </p>
+        </div>
+        <a href="<%= services_path %>#software" class="text-violet-400 hover:text-violet-300 font-semibold text-sm flex items-center gap-1 group/link mt-auto">
+          <span>Learn Scope & Specs</span>
+          <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
+        </a>
+      </div>
+
+      <!-- Pillar 3: Smart IoT -->
+      <div class="service-item group relative border border-white/5 hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="icon-container mb-6 bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20">
+            <i class="mdi mdi-solar-power-variant text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
+            <%= t('home.services.smart_iot.title') %>
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            <%= t('home.services.smart_iot.description') %>
+          </p>
+        </div>
+        <a href="<%= services_path %>#iot" class="text-emerald-400 hover:text-emerald-300 font-semibold text-sm flex items-center gap-1 group/link mt-auto">
+          <span>Learn Scope & Specs</span>
+          <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CASE STUDIES / PROJECTS SECTION -->
+<section id="projects" class="py-24 bg-gray-900 border-t border-gray-800 relative">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold orbitron-font text-white mb-4"><%= t('home.projects.title') %></h2>
+      <div class="w-24 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Case Studies Stack -->
+    <div class="space-y-12">
+      <!-- Case Study 1 -->
+      <div class="bg-gray-800/50 border border-white/5 hover:border-white/10 rounded-2xl p-8 transition duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <span class="text-xs font-bold text-teal-400 orbitron-font uppercase tracking-widest block mb-2">Case Study 01</span>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              <%= t('home.projects.rv_energy.title') %>
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-sm mb-6">
+              <%= t('home.projects.rv_energy.description') %>
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">ESP32</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Raspberry Pi</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Modbus RTU</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">MQTT Broker</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Solar PV Control</span>
+            </div>
+            <a href="<%= projects_path %>" class="text-teal-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1 group">
+              <span>Explore Technical Diagrams</span>
+              <i class="mdi mdi-arrow-right transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+          <!-- Graphics Placeholder -->
+          <div class="lg:col-span-5">
+            <div class="bg-gray-900/60 rounded-xl p-6 border border-white/5 flex flex-col justify-center items-center text-center min-h-[220px]">
+              <i class="mdi mdi-solar-power text-5xl text-teal-500 mb-3"></i>
+              <h4 class="text-white font-bold orbitron-font text-sm mb-1">Off-Grid Energy Grid</h4>
+              <span class="text-xs text-gray-500">Live Telemetry & ESP32 Modbus Controllers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="bg-gray-800/50 border border-white/5 hover:border-white/10 rounded-2xl p-8 transition duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <span class="text-xs font-bold text-violet-400 orbitron-font uppercase tracking-widest block mb-2">Case Study 02</span>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              <%= t('home.projects.ai_agency.title') %>
+            </h3>
+            <p class="text-gray-300 leading-relaxed text-sm mb-6">
+              <%= t('home.projects.ai_agency.description') %>
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Ruby on Rails 8</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Hotwire (Turbo)</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">AI Agent Dispatch</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">PostgreSQL</span>
+              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Solid Queue</span>
+            </div>
+            <a href="<%= projects_path %>" class="text-violet-400 hover:text-violet-300 font-semibold text-sm flex items-center gap-1 group">
+              <span>Explore Technical Architecture</span>
+              <i class="mdi mdi-arrow-right transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+          <!-- Graphics Placeholder -->
+          <div class="lg:col-span-5">
+            <div class="bg-gray-900/60 rounded-xl p-6 border border-white/5 flex flex-col justify-center items-center text-center min-h-[220px]">
+              <i class="mdi mdi-robot-industrial text-5xl text-violet-500 mb-3"></i>
+              <h4 class="text-white font-bold orbitron-font text-sm mb-1">OrdenApp Modernization</h4>
+              <span class="text-xs text-gray-500">25% Speed Boost & Solid Queue Jobs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS & CERTIFICATIONS (SOCIAL PROOF) -->
+<section id="certifications" class="py-24 bg-gray-950 border-t border-gray-800 relative">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold orbitron-font text-white mb-2"><%= t('home.social_proof.title') %></h2>
+      <p class="text-gray-400"><%= t('home.social_proof.subtitle') %></p>
+      <div class="w-24 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Certification 1: FASA/BASA -->
+      <div class="bg-gray-900/80 border border-white/5 rounded-xl p-6 text-center shadow-lg flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-teal-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-teal-500/30">
+            <i class="mdi mdi-certificate text-3xl text-teal-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white orbitron-font mb-1"><%= t('home.social_proof.fasa_basa.title') %></h3>
+          <p class="text-xs text-teal-400 font-semibold mb-3"><%= t('home.social_proof.fasa_basa.authority') %></p>
+          <p class="text-sm text-gray-400"><%= t('home.social_proof.fasa_basa.description') %></p>
+        </div>
+        <span class="text-xs bg-teal-500/10 text-teal-400 border border-teal-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase">Active Credentials</span>
+      </div>
+
+      <!-- Certification 2: Master UBA -->
+      <div class="bg-gray-900/80 border border-white/5 rounded-xl p-6 text-center shadow-lg flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-indigo-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-indigo-500/30">
+            <i class="mdi mdi-school text-3xl text-indigo-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white orbitron-font mb-1"><%= t('home.social_proof.uba.title') %></h3>
+          <p class="text-xs text-indigo-400 font-semibold mb-3"><%= t('home.social_proof.uba.authority') %></p>
+          <p class="text-sm text-gray-400"><%= t('home.social_proof.uba.description') %></p>
+        </div>
+        <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase">Master's Degree</span>
+      </div>
+
+      <!-- Certification 3: SCADA Ignition -->
+      <div class="bg-gray-900/80 border border-white/5 rounded-xl p-6 text-center shadow-lg flex flex-col justify-between">
+        <div>
+          <div class="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-500/30">
+            <i class="mdi mdi-monitor-dashboard text-3xl text-emerald-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white orbitron-font mb-1"><%= t('home.social_proof.ignition.title') %></h3>
+          <p class="text-xs text-emerald-400 font-semibold mb-3"><%= t('home.social_proof.ignition.authority') %></p>
+          <p class="text-sm text-gray-400"><%= t('home.social_proof.ignition.description') %></p>
+        </div>
+        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase">SCADA Specialist</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERSIONS & FOOTER CALL TO ACTION (CTA) -->
+<section class="py-20 bg-gradient-to-r from-teal-900/20 via-indigo-900/10 to-teal-900/20 border-t border-gray-800 text-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-gray-900/85"></div>
+  <div class="container mx-auto px-6 max-w-4xl relative z-10">
+    <h2 class="text-3xl md:text-5xl font-bold orbitron-font text-white mb-6">Ready to Optimize Your Systems?</h2>
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
+      Whether you are an enterprise looking for a contract engineer in Florida, or a hiring manager looking to add SCADA, IoT, and Rails expertise to your core team — let's arrange a call.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+      <a href="<%= contact_path %>#calendly" class="btn-primary w-full sm:w-auto">
+        <i class="mdi mdi-calendar-check mr-2"></i> Book Technical Consultation
+      </a>
+      <a href="<%= contact_path %>" class="btn-secondary w-full sm:w-auto">
+        <i class="mdi mdi-email-outline mr-2"></i> Send Direct Message
+      </a>
     </div>
   </div>
 </section>

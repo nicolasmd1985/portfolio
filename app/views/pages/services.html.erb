@@ -1,0 +1,138 @@
+<section class="py-24 bg-gray-900">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold orbitron-font text-white mb-4"><%= t('home.services.title') %></h2>
+      <p class="text-xl text-teal-400 font-semibold mb-2"><%= t('home.services.subtitle') %></p>
+      <div class="w-24 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <!-- Pillars in Detail -->
+    <div class="space-y-16">
+      <!-- Pillar 1: Industrial Automation & SCADA -->
+      <div id="industrial" class="bg-gray-800/40 border border-white/5 rounded-2xl p-8 hover:border-teal-500/20 transition duration-300">
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="w-16 h-16 bg-teal-500/10 rounded-xl flex items-center justify-center text-teal-400 shrink-0 border border-teal-500/20">
+            <i class="mdi mdi-factory text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4 orbitron-font">
+              <%= t('home.services.industrial_automation.title') %>
+            </h3>
+            <p class="text-gray-300 leading-relaxed mb-6">
+              <%= t('home.services.industrial_automation.description') %>
+            </p>
+            
+            <h4 class="text-sm font-bold text-teal-400 uppercase tracking-widest mb-3 orbitron-font">Technical Capabilities</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-teal-400"></i>
+                <span>PLC Programming (Allen Bradley, Siemens)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-teal-400"></i>
+                <span>SCADA Dashboard Design & Configuration (Ignition)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-teal-400"></i>
+                <span>Industrial Protocol Communication (Modbus RTU/TCP, BACnet)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-teal-400"></i>
+                <span>Historian Database Setup & Report Generation</span>
+              </span>
+            </div>
+            
+            <a href="<%= contact_path %>" class="btn-primary py-2 px-5 text-sm inline-flex items-center gap-2">
+              <i class="mdi mdi-email-fast-outline text-lg"></i>
+              <span>Inquire for Industrial SCADA Contracts</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 2: Custom Web Apps -->
+      <div id="software" class="bg-gray-800/40 border border-white/5 rounded-2xl p-8 hover:border-violet-500/20 transition duration-300">
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="w-16 h-16 bg-violet-500/10 rounded-xl flex items-center justify-center text-violet-400 shrink-0 border border-violet-500/20">
+            <i class="mdi mdi-code-braces text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4 orbitron-font">
+              <%= t('home.services.fullstack_apps.title') %>
+            </h3>
+            <p class="text-gray-300 leading-relaxed mb-6">
+              <%= t('home.services.fullstack_apps.description') %>
+            </p>
+
+            <h4 class="text-sm font-bold text-violet-400 uppercase tracking-widest mb-3 orbitron-font">Technical Capabilities</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-violet-400"></i>
+                <span>Ruby on Rails 8 Web Applications & APIs</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-violet-400"></i>
+                <span>Stimulus & Turbo (SPA-like reactive frontend)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-violet-400"></i>
+                <span>Database Administration (PostgreSQL, Redis caching)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-violet-400"></i>
+                <span>AWS Deployment (EC2, S3, RDS, IAM Security)</span>
+              </span>
+            </div>
+
+            <a href="<%= contact_path %>" class="btn-primary py-2 px-5 text-sm inline-flex items-center gap-2 !bg-violet-700 hover:!bg-violet-800">
+              <i class="mdi mdi-email-fast-outline text-lg"></i>
+              <span>Inquire for Software Solutions</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 3: Smart IoT & Energy -->
+      <div id="iot" class="bg-gray-800/40 border border-white/5 rounded-2xl p-8 hover:border-emerald-500/20 transition duration-300">
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 shrink-0 border border-emerald-500/20">
+            <i class="mdi mdi-solar-power-variant text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4 orbitron-font">
+              <%= t('home.services.smart_iot.title') %>
+            </h3>
+            <p class="text-gray-300 leading-relaxed mb-6">
+              <%= t('home.services.smart_iot.description') %>
+            </p>
+
+            <h4 class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3 orbitron-font">Technical Capabilities</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-emerald-400"></i>
+                <span>Embedded Systems Programming (ESP32, Arduino, Raspberry Pi)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-emerald-400"></i>
+                <span>Wireless Sensor Networks (MQTT, WebSocket, LoRaWAN)</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-emerald-400"></i>
+                <span>Off-grid Solar Array & Battery Storage ESS Monitoring</span>
+              </span>
+              <span class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="mdi mdi-circle-small text-emerald-400"></i>
+                <span>Commercial Smart Building Automation (BAS) & Home Assistant</span>
+              </span>
+            </div>
+
+            <a href="<%= contact_path %>" class="btn-primary py-2 px-5 text-sm inline-flex items-center gap-2 !bg-emerald-700 hover:!bg-emerald-800">
+              <i class="mdi mdi-email-fast-outline text-lg"></i>
+              <span>Inquire for Smart Home & IoT Solutions</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

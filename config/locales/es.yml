@@ -1,88 +1,130 @@
 es:
   site:
-    title: "Mi Portafolio"
-    description: "Bienvenido a mi portafolio profesional"
+    title: "Nicolás Mahecha | Especialista en Integración Edge-to-Cloud"
+    description: "Portafolio Profesional de Nicolás Mahecha Duarte - SCADA, IoT y Desarrollador Full-Stack."
   navigation:
     home: "Inicio"
-    about: "Acerca de"
-    projects: "Proyectos"
+    about: "Sobre Mí y CV"
+    projects: "Proyectos y Casos de Éxito"
     contact: "Contacto"
+    services: "Servicios"
   common:
     language: "Idioma"
     english: "Inglés"
     spanish: "Español"
+    en: "Inglés"
+    es: "Español"
   footer:
     rights: "Todos los derechos reservados"
     made_with: "Hecho con"
     in: "en"
+
   home:
     meta:
-      title: "Nicolas Mahecha - Especialista en Integración Tecnológica"
-      description: "Experto en sistemas de seguridad, IoT e integración de energía sostenible. Especialista en automatización de dispositivos inteligentes, instalaciones de alarmas contra incendios y soluciones de tecnología renovable."
-    tagline: "Integrando seguridad de vanguardia potenciada por IA y automatización inteligente con tecnología ecológica."
-    services:
-      smart_device: "Integración de Dispositivos Inteligentes"
-      sustainable_energy: "Energía Sostenible"
-      software_development: "Desarrollo de Software"
-    cta: "Descubre Más"
+      title: "Nicolás Mahecha Duarte | Ingeniero de Integración Edge-to-Cloud"
+      description: "Ingeniero Electrónico especializado en SCADA, IoT y desarrollo de software full-stack con Ruby on Rails, Python y AWS. Certificado FASA/BASA."
+    hero:
+      title: "Nicolás Mahecha Duarte"
+      subtitle: "Ingeniero de Integración Edge-to-Cloud"
+      tagline: "Conectando el hardware de campo (Seguridad, IoT, Automatización) con soluciones inteligentes en la nube en Florida."
+      cta_calendly: "Agendar Consulta Técnica Gratuita"
+      cta_resume: "Descargar Currículum Profesional (PDF)"
     about:
-      title: "Sobre Mí"
-      description: "Soy Nicolas Mahecha, especialista en sistemas de seguridad, IoT e integración de energía sostenible, con pasión por aprovechar la IA para ofrecer un rendimiento superior. Mi experiencia abarca la automatización de dispositivos inteligentes, la instalación de alarmas contra incendios y de intrusión, y soluciones de tecnología renovable. Me dedico a crear sistemas innovadores, impulsados por IA y ecológicos, que integran perfectamente seguridad y sostenibilidad. Mi misión es cerrar la brecha entre la seguridad y la responsabilidad ambiental, proporcionando soluciones tecnológicas eficientes, conectadas e inteligentes para un futuro más verde y seguro."
+      title: "Sobre Mí y Propuesta de Valor"
+      description: "Ingeniero Electrónico con más de 10 años de experiencia que abarcan la automatización industrial (SCADA/PLC), arquitecturas IoT embebidas y desarrollo de software full-stack (Ruby on Rails, Python, AWS). Trayectoria probada conectando el hardware de campo y los sistemas basados en la nube para optimizar la eficiencia energética y la automatización de edificios. Certificado FASA/BASA con una Maestría en Energía Sostenible de la UBA, especializándose en infraestructuras IoT/SCADA escalables que reducen el tiempo de inactividad e impulsan la eficiencia automatizada."
       buttons:
         about_me: "Sobre Mí"
         explore_projects: "Explorar Proyectos"
         get_in_touch: "Contáctame"
+    services:
+      title: "Servicios Profesionales"
+      subtitle: "Soluciones B2B Empresariales y Consultoría Premium Local"
+      industrial_automation:
+        title: "Automatización Industrial e Integración SCADA"
+        description: "Optimizamos sus líneas de producción y sistemas BAS (Building Automation). Conectamos su hardware de campo mediante protocolos industriales (Modbus, BACnet, OPC-UA) a sistemas de monitoreo centralizado (Ignition) para reducir paradas críticas y costos energéticos."
+      fullstack_apps:
+        title: "Aplicaciones Web Full-Stack a Medida"
+        description: "Desarrollamos plataformas empresariales robustas y escalables con Ruby on Rails y arquitecturas de nube AWS. Diseñamos desde MVPs listos para producción para startups hasta software de gestión operativa para empresas locales."
+      smart_iot:
+        title: "Soluciones de Gestión Energética e IoT Inteligente"
+        description: "Diseño e integración de extremo a extremo de hardware inteligente para el monitoreo de recursos, sistemas de red solar y automatización comercial. Convertimos datos físicos de sensores en tableros de control digitales en tiempo real."
+    projects:
+      title: "Proyectos Destacados y Casos de Estudio"
+      none: "Aún no hay proyectos disponibles."
+      check_back: "¡Vuelve pronto para ver novedades!"
+      rv_energy:
+        title: "Sistema de Energía de Casa Rodante Autónoma (IoT y Sostenibilidad)"
+        description: "Diseño y construcción de un ecosistema de energía aislado (off-grid) utilizando ESP32/Raspberry Pi. Diseñé la integración completa de campo conectando múltiples sensores mediante protocolos Modbus/MQTT para el monitoreo en tiempo real de la carga solar, salud de la batería y reciclaje de agua."
+      ai_agency:
+        title: "Agencia de Software con Agentes de IA (Modernización de OrdenApp)"
+        description: "Lideré la modernización del sistema heredado de la plataforma empresarial OrdenApp utilizando Ruby on Rails 8 y Hotwire, reduciendo los tiempos de respuesta operativa en un 25% estimado y aumentando la eficiencia del despacho de técnicos de campo en más de 100 instalaciones activas."
+    social_proof:
+      title: "Certificaciones y Credenciales"
+      subtitle: "Experiencia Técnica Verificada y Cumplimiento de Estándares"
+      fasa_basa:
+        title: "Certificación FASA/BASA de Florida"
+        authority: "Estado de Florida"
+        description: "Agente certificado de sistemas de alarma contra incendios (FASA) / sistemas de alarma contra robos (BASA) en conformidad con las normas de seguridad del Estado de Florida."
+      uba:
+        title: "Maestría en Energía Sostenible"
+        authority: "Universidad de Buenos Aires (UBA)"
+        description: "Estudios avanzados de posgrado enfocados en la eficiencia de los sistemas de energía, redes verdes e integración de recursos sostenibles."
+      ignition:
+        title: "Especialista en SCADA Ignition"
+        authority: "Inductive Automation"
+        description: "Integrador certificado de SCADA con experiencia en la conexión de hardware de campo y PLCs a tableros de control interactivos de Ignition."
 
   about:
     meta:
-      title: "Sobre Nicolas Mahecha - Experto en Integración Tecnológica"
-      description: "Soy Nicolas Mahecha, especialista en sistemas de seguridad, IoT e integración de energía sostenible, con pasión por aprovechar la IA para ofrecer un rendimiento superior. Mi experiencia abarca la automatización de dispositivos inteligentes, la instalación de alarmas contra incendios y de intrusión, y soluciones de tecnología renovable. Me dedico a crear sistemas innovadores, impulsados por IA y ecológicos, que integran perfectamente seguridad y sostenibilidad. Mi misión es cerrar la brecha entre la seguridad y la responsabilidad ambiental, proporcionando soluciones tecnológicas eficientes, conectadas e inteligentes para un futuro más verde y seguro."
+      title: "Sobre Nicolás Mahecha - Currículum y Habilidades Profesionales"
+      description: "Más de 10 años de experiencia técnica en electrónica, software e integración de sistemas. Descubre mi trayectoria profesional."
     title: "Sobre Mí"
-    role: "Especialista en Integración Tecnológica (Seguridad, IoT, Sostenibilidad)"
+    role: "Ingeniero de Integración Edge-to-Cloud"
     location: "Kissimmee, Florida, EE.UU."
     professional_summary:
       title: "Resumen Profesional"
-      body: "Con más de 10 años dedicados al diseño, implementación y gestión de soluciones tecnológicas avanzadas, aporto una profunda experiencia en sistemas de seguridad (alarmas contra incendios, control de acceso, detección de intrusos), automatización IoT e integración de energía sostenible (energía solar, almacenamiento de energía). Me enfoco en crear sistemas holísticos donde los protocolos de seguridad mejoran la eficiencia, los dispositivos inteligentes contribuyen a la sostenibilidad y la energía renovable impulsa infraestructuras resilientes. Mi objetivo es unir seguridad y sostenibilidad, entregando soluciones personalizadas y ecológicas para un futuro conectado."
+      body: "Ingeniero Electrónico con más de 10 años de experiencia que abarcan la automatización industrial (SCADA/PLC), arquitecturas IoT embebidas y desarrollo de software full-stack (Ruby on Rails, Python, AWS). Trayectoria probada conectando el hardware de campo y los sistemas basados en la nube para optimizar la eficiencia energética y la automatización de edificios. Certificado FASA/BASA con una Maestría en Energía Sostenible de la UBA, especializándose en infraestructuras IoT/SCADA escalables que reducen el tiempo de inactividad e impulsan la eficiencia automatizada."
     expertise:
-      title: "Especialidades"
+      title: "Experiencia Técnica Principal"
       security:
-        title: "Sistemas de Seguridad"
-        fire_alarm: "Sistemas de Alarma contra Incendios"
-        access_control: "Control de Acceso"
-        surveillance: "Sistemas de Vigilancia"
+        title: "Sistemas Industriales y SCADA"
+        fire_alarm: "Integración de SCADA y PLC (Ignition)"
+        access_control: "Protocolos Modbus / BACnet / OPC-UA"
+        surveillance: "Sistemas BAS (Building Automation Systems)"
       smart_tech:
-        title: "Tecnología Inteligente"
-        iot: "Integración IoT"
-        automation: "Automatización del Hogar"
-        device_config: "Configuración de Dispositivos Inteligentes"
+        title: "Hardware Inteligente e IoT"
+        iot: "Desarrollo en ESP32 y Raspberry Pi"
+        automation: "Redes MQTT y LoRaWAN"
+        device_config: "Sistemas de Almacenamiento de Energía (ESS)"
       sustainable:
-        title: "Energía Sostenible"
-        renewable: "Sistemas de Energía Renovable"
-        efficiency: "Eficiencia Energética"
-        green_tech: "Tecnología Verde"
+        title: "Tecnología Sostenible"
+        renewable: "Sistemas de Energía Solar (Fotovoltaica)"
+        efficiency: "Auditorías de Eficiencia Energética"
+        green_tech: "Cumplimiento FASA/BASA en Florida"
       software:
-        title: "Desarrollo de Software"
-        web_apps: "Aplicaciones Web"
-        integration: "Integración de Sistemas"
-        custom: "Soluciones Personalizadas"
+        title: "Desarrollo Full-Stack"
+        web_apps: "Ruby on Rails 8 (Hotwire)"
+        integration: "Arquitectura Cloud con Python y AWS"
+        custom: "Bases de Datos SQL e Integración de APIs"
     linkedin: "Ver Perfil Completo en LinkedIn"
+    download_resume: "Descargar Currículum (PDF)"
 
   contact:
     meta:
-      title: "Contacto Nicolas Mahecha - Especialista en Integración Tecnológica"
-      description: "Contacta a Nicolas Mahecha para asesoría experta en sistemas de seguridad, integración IoT y soluciones de energía sostenible. Con base en Kissimmee, Florida."
-    title: "Contáctame"
-    get_in_touch: "Contáctame"
-    send_message: "Enviar Mensaje"
+      title: "Contacto Nicolás Mahecha - Consultoría y Contrataciones"
+      description: "Ponte en contacto para contratos B2B de SCADA, IoT, Ruby on Rails o roles de contratación en Florida."
+    title: "Contacto y Consultas"
+    get_in_touch: "Construyamos Algo Juntos"
+    send_message: "Enviar Mensaje Seguro"
     location:
       label: "Ubicación"
-      value: "Kissimmee, FL"
+      value: "Kissimmee, Florida (Disponible para proyectos en todo el estado)"
     phone:
       label: "Teléfono"
       value: "+1 (904) 385-0725"
     response_time:
-      label: "Tiempo de Respuesta"
-      value: "En 24-48 horas"
+      label: "Reservas Directas"
+      value: "Disponible a través de Calendly / WhatsApp"
     form:
       name: "Tu Nombre"
       email: "Tu Correo Electrónico"
@@ -90,11 +132,12 @@ es:
       message: "Mensaje"
       send: "Enviar Mensaje"
     success:
-      title: "¡Mensaje enviado exitosamente!"
-      body: "Gracias por contactarme. Te responderé lo antes posible."
+      title: "¡Mensaje Enviado Exitosamente!"
+      body: "Gracias por contactarme. Te responderé a la brevedad posible."
       another: "Enviar Otro Mensaje"
-
-  projects:
-    title: "Proyectos"
-    none: "Aún no hay proyectos disponibles."
-    check_back: "¡Vuelve pronto para ver novedades!" 
+    b2b_channels:
+      title: "Canales de Respuesta Rápida para Clientes B2B y Reclutadores"
+      calendly_desc: "Reserva una sesión técnica gratuita de 15 minutos para discutir tus necesidades de automatización o software."
+      whatsapp_desc: "Envía un mensaje de WhatsApp directo a mi perfil corporativo para una atención inmediata."
+      whatsapp_btn: "Chatear por WhatsApp"
+      calendly_btn: "Agendar en Calendly"

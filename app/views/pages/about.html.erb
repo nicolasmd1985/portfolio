@@ -1,72 +1,152 @@
 <% content_for :title, t('about.meta.title') %>
 <% content_for :description, t('about.meta.description') %>
 
-<section class="py-20 bg-gray-800">
-  <div class="container mx-auto px-8 max-w-4xl">
-    <h2 class="text-4xl font-bold mb-8 text-center text-white"><%= t('about.title') %></h2>
+<section class="py-24 bg-gray-900">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <h2 class="text-4xl font-bold orbitron-font mb-12 text-center text-white"><%= t('about.title') %></h2>
     
-    <div class="bg-gray-700 rounded-lg p-8 shadow-lg">
-      <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
-        <div class="w-48 h-48 rounded-full overflow-hidden">
-          <%= image_tag 'profile.jpg', alt: 'Nicolas Mahecha', class: 'w-full h-full object-cover' %>
+    <div class="bg-gray-800/40 border border-white/5 rounded-2xl p-8 shadow-xl backdrop-blur-md">
+      <!-- Header with Profile and Role Info -->
+      <div class="flex flex-col md:flex-row items-center gap-8 mb-10 pb-10 border-b border-white/5">
+        <div class="w-48 h-48 rounded-full overflow-hidden border-2 border-teal-500/30 p-1 flex items-center justify-center bg-gray-900 shrink-0">
+          <% if asset_path('profile.jpg').present? %>
+            <%= image_tag 'profile.jpg', alt: 'Nicolas Mahecha', class: 'w-full h-full object-cover rounded-full' %>
+          <% else %>
+            <div class="w-full h-full bg-gradient-to-br from-teal-600 to-indigo-800 rounded-full flex items-center justify-center">
+              <i class="mdi mdi-account-cog text-5xl text-white"></i>
+            </div>
+          <% end %>
         </div>
         <div class="text-center md:text-left">
-          <h3 class="text-2xl font-bold text-white mb-2">Nicolas Mahecha</h3>
-          <p class="text-cyan-400 mb-2"><%= t('about.role') %></p>
-          <p class="text-gray-400"><%= t('about.location') %></p>
+          <h3 class="text-3xl font-bold text-white mb-2 orbitron-font">Nicolas Mahecha</h3>
+          <p class="text-teal-400 font-semibold text-lg mb-2 orbitron-font"><%= t('about.role') %></p>
+          <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-400">
+            <span class="flex items-center gap-1">
+              <i class="mdi mdi-map-marker text-teal-400"></i>
+              <span><%= t('about.location') %></span>
+            </span>
+            <span class="flex items-center gap-1">
+              <i class="mdi mdi-briefcase-check text-teal-400"></i>
+              <span>FASA/BASA Active License</span>
+            </span>
+          </div>
         </div>
       </div>
 
-      <div class="space-y-6">
+      <!-- Main Body -->
+      <div class="space-y-10">
+        <!-- Professional Summary -->
         <div>
-          <h4 class="text-xl font-semibold text-white mb-3"><%= t('about.professional_summary.title') %></h4>
-          <p class="text-gray-300 leading-relaxed">
+          <h4 class="text-xl font-bold text-white mb-4 orbitron-font flex items-center gap-2">
+            <i class="mdi mdi-text-long text-teal-400 text-2xl"></i>
+            <%= t('about.professional_summary.title') %>
+          </h4>
+          <p class="text-gray-300 leading-relaxed text-base font-light">
             <%= t('about.professional_summary.body') %>
           </p>
         </div>
 
+        <!-- Credentials & Certifications -->
         <div>
-          <h4 class="text-xl font-semibold text-white mb-3"><%= t('about.expertise.title') %></h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.security.title') %></h5>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li><%= t('about.expertise.security.fire_alarm') %></li>
-                <li><%= t('about.expertise.security.access_control') %></li>
-                <li><%= t('about.expertise.security.surveillance') %></li>
+          <h4 class="text-xl font-bold text-white mb-4 orbitron-font flex items-center gap-2">
+            <i class="mdi mdi-shield-crown-outline text-teal-400 text-2xl"></i>
+            Verified Credentials
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- FASA/BASA -->
+            <div class="bg-gray-900/60 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+              <div>
+                <h5 class="text-teal-400 font-bold orbitron-font text-sm mb-1"><%= t('home.social_proof.fasa_basa.title') %></h5>
+                <span class="text-[10px] text-gray-500 block mb-3 font-semibold"><%= t('home.social_proof.fasa_basa.authority') %></span>
+                <p class="text-xs text-gray-400 leading-relaxed"><%= t('home.social_proof.fasa_basa.description') %></p>
+              </div>
+            </div>
+            <!-- Master UBA -->
+            <div class="bg-gray-900/60 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+              <div>
+                <h5 class="text-indigo-400 font-bold orbitron-font text-sm mb-1"><%= t('home.social_proof.uba.title') %></h5>
+                <span class="text-[10px] text-gray-500 block mb-3 font-semibold"><%= t('home.social_proof.uba.authority') %></span>
+                <p class="text-xs text-gray-400 leading-relaxed"><%= t('home.social_proof.uba.description') %></p>
+              </div>
+            </div>
+            <!-- SCADA Ignition -->
+            <div class="bg-gray-900/60 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+              <div>
+                <h5 class="text-emerald-400 font-bold orbitron-font text-sm mb-1"><%= t('home.social_proof.ignition.title') %></h5>
+                <span class="text-[10px] text-gray-500 block mb-3 font-semibold"><%= t('home.social_proof.ignition.authority') %></span>
+                <p class="text-xs text-gray-400 leading-relaxed"><%= t('home.social_proof.ignition.description') %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Capabilities Grid -->
+        <div>
+          <h4 class="text-xl font-bold text-white mb-6 orbitron-font flex items-center gap-2">
+            <i class="mdi mdi-cogs text-teal-400 text-2xl"></i>
+            <%= t('about.expertise.title') %>
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Col 1 -->
+            <div class="bg-gray-900/40 p-5 rounded-xl border border-white/5">
+              <h5 class="text-teal-400 font-bold orbitron-font text-sm mb-3 flex items-center gap-1">
+                <i class="mdi mdi-monitor-dashboard text-lg"></i>
+                <span><%= t('about.expertise.security.title') %></span>
+              </h5>
+              <ul class="text-gray-300 text-sm space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.security.fire_alarm') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.security.access_control') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.security.surveillance') %></li>
               </ul>
             </div>
-            <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.smart_tech.title') %></h5>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li><%= t('about.expertise.smart_tech.iot') %></li>
-                <li><%= t('about.expertise.smart_tech.automation') %></li>
-                <li><%= t('about.expertise.smart_tech.device_config') %></li>
+            <!-- Col 2 -->
+            <div class="bg-gray-900/40 p-5 rounded-xl border border-white/5">
+              <h5 class="text-teal-400 font-bold orbitron-font text-sm mb-3 flex items-center gap-1">
+                <i class="mdi mdi-chip text-lg"></i>
+                <span><%= t('about.expertise.smart_tech.title') %></span>
+              </h5>
+              <ul class="text-gray-300 text-sm space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.smart_tech.iot') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.smart_tech.automation') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.smart_tech.device_config') %></li>
               </ul>
             </div>
-            <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.sustainable.title') %></h5>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li><%= t('about.expertise.sustainable.renewable') %></li>
-                <li><%= t('about.expertise.sustainable.efficiency') %></li>
-                <li><%= t('about.expertise.sustainable.green_tech') %></li>
+            <!-- Col 3 -->
+            <div class="bg-gray-900/40 p-5 rounded-xl border border-white/5">
+              <h5 class="text-teal-400 font-bold orbitron-font text-sm mb-3 flex items-center gap-1">
+                <i class="mdi mdi-solar-power text-lg"></i>
+                <span><%= t('about.expertise.sustainable.title') %></span>
+              </h5>
+              <ul class="text-gray-300 text-sm space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.sustainable.renewable') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.sustainable.efficiency') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.sustainable.green_tech') %></li>
               </ul>
             </div>
-            <div class="bg-gray-600 p-4 rounded-lg">
-              <h5 class="text-cyan-400 font-semibold mb-2"><%= t('about.expertise.software.title') %></h5>
-              <ul class="text-gray-300 list-disc list-inside">
-                <li><%= t('about.expertise.software.web_apps') %></li>
-                <li><%= t('about.expertise.software.integration') %></li>
-                <li><%= t('about.expertise.software.custom') %></li>
+            <!-- Col 4 -->
+            <div class="bg-gray-900/40 p-5 rounded-xl border border-white/5">
+              <h5 class="text-teal-400 font-bold orbitron-font text-sm mb-3 flex items-center gap-1">
+                <i class="mdi mdi-xml text-lg"></i>
+                <span><%= t('about.expertise.software.title') %></span>
+              </h5>
+              <ul class="text-gray-300 text-sm space-y-2 font-light">
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.software.web_apps') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.software.integration') %></li>
+                <li class="flex items-center gap-2"><i class="mdi mdi-chevron-right text-teal-400"></i> <%= t('about.expertise.software.custom') %></li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div class="text-center mt-8">
-          <a href="https://www.linkedin.com/in/nm85/" target="_blank" 
-             class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg transition-colors">
-            <%= t('about.linkedin') %>
+        <!-- Action CTAs -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6 pt-6 border-t border-white/5">
+          <a href="/resume_nicolas_mahecha.pdf" target="_blank" class="btn-primary w-full sm:w-auto text-center justify-center flex items-center gap-2">
+            <i class="mdi mdi-file-pdf-box text-xl"></i>
+            <span><%= t('about.download_resume') %></span>
+          </a>
+          <a href="https://www.linkedin.com/in/nm85/" target="_blank" class="btn-secondary w-full sm:w-auto text-center justify-center flex items-center gap-2">
+            <i class="mdi mdi-linkedin text-xl"></i>
+            <span><%= t('about.linkedin') %></span>
           </a>
         </div>
       </div>

@@ -1,45 +1,19 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
   site:
-    title: "My Portfolio"
-    description: "Welcome to my professional portfolio"
+    title: "Nicolas Mahecha | Edge-to-Cloud Integration Specialist"
+    description: "Professional Portfolio of Nicolas Mahecha Duarte - SCADA, IoT, and Full-Stack Developer."
   navigation:
     home: "Home"
-    about: "About"
-    projects: "Projects"
+    about: "About & Resume"
+    projects: "Projects & Case Studies"
     contact: "Contact"
+    services: "Services"
   common:
     language: "Language"
     english: "English"
     spanish: "Spanish"
+    en: "English"
+    es: "Spanish"
   footer:
     rights: "All rights reserved"
     made_with: "Made with"
@@ -47,72 +21,110 @@ en:
 
   home:
     meta:
-      title: "Nicolas Mahecha - Technology Integration Specialist"
-      description: "Expert in security systems, IoT, and sustainable energy integration. Specializing in smart device automation, fire alarm installations, and renewable technology solutions."
-    tagline: "Integrating AI-enhanced cutting-edge security and intelligent automation with eco-friendly technology."
-    services:
-      smart_device: "Smart Device Integration"
-      sustainable_energy: "Sustainable Energy"
-      software_development: "Software Development"
-    cta: "Discover More"
+      title: "Nicolas Mahecha Duarte | Edge-to-Cloud Integration Engineer"
+      description: "Electronic Engineer specializing in SCADA, IoT, and full-stack software development with Ruby on Rails, Python, and AWS. FASA/BASA certified."
+    hero:
+      title: "Nicolás Mahecha Duarte"
+      subtitle: "Edge-to-Cloud Integration Engineer"
+      tagline: "Bridging the Gap between Field Hardware (Security, IoT, Automation) and Intelligent Cloud Solutions in Florida."
+      cta_calendly: "Schedule a Free Technical Consultation"
+      cta_resume: "Download Professional Resume (PDF)"
     about:
-      title: "About Me"
-      description: "I'm Nicolas Mahecha, a specialist in security systems, IoT, and sustainable energy integration, with a passion for harnessing AI to deliver superior performance. My expertise spans smart device automation, fire alarm and burglary alarm installations, and renewable technology solutions. I am dedicated to creating innovative, AI-driven, and eco-friendly systems that seamlessly blend security and sustainability. My mission is to bridge the gap between safety and environmental responsibility, providing efficient, connected, and intelligent technology solutions for a smarter, greener future."
+      title: "About Me & Propuesta de Valor"
+      description: "Electronic Engineer with 10+ years of expertise spanning industrial automation (SCADA/PLC), embedded IoT architectures, and full-stack software development (Ruby on Rails, Python, AWS). Proven track record bridging the gap between field hardware and cloud-based systems to optimize energy efficiency and building automation. FASA/BASA certified with a Master's in Sustainable Energy, specializing in scalable IoT/SCADA infrastructures that reduce downtime and drive automated efficiency."
       buttons:
         about_me: "About Me"
         explore_projects: "Explore Projects"
         get_in_touch: "Get in Touch"
+    services:
+      title: "Professional Services"
+      subtitle: "Enterprise B2B Solutions & Local High-End Consulting"
+      industrial_automation:
+        title: "Industrial Automation & SCADA Integration"
+        description: "We optimize your production lines and BAS (Building Automation Systems). We connect your field hardware using industrial protocols (Modbus, BACnet, OPC-UA) to centralized monitoring systems (Ignition) to reduce critical downtime and operational energy costs."
+      fullstack_apps:
+        title: "Custom Full-Stack Web Applications"
+        description: "We develop robust and highly scalable enterprise platforms utilizing Ruby on Rails and AWS cloud architectures. We design everything from production-ready MVPs for startups to local business operations management software."
+      smart_iot:
+        title: "Smart IoT & Energy Management Solutions"
+        description: "End-to-end design and integration of intelligent hardware for resource monitoring, solar grid systems, and commercial automation. We convert physical sensor data into actionable digital control dashboards in real time."
+    projects:
+      title: "Featured Projects & Technical Case Studies"
+      none: "No projects available yet."
+      check_back: "Check back soon for updates!"
+      rv_energy:
+        title: "Autonomous RV Energy System (IoT & Sustainability)"
+        description: "Designing and building an off-grid energy ecosystem using ESP32/Raspberry Pi. Engineered the entire field integration by wiring multiple sensors via Modbus/MQTT protocols for real-time monitoring of solar charging, battery health, and water recycling."
+      ai_agency:
+        title: "AI-Agent Software Agency (OrdenApp Modernization)"
+        description: "Spearheaded the legacy modernization of the OrdenApp enterprise platform utilizing Ruby on Rails 8 and Hotwire, reducing operational response times by an estimated 25% and boosting field technician dispatch efficiency across 100+ active field setups."
+    social_proof:
+      title: "Certifications & Credentials"
+      subtitle: "Verified Technical Expertise & Standards Compliance"
+      fasa_basa:
+        title: "Florida FASA/BASA Certified"
+        authority: "State of Florida"
+        description: "Certified Fire Alarm System Agent (FASA) / Burglar Alarm System Agent (BASA) compliant with Florida safety regulations."
+      uba:
+        title: "Master's in Sustainable Energy"
+        authority: "University of Buenos Aires (UBA)"
+        description: "Advanced post-graduate degree focused on energy systems efficiency, green grids, and integration of sustainable resources."
+      ignition:
+        title: "Ignition SCADA Specialist"
+        authority: "Inductive Automation"
+        description: "Certified SCADA integrator experienced in connecting field hardware and PLCs to Ignition dashboards."
 
   about:
     meta:
-      title: "About Nicolas Mahecha - Technology Integration Expert"
-      description: "I'm Nicolas Mahecha, a specialist in security systems, IoT, and sustainable energy integration, with a passion for harnessing AI to deliver superior performance. My expertise spans smart device automation, fire alarm and burglary alarm installations, and renewable technology solutions. I am dedicated to creating innovative, AI-driven, and eco-friendly systems that seamlessly blend security and sustainability. My mission is to bridge the gap between safety and environmental responsibility, providing efficient, connected, and intelligent technology solutions for a smarter, greener future."
+      title: "About Nicolas Mahecha - Professional Resume & Skills"
+      description: "10+ years of technical experience in electronics, software, and systems integration. Discover my professional background."
     title: "About Me"
-    role: "Technology Integration Specialist (Security, IoT, Sustainability)"
+    role: "Edge-to-Cloud Integration Engineer"
     location: "Kissimmee, Florida, USA"
     professional_summary:
       title: "Professional Summary"
-      body: "With 10+ years dedicated to designing, implementing, and managing advanced technology solutions, I bring deep expertise in security systems (fire alarms, access control, intrusion detection), IoT automation, and sustainable energy integration (solar power, energy storage). I focus on creating holistic systems where security protocols enhance efficiency, smart devices contribute to sustainability, and renewable energy powers resilient infrastructure. My goal is to bridge security and sustainability, delivering tailored, eco-friendly solutions for a connected future."
+      body: "Electronic Engineer with 10+ years of expertise spanning industrial automation (SCADA/PLC), embedded IoT architectures, and full-stack software development (Ruby on Rails, Python, AWS). Proven track record bridging the gap between field hardware and cloud-based systems to optimize energy efficiency and building automation. FASA/BASA certified with a Master's in Sustainable Energy, specializing in scalable IoT/SCADA infrastructures that reduce downtime and drive automated efficiency."
     expertise:
-      title: "Expertise"
+      title: "Core Technical Expertise"
       security:
-        title: "Security Systems"
-        fire_alarm: "Fire Alarm Systems"
-        access_control: "Access Control"
-        surveillance: "Surveillance Systems"
+        title: "SCADA & Industrial Systems"
+        fire_alarm: "SCADA & PLC Integration (Ignition)"
+        access_control: "Modbus / BACnet / OPC-UA"
+        surveillance: "BAS (Building Automation Systems)"
       smart_tech:
-        title: "Smart Technology"
-        iot: "IoT Integration"
-        automation: "Home Automation"
-        device_config: "Smart Device Configuration"
+        title: "Smart Hardware & IoT"
+        iot: "ESP32 & Raspberry Pi Development"
+        automation: "MQTT & LoRaWAN Networks"
+        device_config: "Energy Storage Systems (ESS)"
       sustainable:
-        title: "Sustainable Energy"
-        renewable: "Renewable Energy Systems"
-        efficiency: "Energy Efficiency"
-        green_tech: "Green Technology"
+        title: "Sustainable Tech"
+        renewable: "Solar Power Systems (PV)"
+        efficiency: "Energy Efficiency Audits"
+        green_tech: "FASA/BASA Compliance"
       software:
-        title: "Software Development"
-        web_apps: "Web Applications"
-        integration: "System Integration"
-        custom: "Custom Solutions"
+        title: "Full-Stack Development"
+        web_apps: "Ruby on Rails 8 (Hotwire)"
+        integration: "Python & AWS Cloud Architecture"
+        custom: "SQL Databases & API Integrations"
     linkedin: "View Full Profile on LinkedIn"
+    download_resume: "Download Resume PDF"
 
   contact:
     meta:
-      title: "Contact Nicolas Mahecha - Technology Integration Specialist"
-      description: "Get in touch with Nicolas Mahecha for expert consultation on security systems, IoT integration, and sustainable energy solutions. Based in Kissimmee, Florida."
-    title: "Contact Me"
-    get_in_touch: "Get in Touch"
-    send_message: "Send a Message"
+      title: "Contact Nicolas Mahecha - Consultation & Hiring"
+      description: "Get in touch for SCADA, IoT, and Ruby on Rails B2B contracts or recruiting roles in Florida."
+    title: "Contact & Consultations"
+    get_in_touch: "Let's Build Something Together"
+    send_message: "Send a Secure Message"
     location:
       label: "Location"
-      value: "Kissimmee, FL"
+      value: "Kissimmee, Florida (Available for projects statewide)"
     phone:
       label: "Phone"
       value: "+1 (904) 385-0725"
     response_time:
-      label: "Response Time"
-      value: "Within 24-48 hours"
+      label: "Direct Booking"
+      value: "Available via Calendly / WhatsApp"
     form:
       name: "Your Name"
       email: "Your Email"
@@ -123,8 +135,9 @@ en:
       title: "Message Sent Successfully!"
       body: "Thank you for reaching out. I'll get back to you as soon as possible."
       another: "Send Another Message"
-
-  projects:
-    title: "Projects"
-    none: "No projects available yet."
-    check_back: "Check back soon for updates!"
+    b2b_channels:
+      title: "Instant Channels for B2B & Hiring Managers"
+      calendly_desc: "Book a 15-minute free technical consultation to discuss your automation or software needs."
+      whatsapp_desc: "Send a direct WhatsApp message to my corporate profile for rapid assistance."
+      whatsapp_btn: "Chat on WhatsApp"
+      calendly_btn: "Schedule on Calendly"
