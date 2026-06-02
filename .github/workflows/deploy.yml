@@ -43,7 +43,6 @@ jobs:
         run: |
           echo "SECRET_KEY_BASE=${{ secrets.SECRET_KEY_BASE }}" >> .env.production
           echo "RDS_HOST=${{ secrets.RDS_HOST }}" >> .env.production
-          echo "RDS_USERNAME=${{ secrets.RDS_HOST }}" >> .env.production
           echo "RDS_USERNAME=${{ secrets.RDS_USERNAME }}" >> .env.production
           echo "RDS_PASSWORD=${{ secrets.RDS_PASSWORD }}" >> .env.production
           echo "RDS_PORT=${{ secrets.RDS_PORT }}" >> .env.production
@@ -56,21 +55,6 @@ jobs:
           echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env.production
           echo "RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }}" >> .env.production
           echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env.production
-
-          #echo "aws_access_key_id=${{ secrets.aws_access_key_id }}" >> .env.production
-          #echo "aws_secret_access_key=${{ secrets.aws_secret_access_key }}" >> .env.production
-          #echo "S3_BUCKET_NAME=${{ secrets.S3_BUCKET_NAME }}" >> .env.production
-          #echo "AWS_REGION=${{ secrets.AWS_REGION }}" >> .env.production
-          #echo "GOOGLE_MAPS_API_SERVER_KEY=${{ secrets.GOOGLE_MAPS_API_SERVER_KEY }}" >> .env.production
-          #echo "REDIS_URL=${{ secrets.REDIS_URL }}" >> .env.production
-          # echo "EMAIL_HOST=${{ secrets.EMAIL_HOST }}" >> .env.production
-          # echo "EMAIL_PORT=${{ secrets.EMAIL_PORT }}" >> .env.production
-          # echo "EMAIL_USERNAME=${{ secrets.EMAIL_USERNAME }}" >> .env.production
-          # echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env.production
-          # echo "HOST=${{ secrets.HOST }}" >> .env.production
-          # echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env.production
-          # echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env.production
-
 
       - name: Create deploy script
         run: |
@@ -85,7 +69,7 @@ jobs:
 
           # Stop any running containers and remove them
           echo "Stopping existing containers..."
-          docker-compose down --remove-orphans || true
+          docker compose down --remove-orphans || true
 
           # Remove any dangling containers
           echo "Cleaning up dangling containers..."
@@ -93,24 +77,24 @@ jobs:
 
           # Pull the latest images
           echo "Pulling latest images..."
-          docker-compose pull
+          docker compose pull
 
           # Run migrations
           echo "Running database migrations..."
-          docker-compose run --rm web bundle exec rails db:migrate
+          docker compose run --rm web bundle exec rails db:migrate
 
           # Start the containers in detached mode
           echo "Starting containers..."
-          docker-compose up -d --remove-orphans
+          docker compose up -d --remove-orphans
 
           # Wait for containers to be healthy
           echo "Waiting for containers to be healthy..."
           sleep 10
 
           # Check if web container is running
-          if ! docker-compose ps web | grep -q "Up"; then
+          if ! docker compose ps web | grep -q "Up"; then
             echo "Error: Web container failed to start"
-            docker-compose logs web
+            docker compose logs web
             exit 1
           fi
 
@@ -124,13 +108,13 @@ jobs:
           chmod +x deploy_script.sh
 
       - name: Ensure deploy directory exists
-        run: ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'mkdir -p /home/ubuntu/portfolio && chmod 755 /home/ubuntu/portfolio'
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'mkdir -p ~/portfolio && chmod 755 ~/portfolio'
 
       - name: Copy files to server
         run: |
-          scp -o StrictHostKeyChecking=no .env.production ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
-          scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
-          scp -o StrictHostKeyChecking=no deploy_script.sh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/portfolio/
+          scp -o StrictHostKeyChecking=no .env.production ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/portfolio/
+          scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/portfolio/
+          scp -o StrictHostKeyChecking=no deploy_script.sh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/portfolio/
 
       - name: Run deploy script
         uses: appleboy/ssh-action@v1.0.3
@@ -139,7 +123,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/portfolio/
+            cd ~/portfolio/
             chmod +x deploy_script.sh
             ./deploy_script.sh
 
@@ -150,6 +134,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/portfolio/
-            docker-compose ps
-            docker-compose logs --tail=50 web
+            cd ~/portfolio/
+            docker compose ps
+            docker compose logs --tail=50 web
