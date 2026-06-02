@@ -59,10 +59,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: portfolio_test
-  username: nicolasmd
-  password: 4dm1nOrdenapp
-  host: localhost
+  database: <%= ENV['RDS_DB_NAME'] || 'portfolio_test' %>
+  username: <%= ENV['RDS_USERNAME'] || 'postgres' %>
+  password: <%= ENV['RDS_PASSWORD'] || 'postgres' %>
+  host: <%= ENV['RDS_HOST'] || 'localhost' %>
+  port: <%= ENV['RDS_PORT'] || 5432 %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

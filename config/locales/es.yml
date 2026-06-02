@@ -1,7 +1,8 @@
 es:
   site:
-    title: "Nicolás Mahecha | Especialista en Integración Edge-to-Cloud"
-    description: "Portafolio Profesional de Nicolás Mahecha Duarte - SCADA, IoT y Desarrollador Full-Stack."
+    title: "Nicolas Mahecha | Especialista en Integración Edge-to-Cloud"
+    description: "Nicolas Mahecha - Ingeniero Electrónico e Integrador de Sistemas especializado en automatización inteligente, espacios inteligentes, sistemas de seguridad e integración de tecnología verde."
+    keywords: "Nicolas Mahecha, Integrador de Sistemas, Ingeniero de Automatización, Domótica, Automatización Residencial, Tecnología Solar, Desarrollador IoT, Orlando, Kissimmee, Florida"
   navigation:
     home: "Inicio"
     about: "Sobre Mí y CV"
@@ -21,17 +22,17 @@ es:
 
   home:
     meta:
-      title: "Nicolás Mahecha Duarte | Ingeniero de Integración Edge-to-Cloud"
-      description: "Ingeniero Electrónico especializado en SCADA, IoT y desarrollo de software full-stack con Ruby on Rails, Python y AWS. Certificado FASA/BASA."
+      title: "Nicolas Mahecha | INGENIERO ELECTRÓNICO E INTEGRADOR DE SISTEMAS (AUTOMATIZACIÓN E IoT)"
+      description: "Nicolas Mahecha - Ingeniero Electrónico e Integrador de Sistemas especializado en automatización inteligente, espacios inteligentes, sistemas de seguridad e integración de tecnología verde."
     hero:
-      title: "Nicolás Mahecha Duarte"
-      subtitle: "Ingeniero de Integración Edge-to-Cloud"
+      title: "Nicolas Mahecha"
+      subtitle: "INGENIERO ELECTRÓNICO E INTEGRADOR DE SISTEMAS (AUTOMATIZACIÓN E IoT)"
       tagline: "Conectando el hardware de campo (Seguridad, IoT, Automatización) con soluciones inteligentes en la nube en Florida."
       cta_calendly: "Agendar Consulta Técnica Gratuita"
       cta_resume: "Descargar Currículum Profesional (PDF)"
     about:
       title: "Sobre Mí y Propuesta de Valor"
-      description: "Ingeniero Electrónico con más de 10 años de experiencia que abarcan la automatización industrial (SCADA/PLC), arquitecturas IoT embebidas y desarrollo de software full-stack (Ruby on Rails, Python, AWS). Trayectoria probada conectando el hardware de campo y los sistemas basados en la nube para optimizar la eficiencia energética y la automatización de edificios. Certificado FASA/BASA con una Maestría en Energía Sostenible de la UBA, especializándose en infraestructuras IoT/SCADA escalables que reducen el tiempo de inactividad e impulsan la eficiencia automatizada."
+      description: "Ingeniero Electrónico con más de 10 años de experiencia especializado en integración de sistemas, automatización de edificios y tecnología IoT. Trayectoria comprobada en el despliegue de redes de automatización avanzadas residenciales y comerciales (Domótica/Inmótica), configuración de infraestructura de red y ejecución de instalaciones de tecnología inteligente. Experto en cerrar la brecha entre el hardware de campo —incluyendo monitoreo de energía solar, paneles de control de bajo voltaje y redes de seguridad— con la infraestructura basada en la nube. Impulsado por una pasión por los espacios inteligentes, la eficiencia energética y la conexión de ecosistemas tecnológicos complejos."
       buttons:
         about_me: "Sobre Mí"
         explore_projects: "Explorar Proyectos"
@@ -76,14 +77,14 @@ es:
 
   about:
     meta:
-      title: "Sobre Nicolás Mahecha - Currículum y Habilidades Profesionales"
+      title: "Sobre Nicolas Mahecha - Currículum y Habilidades Profesionales"
       description: "Más de 10 años de experiencia técnica en electrónica, software e integración de sistemas. Descubre mi trayectoria profesional."
     title: "Sobre Mí"
-    role: "Ingeniero de Integración Edge-to-Cloud"
+    role: "INGENIERO ELECTRÓNICO E INTEGRADOR DE SISTEMAS (AUTOMATIZACIÓN E IoT)"
     location: "Kissimmee, Florida, EE.UU."
     professional_summary:
       title: "Resumen Profesional"
-      body: "Ingeniero Electrónico con más de 10 años de experiencia que abarcan la automatización industrial (SCADA/PLC), arquitecturas IoT embebidas y desarrollo de software full-stack (Ruby on Rails, Python, AWS). Trayectoria probada conectando el hardware de campo y los sistemas basados en la nube para optimizar la eficiencia energética y la automatización de edificios. Certificado FASA/BASA con una Maestría en Energía Sostenible de la UBA, especializándose en infraestructuras IoT/SCADA escalables que reducen el tiempo de inactividad e impulsan la eficiencia automatizada."
+      body: "Ingeniero Electrónico con más de 10 años de experiencia especializado en integración de sistemas, automatización de edificios y tecnología IoT. Trayectoria comprobada en el despliegue de redes de automatización avanzadas residenciales y comerciales (Domótica/Inmótica), configuración de infraestructura de red y ejecución de instalaciones de tecnología inteligente. Experto en cerrar la brecha entre el hardware de campo —incluyendo monitoreo de energía solar, paneles de control de bajo voltaje y redes de seguridad— con la infraestructura basada en la nube. Impulsado por una pasión por los espacios inteligentes, la eficiencia energética y la conexión de ecosistemas tecnológicos complejos."
     expertise:
       title: "Experiencia Técnica Principal"
       security:
@@ -111,7 +112,7 @@ es:
 
   contact:
     meta:
-      title: "Contacto Nicolás Mahecha - Consultoría y Contrataciones"
+      title: "Contacto Nicolas Mahecha - Consultoría y Contrataciones"
       description: "Ponte en contacto para contratos B2B de SCADA, IoT, Ruby on Rails o roles de contratación en Florida."
     title: "Contacto y Consultas"
     get_in_touch: "Construyamos Algo Juntos"

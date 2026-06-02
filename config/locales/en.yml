@@ -1,7 +1,8 @@
 en:
   site:
     title: "Nicolas Mahecha | Edge-to-Cloud Integration Specialist"
-    description: "Professional Portfolio of Nicolas Mahecha Duarte - SCADA, IoT, and Full-Stack Developer."
+    description: "Nicolas Mahecha - Electronic Engineer & Systems Integrator specializing in intelligent automation, smart spaces, security systems, and green technology integration."
+    keywords: "Nicolas Mahecha, Systems Integrator, Automation Engineer, Domotics, Home Automation, Solar Technology, IoT Developer, Orlando, Kissimmee, Florida"
   navigation:
     home: "Home"
     about: "About & Resume"
@@ -21,17 +22,17 @@ en:
 
   home:
     meta:
-      title: "Nicolas Mahecha Duarte | Edge-to-Cloud Integration Engineer"
-      description: "Electronic Engineer specializing in SCADA, IoT, and full-stack software development with Ruby on Rails, Python, and AWS. FASA/BASA certified."
+      title: "Nicolas Mahecha | ELECTRONIC ENGINEER & SYSTEMS INTEGRATOR (AUTOMATION & IoT)"
+      description: "Nicolas Mahecha - Electronic Engineer & Systems Integrator specializing in intelligent automation, smart spaces, security systems, and green technology integration."
     hero:
-      title: "Nicolás Mahecha Duarte"
-      subtitle: "Edge-to-Cloud Integration Engineer"
+      title: "Nicolas Mahecha"
+      subtitle: "ELECTRONIC ENGINEER & SYSTEMS INTEGRATOR (AUTOMATION & IoT)"
       tagline: "Bridging the Gap between Field Hardware (Security, IoT, Automation) and Intelligent Cloud Solutions in Florida."
       cta_calendly: "Schedule a Free Technical Consultation"
       cta_resume: "Download Professional Resume (PDF)"
     about:
-      title: "About Me & Propuesta de Valor"
-      description: "Electronic Engineer with 10+ years of expertise spanning industrial automation (SCADA/PLC), embedded IoT architectures, and full-stack software development (Ruby on Rails, Python, AWS). Proven track record bridging the gap between field hardware and cloud-based systems to optimize energy efficiency and building automation. FASA/BASA certified with a Master's in Sustainable Energy, specializing in scalable IoT/SCADA infrastructures that reduce downtime and drive automated efficiency."
+      title: "About Me & Value Proposition"
+      description: "Electronic Engineer with over 10 years of experience specializing in systems integration, building automation, and IoT technology. Proven track record deploying advanced residential and commercial automation networks (Domotics/Inmotics), configuring network infrastructure, and executing smart technology installations. Expert at bridging the gap between field hardware—including solar energy monitoring, low-voltage control panels, and security networks—with cloud-based infrastructure. Driven by a passion for smart spaces, energy efficiency, and connecting complex technological ecosystems."
       buttons:
         about_me: "About Me"
         explore_projects: "Explore Projects"
@@ -79,11 +80,11 @@ en:
       title: "About Nicolas Mahecha - Professional Resume & Skills"
       description: "10+ years of technical experience in electronics, software, and systems integration. Discover my professional background."
     title: "About Me"
-    role: "Edge-to-Cloud Integration Engineer"
+    role: "ELECTRONIC ENGINEER & SYSTEMS INTEGRATOR (AUTOMATION & IoT)"
     location: "Kissimmee, Florida, USA"
     professional_summary:
       title: "Professional Summary"
-      body: "Electronic Engineer with 10+ years of expertise spanning industrial automation (SCADA/PLC), embedded IoT architectures, and full-stack software development (Ruby on Rails, Python, AWS). Proven track record bridging the gap between field hardware and cloud-based systems to optimize energy efficiency and building automation. FASA/BASA certified with a Master's in Sustainable Energy, specializing in scalable IoT/SCADA infrastructures that reduce downtime and drive automated efficiency."
+      body: "Electronic Engineer with over 10 years of experience specializing in systems integration, building automation, and IoT technology. Proven track record deploying advanced residential and commercial automation networks (Domotics/Inmotics), configuring network infrastructure, and executing smart technology installations. Expert at bridging the gap between field hardware—including solar energy monitoring, low-voltage control panels, and security networks—with cloud-based infrastructure. Driven by a passion for smart spaces, energy efficiency, and connecting complex technological ecosystems."
     expertise:
       title: "Core Technical Expertise"
       security:
