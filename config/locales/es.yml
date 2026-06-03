@@ -33,6 +33,11 @@ es:
     about:
       title: "Sobre Mí y Propuesta de Valor"
       description: "Ingeniero Electrónico con más de 10 años de experiencia especializado en integración de sistemas, automatización de edificios y tecnología IoT. Trayectoria comprobada en el despliegue de redes de automatización avanzadas residenciales y comerciales (Domótica/Inmótica), configuración de infraestructura de red y ejecución de instalaciones de tecnología inteligente. Experto en cerrar la brecha entre el hardware de campo —incluyendo monitoreo de energía solar, paneles de control de bajo voltaje y redes de seguridad— con la infraestructura basada en la nube. Impulsado por una pasión por los espacios inteligentes, la eficiencia energética y la conexión de ecosistemas tecnológicos complejos."
+      bullets:
+        integration: "10+ Años en Integración de Sistemas e IoT"
+        safety: "Certificación FASA/BASA de Seguridad (Florida)"
+        software: "Desarrollo Full-Stack (Rails y Python)"
+        education: "Maestría en Energía Sostenible (UBA)"
       buttons:
         about_me: "Sobre Mí"
         explore_projects: "Explorar Proyectos"

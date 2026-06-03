@@ -33,6 +33,11 @@ en:
     about:
       title: "About Me & Value Proposition"
       description: "Electronic Engineer with over 10 years of experience specializing in systems integration, building automation, and IoT technology. Proven track record deploying advanced residential and commercial automation networks (Domotics/Inmotics), configuring network infrastructure, and executing smart technology installations. Expert at bridging the gap between field hardware—including solar energy monitoring, low-voltage control panels, and security networks—with cloud-based infrastructure. Driven by a passion for smart spaces, energy efficiency, and connecting complex technological ecosystems."
+      bullets:
+        integration: "10+ Years in Systems Integration & IoT"
+        safety: "FASA/BASA Florida Safety Certified"
+        software: "Full-Stack Ruby on Rails & Python"
+        education: "Master's in Sustainable Energy (UBA)"
       buttons:
         about_me: "About Me"
         explore_projects: "Explore Projects"
