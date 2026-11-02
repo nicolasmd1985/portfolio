@@ -59,6 +59,18 @@ projects_data = [
     featured: true,
     position: 5,
     port: nil
+  },
+  {
+    title: "Commercial Low-Voltage, Life Safety & Smart Security Integration",
+    category: "Case Study 03",
+    description: "Field execution, structured cabling, and system commissioning across commercial and residential sites in Central Florida. Deployed intrusion panels (DSC Neo, PowerSeries, Honeywell), fire alarm loops (SLC & NAC wiring, addressable/conventional devices), access control hardware (maglocks, electric strikes, relay logic, Altronix power), and MDF/IDF server racks under strict NEC and TIA/EIA-568 compliance, integrated with Alarm.com Z-Wave automation.",
+    image: nil,
+    url: "#",
+    tags: "FASA/BASA Certified, Cat6 & MDF/IDF Racks, DSC Neo & Alarm.com, Fire Alarm (SLC/NAC), Access Control & Relays, NEC Compliance",
+    status: "Hardware Case Study",
+    featured: true,
+    position: 6,
+    port: nil
   }
 ]
 

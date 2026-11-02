@@ -26,6 +26,16 @@ class Project < ApplicationRecord
     I18n.t("project_items.#{key}.category", default: category)
   end
 
+  def localized_highlight_title
+    res = I18n.t("project_items.#{key}.highlight_title", default: "")
+    res.presence
+  end
+
+  def localized_highlight_subtitle
+    res = I18n.t("project_items.#{key}.highlight_subtitle", default: "")
+    res.presence
+  end
+
   def self.display_projects
     projects = ordered.all
     return projects if projects.any?
@@ -93,6 +103,17 @@ class Project < ApplicationRecord
         status: "Hardware Case Study",
         featured: true,
         position: 5
+      ),
+      new(
+        title: "Commercial Low-Voltage, Life Safety & Smart Security Integration",
+        category: "Case Study 03",
+        description: "Field execution, structured cabling, and system commissioning across commercial and residential sites in Central Florida. Deployed intrusion panels (DSC Neo, PowerSeries, Honeywell), fire alarm loops (SLC & NAC wiring, addressable/conventional devices), access control hardware (maglocks, electric strikes, relay logic, Altronix power), and MDF/IDF server racks under strict NEC and TIA/EIA-568 compliance, integrated with Alarm.com Z-Wave automation.",
+        image: nil,
+        url: "#",
+        tags: "FASA/BASA Certified, Cat6 & MDF/IDF Racks, DSC Neo & Alarm.com, Fire Alarm (SLC/NAC), Access Control & Relays, NEC Compliance",
+        status: "Hardware Case Study",
+        featured: true,
+        position: 6
       )
     ]
   end

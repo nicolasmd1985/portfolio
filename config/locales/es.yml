@@ -37,7 +37,7 @@ es:
         integration: "10+ Años en Integración de Sistemas e IoT"
         safety: "Certificación FASA/BASA de Seguridad (Florida)"
         software: "Desarrollo Full-Stack (Rails y Python)"
-        education: "Maestría en Energía Sostenible (UBA)"
+        education: "Posgrado en Gerencia de Proyectos & BI (Verificado por WES)"
       buttons:
         about_me: "Sobre Mí"
         explore_projects: "Explorar Proyectos"
@@ -47,13 +47,13 @@ es:
       subtitle: "Soluciones B2B Empresariales y Consultoría Premium Local"
       industrial_automation:
         title: "Automatización Industrial e Integración SCADA"
-        description: "Optimizamos sus líneas de producción y sistemas BAS (Building Automation). Conectamos su hardware de campo mediante protocolos industriales (Modbus, BACnet, OPC-UA) a sistemas de monitoreo centralizado (Ignition) para reducir paradas críticas y costos energéticos."
+        description: "Diseño y optimización de líneas de producción y sistemas BMS/BAS. Integración de hardware de campo mediante protocolos industriales (Modbus, BACnet, RS-485, OPC-UA) hacia sistemas de monitoreo centralizado (Ignition) para reducir tiempos de inactividad y costos energéticos."
       fullstack_apps:
         title: "Aplicaciones Web Full-Stack a Medida"
-        description: "Desarrollamos plataformas empresariales robustas y escalables con Ruby on Rails y arquitecturas de nube AWS. Diseñamos desde MVPs listos para producción para startups hasta software de gestión operativa para empresas locales."
+        description: "Desarrollo de plataformas empresariales robustas y escalables utilizando Ruby on Rails 8, Python, PostgreSQL y arquitecturas en la nube AWS, desde software de gestión de operaciones en campo hasta dashboards de telemetría en tiempo real."
       smart_iot:
-        title: "Soluciones de Gestión Energética e IoT Inteligente"
-        description: "Diseño e integración de extremo a extremo de hardware inteligente para el monitoreo de recursos, sistemas de red solar y automatización comercial. Convertimos datos físicos de sensores en tableros de control digitales en tiempo real."
+        title: "IoT Inteligente, Baja Tensión y Gestión Energética"
+        description: "Ingeniería e implementación integral en campo de infraestructura comercial de baja tensión, redes de seguridad electrónica, telemetría solar y automatización de edificios inteligentes, convirtiendo datos físicos en control digital en tiempo real."
     projects:
       title: "Proyectos en Producción y Casos Destacados"
       subtitle: "Plataformas full-stack y sistemas inteligentes corriendo actualmente en vivo en Google Cloud."
@@ -71,14 +71,22 @@ es:
         title: "Certificación FASA/BASA de Florida"
         authority: "Estado de Florida"
         description: "Agente certificado de sistemas de alarma contra incendios (FASA) / sistemas de alarma contra robos (BASA) en conformidad con las normas de seguridad del Estado de Florida."
+        badge: "Credenciales Activas"
+      postgrad:
+        title: "Especialización en Gerencia de Proyectos y BI"
+        authority: "Politécnico Grancolombiano (Verificado por WES)"
+        description: "Posgrado enfocado en gerencia de proyectos técnicos, asignación de recursos e inteligencia de negocios, con equivalencia oficial en EE. UU. verificada por WES."
+        badge: "Posgrado Verificado WES"
       uba:
-        title: "Maestría en Energía Sostenible"
-        authority: "Universidad de Buenos Aires (UBA)"
-        description: "Estudios avanzados de posgrado enfocados en la eficiencia de los sistemas de energía, redes verdes e integración de recursos sostenibles."
+        title: "Especialización en Gerencia de Proyectos y BI"
+        authority: "Politécnico Grancolombiano (Verificado por WES)"
+        description: "Posgrado enfocado en gerencia de proyectos técnicos, asignación de recursos e inteligencia de negocios, con equivalencia oficial en EE. UU. verificada por WES."
+        badge: "Posgrado Verificado WES"
       ignition:
-        title: "Especialista en SCADA Ignition"
-        authority: "Inductive Automation"
-        description: "Integrador certificado de SCADA con experiencia en la conexión de hardware de campo y PLCs a tableros de control interactivos de Ignition."
+        title: "SCADA & IIoT Systems Specialist (Ignition)"
+        authority: "Inductive Automation Platform"
+        description: "Especialista práctico en arquitectura SCADA, conectando hardware de campo, PLCs y protocolos industriales (Modbus RTU/TCP, BACnet, MQTT) con dashboards en Ignition."
+        badge: "SCADA & IIoT Integration"
 
   about:
     meta:
@@ -187,3 +195,9 @@ es:
       title: "Red de Energía Autónoma Off-Grid para RV"
       category: "Hardware IoT y Monitoreo de Energía Solar"
       description: "Ecosistema de energía solar aislado (off-grid) con controladores ESP32 y Raspberry Pi. Integración de sensores industriales y controladores de carga vía Modbus RTU y broker MQTT para telemetría en tiempo real de baterías y paneles solares."
+    commercial_low_voltage_life_safety_smart_security_integration:
+      title: "Integración Comercial de Baja Tensión, Seguridad y Automatización"
+      category: "Caso de Estudio 03"
+      description: "Ejecución en campo, cableado estructurado y puesta en marcha de sistemas en Florida Central. Implementación de paneles de intrusión (DSC Neo, PowerSeries, Honeywell), lazos de detección de incendio (circuitos SLC y NAC, dispositivos direccionables y convencionales), hardware de control de acceso (electroimanes, cantoneras eléctricas, lógica de relés, fuentes Altronix) y racks MDF/IDF bajo normativas NEC y TIA/EIA-568, integrados con automatización Z-Wave en Alarm.com."
+      highlight_title: "Commercial & Life Safety"
+      highlight_subtitle: "NEC & Florida FASA/BASA Compliant Field Deployments"

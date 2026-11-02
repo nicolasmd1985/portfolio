@@ -31,7 +31,7 @@
         <span><%= t('home.hero.cta_calendly') %></span>
         <i class="mdi mdi-arrow-right transition-transform group-hover:translate-x-1"></i>
       </a>
-      <a href="/resume_nicolas_mahecha.pdf" target="_blank" class="btn-secondary flex items-center gap-2 w-full sm:w-auto text-center justify-center">
+      <a href="/nicolas_mahecha_lv_resume_2026.pdf" target="_blank" class="btn-secondary flex items-center gap-2 w-full sm:w-auto text-center justify-center">
         <i class="mdi mdi-file-download-outline text-xl"></i>
         <span><%= t('home.hero.cta_resume') %></span>
       </a>
@@ -290,7 +290,15 @@
 
                 <!-- Preview Image Frame -->
                 <div class="relative aspect-video bg-gray-950 overflow-hidden">
-                  <% if project.image.present? %>
+                  <% if project.localized_highlight_title.present? %>
+                    <div class="w-full h-full bg-gradient-to-br from-gray-900 to-gray-950 p-6 border border-white/5 flex flex-col justify-center items-center text-center">
+                      <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center mb-3 text-teal-400">
+                        <i class="mdi mdi-shield-home text-3xl"></i>
+                      </div>
+                      <h4 class="text-white font-bold orbitron-font text-sm md:text-base mb-1"><%= project.localized_highlight_title %></h4>
+                      <span class="text-xs text-gray-400 font-medium max-w-xs leading-relaxed"><%= project.localized_highlight_subtitle %></span>
+                    </div>
+                  <% elsif project.image.present? %>
                     <%= image_tag project.image, alt: project.localized_title, class: "w-full h-full object-cover transition duration-700 ease-out group-hover/screen:scale-105" %>
                   <% else %>
                     <div class="w-full h-full flex flex-col items-center justify-center text-gray-600">
@@ -352,20 +360,20 @@
           <p class="text-xs text-teal-400 font-semibold mb-3"><%= t('home.social_proof.fasa_basa.authority') %></p>
           <p class="text-sm text-gray-400"><%= t('home.social_proof.fasa_basa.description') %></p>
         </div>
-        <span class="text-xs bg-teal-500/10 text-teal-400 border border-teal-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase">Active Credentials</span>
+        <span class="text-xs bg-teal-500/10 text-teal-400 border border-teal-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase"><%= t('home.social_proof.fasa_basa.badge', default: 'Active Credentials') %></span>
       </div>
 
-      <!-- Certification 2: Master UBA -->
+      <!-- Certification 2: Postgrad Politécnico Grancolombiano -->
       <div class="bg-gray-900/80 border border-white/5 rounded-xl p-6 text-center shadow-lg flex flex-col justify-between">
         <div>
           <div class="w-16 h-16 bg-indigo-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-indigo-500/30">
             <i class="mdi mdi-school text-3xl text-indigo-400"></i>
           </div>
-          <h3 class="text-lg font-bold text-white orbitron-font mb-1"><%= t('home.social_proof.uba.title') %></h3>
-          <p class="text-xs text-indigo-400 font-semibold mb-3"><%= t('home.social_proof.uba.authority') %></p>
-          <p class="text-sm text-gray-400"><%= t('home.social_proof.uba.description') %></p>
+          <h3 class="text-lg font-bold text-white orbitron-font mb-1"><%= t('home.social_proof.postgrad.title') %></h3>
+          <p class="text-xs text-indigo-400 font-semibold mb-3"><%= t('home.social_proof.postgrad.authority') %></p>
+          <p class="text-sm text-gray-400"><%= t('home.social_proof.postgrad.description') %></p>
         </div>
-        <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase">Master's Degree</span>
+        <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase"><%= t('home.social_proof.postgrad.badge') %></span>
       </div>
 
       <!-- Certification 3: SCADA Ignition -->
@@ -378,7 +386,7 @@
           <p class="text-xs text-emerald-400 font-semibold mb-3"><%= t('home.social_proof.ignition.authority') %></p>
           <p class="text-sm text-gray-400"><%= t('home.social_proof.ignition.description') %></p>
         </div>
-        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase">SCADA Specialist</span>
+        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded py-1 px-2.5 font-bold block mt-6 max-w-max mx-auto uppercase"><%= t('home.social_proof.ignition.badge') %></span>
       </div>
     </div>
   </div>
