@@ -55,15 +55,15 @@ en:
         title: "Smart IoT & Energy Management Solutions"
         description: "End-to-end design and integration of intelligent hardware for resource monitoring, solar grid systems, and commercial automation. We convert physical sensor data into actionable digital control dashboards in real time."
     projects:
-      title: "Featured Projects & Technical Case Studies"
+      title: "Live Deployments & Featured Projects"
+      subtitle: "Full-stack platforms and intelligent systems currently running live on Google Cloud."
       none: "No projects available yet."
       check_back: "Check back soon for updates!"
-      rv_energy:
-        title: "Autonomous RV Energy System (IoT & Sustainability)"
-        description: "Designing and building an off-grid energy ecosystem using ESP32/Raspberry Pi. Engineered the entire field integration by wiring multiple sensors via Modbus/MQTT protocols for real-time monitoring of solar charging, battery health, and water recycling."
-      ai_agency:
-        title: "AI-Agent Software Agency (OrdenApp Modernization)"
-        description: "Spearheaded the legacy modernization of the OrdenApp enterprise platform utilizing Ruby on Rails 8 and Hotwire, reducing operational response times by an estimated 25% and boosting field technician dispatch efficiency across 100+ active field setups."
+      explore_all: "View All Projects & Architecture"
+      launch_live: "Launch Live App"
+      view_specs: "Technical Details"
+      live_indicator: "Live in Production"
+      port_label: "Port"
     social_proof:
       title: "Certifications & Credentials"
       subtitle: "Verified Technical Expertise & Standards Compliance"
@@ -147,3 +147,43 @@ en:
       whatsapp_desc: "Send a direct WhatsApp message to my corporate profile for rapid assistance."
       whatsapp_btn: "Chat on WhatsApp"
       calendly_btn: "Schedule on Calendly"
+
+  projects:
+    meta:
+      title: "Projects & Live Deployments | Nicolas Mahecha"
+      description: "Explore live production web applications, AI systems, and IoT platforms built and deployed by Nicolas Mahecha."
+    title: "Projects & Live Deployments"
+    subtitle: "Real-world SaaS platforms, AI voice agents, and interactive software currently running in production on Google Cloud Platform."
+    none: "No projects available yet."
+    check_back: "Check back soon for updates!"
+    launch_live: "Launch Live App"
+    view_details: "Technical Specs"
+    running_on: "Port"
+    live_badge: "Live Online"
+    filter_all: "All Projects"
+    filter_ai: "AI & Multimodal"
+    filter_saas: "Web & SaaS"
+    filter_audio: "Audio & DSP"
+    filter_iot: "IoT & Hardware"
+
+  project_items:
+    backyard_ai:
+      title: "Backyard AI"
+      category: "Generative AI Landscape Architecture"
+      description: "Outdoor landscape transformation platform powered by multimodal generative AI (Google Gemini Vision & Nano Banana). Upload yard photos to analyze sunlight, boundaries, and soil layout, generating climate-adapted photorealistic landscaping with native flora while preserving home structures."
+    ordenapp:
+      title: "OrdenApp"
+      category: "Enterprise Facilities & Work Orders SaaS"
+      description: "Enterprise SaaS platform for facilities management, maintenance workflows, and real-time work order dispatching. Features live technician tracking, equipment lifecycle management, and operational analytics."
+    drumplay:
+      title: "DrumPlay"
+      category: "Interactive E-Drum Learning Platform"
+      description: "Interactive learning and practice platform for electronic drums (optimized for Alesis Nitro Mesh). Features a real-time dual-stave visual system comparing official MIDI tablature against acoustic transient audio transcription via DSP & Demucs with Web MIDI API."
+    alarmtronics_voice_dispatch:
+      title: "Alarmtronics Voice Dispatch"
+      category: "Conversational Multimodal AI Telephony"
+      description: "Real-time conversational AI voice receptionist for fire and intrusion alarm dispatch telephony. Engineered with low-latency bi-directional WebSockets bridging Telnyx TeXML audio streams with Google Gemini Live API for sub-second neural voice and barge-in response."
+    autonomous_rv_off_grid_energy_grid:
+      title: "Autonomous RV Off-Grid Energy Grid"
+      category: "IoT Hardware & Renewable Solar Monitoring"
+      description: "Off-grid smart energy ecosystem powered by ESP32 microcontrollers and Raspberry Pi. Complete field integration wiring solar charge controllers and battery monitors via industrial Modbus RTU and MQTT telemetry dashboards."

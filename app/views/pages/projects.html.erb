@@ -1,26 +1,284 @@
-<section class="py-20 bg-gray-800">
-  <div class="container mx-auto px-8">
-    <h2 class="text-4xl font-bold mb-8 text-center text-white"><%= t('projects.title') %></h2>
+<% content_for :title, t('projects.meta.title') %>
+<% content_for :description, t('projects.meta.description') %>
+
+<!-- HERO & ARCHITECTURE OVERVIEW -->
+<section class="relative pt-32 pb-16 bg-gray-950 border-b border-gray-800 overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(20,184,166,0.12),transparent_60%)]"></div>
+  <div class="container mx-auto px-6 max-w-6xl relative z-10 text-center">
     
+    <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider orbitron-font">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <%= t('projects.live_badge') %>
+    </div>
+
+    <h1 class="text-4xl md:text-6xl font-extrabold orbitron-font text-white mb-6 tracking-tight">
+      <%= t('projects.title') %>
+    </h1>
+
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10 font-light">
+      <%= t('projects.subtitle') %>
+    </p>
+
+    <!-- Cloud Infrastructure Quick Specs -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-white/5 pt-8 text-left">
+      <div class="bg-gray-900/60 border border-white/5 rounded-xl p-4">
+        <span class="text-[11px] text-teal-400 font-mono block uppercase">Compute Host</span>
+        <span class="text-sm font-bold text-white">Google Cloud Engine</span>
+      </div>
+      <div class="bg-gray-900/60 border border-white/5 rounded-xl p-4">
+        <span class="text-[11px] text-teal-400 font-mono block uppercase">Reverse Proxy</span>
+        <span class="text-sm font-bold text-white">Nginx + SSL Certbot</span>
+      </div>
+      <div class="bg-gray-900/60 border border-white/5 rounded-xl p-4">
+        <span class="text-[11px] text-teal-400 font-mono block uppercase">Orchestration</span>
+        <span class="text-sm font-bold text-white">Docker Microservices</span>
+      </div>
+      <div class="bg-gray-900/60 border border-white/5 rounded-xl p-4">
+        <span class="text-[11px] text-teal-400 font-mono block uppercase">Database Engine</span>
+        <span class="text-sm font-bold text-white">PostgreSQL 15 (Shared)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN PROJECTS CATALOG SECTION -->
+<section class="py-20 bg-gray-900 min-h-screen">
+  <div class="container mx-auto px-6 max-w-6xl">
+    
+    <!-- Filter Pills Bar -->
+    <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-14" id="projects-filter-bar">
+      <button 
+        type="button" 
+        class="filter-btn active px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-200 bg-teal-500 text-gray-950 shadow-lg shadow-teal-500/20"
+        data-filter="all"
+      >
+        <%= t('projects.filter_all') %>
+      </button>
+      <button 
+        type="button" 
+        class="filter-btn px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-200 bg-gray-800 text-gray-300 hover:text-white hover:bg-gray-700 border border-white/5"
+        data-filter="ai"
+      >
+        <%= t('projects.filter_ai') %>
+      </button>
+      <button 
+        type="button" 
+        class="filter-btn px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-200 bg-gray-800 text-gray-300 hover:text-white hover:bg-gray-700 border border-white/5"
+        data-filter="saas"
+      >
+        <%= t('projects.filter_saas') %>
+      </button>
+      <button 
+        type="button" 
+        class="filter-btn px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-200 bg-gray-800 text-gray-300 hover:text-white hover:bg-gray-700 border border-white/5"
+        data-filter="audio"
+      >
+        <%= t('projects.filter_audio') %>
+      </button>
+      <button 
+        type="button" 
+        class="filter-btn px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all duration-200 bg-gray-800 text-gray-300 hover:text-white hover:bg-gray-700 border border-white/5"
+        data-filter="iot"
+      >
+        <%= t('projects.filter_iot') %>
+      </button>
+    </div>
+
     <% if @projects.any? %>
-      <div class="flex overflow-x-auto space-x-4 snap-x snap-mandatory">
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
         <% @projects.each do |project| %>
-          <div class="min-w-[300px] bg-gray-800 rounded-lg shadow-lg snap-start">
-            <% if project.image.present? %>
-              <%= image_tag project.image, alt: project.title, class: "w-full h-48 object-cover rounded-t-lg" %>
-            <% end %>
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-white"><%= project.title %></h3>
-              <p class="text-gray-400"><%= project.description %></p>
+          <% 
+            # Category classifier for filtering
+            filter_cat = if project.title.downcase.include?("backyard") || project.title.downcase.include?("alarmtronics")
+              "ai"
+            elsif project.title.downcase.include?("ordenapp")
+              "saas"
+            elsif project.title.downcase.include?("drumplay")
+              "audio"
+            else
+              "iot"
+            end
+          %>
+          <div 
+            class="project-card bg-gray-800/50 backdrop-blur-md border border-white/10 hover:border-teal-500/40 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300 flex flex-col justify-between group"
+            id="<%= project.key %>"
+            data-category="<%= filter_cat %>"
+          >
+            <div>
+              <!-- Mockup Window Header Bar -->
+              <div class="bg-gray-950/90 px-4 py-2.5 border-b border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                </div>
+                <div class="bg-gray-900/90 rounded-md px-3 py-1 text-xs text-gray-400 font-mono truncate max-w-[220px] sm:max-w-xs text-center border border-white/5">
+                  <%= project.url.presence || "system://hardware-offline" %>
+                </div>
+                <% if project.port.present? %>
+                  <span class="text-[11px] font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">
+                    :<%= project.port %>
+                  </span>
+                <% else %>
+                  <span class="text-[11px] font-mono text-gray-500">IoT</span>
+                <% end %>
+              </div>
+
+              <!-- Project Image with interactive overlay -->
+              <div class="relative aspect-video bg-gray-950 overflow-hidden">
+                <% if project.live? %>
+                  <a href="<%= project.url %>" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative group/img" title="<%= t('projects.launch_live') %>: <%= project.localized_title %>">
+                <% end %>
+
+                <% if project.image.present? %>
+                  <%= image_tag project.image, alt: project.localized_title, class: "w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" %>
+                <% else %>
+                  <div class="w-full h-full flex flex-col items-center justify-center text-gray-600">
+                    <i class="mdi mdi-application text-5xl mb-2"></i>
+                    <span class="text-xs font-mono">No Preview Available</span>
+                  </div>
+                <% end %>
+
+                <% if project.live? %>
+                  <!-- Floating Hover Prompt -->
+                  <div class="absolute inset-0 bg-gray-950/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="inline-flex items-center gap-2 bg-teal-500 text-gray-950 font-bold text-sm px-4 py-2 rounded-xl shadow-2xl">
+                      <span><%= t('projects.launch_live') %></span>
+                      <i class="mdi mdi-open-in-new text-base"></i>
+                    </span>
+                  </div>
+                  </a>
+                <% end %>
+              </div>
+
+              <!-- Project Content Body -->
+              <div class="p-6 md:p-8">
+                <!-- Meta tags row -->
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <span class="text-xs font-bold text-teal-400 orbitron-font uppercase tracking-wider">
+                    <%= project.localized_category %>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs px-2.5 py-0.5 rounded-full font-medium">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 <%= 'animate-pulse' if project.live? %>"></span>
+                    <%= project.status %>
+                  </span>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-2xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">
+                  <% if project.live? %>
+                    <a href="<%= project.url %>" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                      <%= project.localized_title %>
+                    </a>
+                  <% else %>
+                    <%= project.localized_title %>
+                  <% end %>
+                </h2>
+
+                <!-- Description -->
+                <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                  <%= project.localized_description %>
+                </p>
+
+                <!-- Technology Pills -->
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  <% project.tags_list.each do |tag| %>
+                    <span class="bg-gray-950/80 border border-white/5 text-gray-400 text-[11px] px-2.5 py-1 rounded-md font-medium">
+                      <%= tag %>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Button -->
+            <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0 border-t border-white/5 flex items-center justify-between mt-auto">
+              <% if project.live? %>
+                <a 
+                  href="<%= project.url %>" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn-primary w-full text-center flex items-center justify-center gap-2 group/btn py-2.5"
+                >
+                  <span><%= t('projects.launch_live') %></span>
+                  <i class="mdi mdi-open-in-new text-lg transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
+                </a>
+              <% else %>
+                <a 
+                  href="<%= contact_path %>" 
+                  class="btn-secondary w-full text-center flex items-center justify-center gap-2 py-2.5"
+                >
+                  <i class="mdi mdi-file-document-outline"></i>
+                  <span><%= t('projects.view_details') %></span>
+                </a>
+              <% end %>
             </div>
           </div>
         <% end %>
       </div>
     <% else %>
-      <div class="text-center text-gray-400">
+      <div class="text-center text-gray-400 py-20">
         <p class="text-xl"><%= t('projects.none') %></p>
         <p class="mt-4"><%= t('projects.check_back') %></p>
       </div>
     <% end %>
+
   </div>
 </section>
+
+<!-- BOTTOM CONSULTATION CALL TO ACTION -->
+<section class="py-20 bg-gray-950 border-t border-gray-800 text-center relative overflow-hidden">
+  <div class="container mx-auto px-6 max-w-4xl relative z-10">
+    <h2 class="text-3xl md:text-4xl font-bold orbitron-font text-white mb-4">
+      Have a Complex Engineering Challenge?
+    </h2>
+    <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-sm md:text-base leading-relaxed">
+      From edge microcontrollers (ESP32 / Modbus) and full-stack Rails web platforms to multimodal Gemini voice agents.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <a href="<%= contact_path %>#calendly" class="btn-primary w-full sm:w-auto">
+        <i class="mdi mdi-calendar-check mr-2"></i> Book Technical Consultation
+      </a>
+      <a href="<%= contact_path %>" class="btn-secondary w-full sm:w-auto">
+        <i class="mdi mdi-email-outline mr-2"></i> Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Client-side Interactive Category Filter Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('#projects-filter-bar .filter-btn');
+    const cards = document.querySelectorAll('#projects-grid .project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const filter = this.getAttribute('data-filter');
+
+        // Update active button state
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-teal-500', 'text-gray-950', 'shadow-lg', 'shadow-teal-500/20');
+          b.classList.add('bg-gray-800', 'text-gray-300', 'border', 'border-white/5');
+        });
+
+        this.classList.add('active', 'bg-teal-500', 'text-gray-950', 'shadow-lg', 'shadow-teal-500/20');
+        this.classList.remove('bg-gray-800', 'text-gray-300', 'border', 'border-white/5');
+
+        // Filter cards
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

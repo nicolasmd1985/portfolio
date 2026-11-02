@@ -188,81 +188,146 @@
 
 <!-- FEATURED CASE STUDIES / PROJECTS SECTION -->
 <section id="projects" class="py-24 bg-gray-900 border-t border-gray-800 relative">
-  <div class="container mx-auto px-6 max-w-5xl">
+  <!-- Ambient glow backdrop -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 max-w-6xl relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold orbitron-font text-white mb-4"><%= t('home.projects.title') %></h2>
-      <div class="w-24 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+      <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider orbitron-font">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <%= t('home.projects.live_indicator') %>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold orbitron-font text-white mb-4"><%= t('home.projects.title') %></h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto"><%= t('home.projects.subtitle') %></p>
+      <div class="w-24 h-1 bg-gradient-to-r from-teal-500 to-emerald-400 mx-auto mt-6 rounded-full"></div>
     </div>
 
-    <!-- Case Studies Stack -->
+    <!-- Live Projects Stack -->
     <div class="space-y-12">
-      <!-- Case Study 1 -->
-      <div class="bg-gray-800/50 border border-white/5 hover:border-white/10 rounded-2xl p-8 transition duration-300">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-7">
-            <span class="text-xs font-bold text-teal-400 orbitron-font uppercase tracking-widest block mb-2">Case Study 01</span>
-            <h3 class="text-2xl font-bold text-white mb-4">
-              <%= t('home.projects.rv_energy.title') %>
-            </h3>
-            <p class="text-gray-300 leading-relaxed text-sm mb-6">
-              <%= t('home.projects.rv_energy.description') %>
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">ESP32</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Raspberry Pi</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Modbus RTU</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">MQTT Broker</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Solar PV Control</span>
-            </div>
-            <a href="<%= projects_path %>" class="text-teal-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1 group">
-              <span>Explore Technical Diagrams</span>
-              <i class="mdi mdi-arrow-right transition-transform group-hover:translate-x-1"></i>
-            </a>
-          </div>
-          <!-- Graphics Placeholder -->
-          <div class="lg:col-span-5">
-            <div class="bg-gray-900/60 rounded-xl p-6 border border-white/5 flex flex-col justify-center items-center text-center min-h-[220px]">
-              <i class="mdi mdi-solar-power text-5xl text-teal-500 mb-3"></i>
-              <h4 class="text-white font-bold orbitron-font text-sm mb-1">Off-Grid Energy Grid</h4>
-              <span class="text-xs text-gray-500">Live Telemetry & ESP32 Modbus Controllers</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% @projects.each_with_index do |project, idx| %>
+        <div class="bg-gray-800/40 backdrop-blur-md border border-white/5 hover:border-teal-500/30 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/5 group">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Details Column -->
+            <div class="lg:col-span-7 <%= 'lg:order-2' if idx.odd? %> flex flex-col justify-between h-full">
+              <div>
+                <!-- Metadata Badges -->
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                  <span class="text-xs font-bold text-teal-400 orbitron-font uppercase tracking-widest">
+                    <%= project.localized_category %>
+                  </span>
+                  <% if project.port.present? %>
+                    <span class="bg-gray-900 border border-teal-500/30 text-teal-300 text-xs px-2.5 py-0.5 rounded-full font-mono">
+                      <%= t('home.projects.port_label') %> <%= project.port %>
+                    </span>
+                  <% end %>
+                  <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs px-2.5 py-0.5 rounded-full font-medium">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 <%= 'animate-pulse' if project.live? %>"></span>
+                    <%= project.status %>
+                  </span>
+                </div>
 
-      <!-- Case Study 2 -->
-      <div class="bg-gray-800/50 border border-white/5 hover:border-white/10 rounded-2xl p-8 transition duration-300">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-7">
-            <span class="text-xs font-bold text-violet-400 orbitron-font uppercase tracking-widest block mb-2">Case Study 02</span>
-            <h3 class="text-2xl font-bold text-white mb-4">
-              <%= t('home.projects.ai_agency.title') %>
-            </h3>
-            <p class="text-gray-300 leading-relaxed text-sm mb-6">
-              <%= t('home.projects.ai_agency.description') %>
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Ruby on Rails 8</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Hotwire (Turbo)</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">AI Agent Dispatch</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">PostgreSQL</span>
-              <span class="bg-gray-900 text-gray-400 text-xs px-3 py-1 rounded-full font-medium">Solid Queue</span>
+                <!-- Title -->
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-teal-400 transition-colors">
+                  <%= project.localized_title %>
+                </h3>
+
+                <!-- Description -->
+                <p class="text-gray-300 leading-relaxed text-sm md:text-base mb-6 font-light">
+                  <%= project.localized_description %>
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <% project.tags_list.each do |tag| %>
+                    <span class="bg-gray-900/80 border border-white/5 text-gray-400 text-xs px-3 py-1 rounded-lg font-medium">
+                      <%= tag %>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+
+              <!-- Action Links -->
+              <div class="flex flex-wrap items-center gap-4 pt-2">
+                <% if project.live? %>
+                  <a href="<%= project.url %>" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-2 group/btn">
+                    <span><%= t('home.projects.launch_live') %></span>
+                    <i class="mdi mdi-open-in-new text-lg transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
+                  </a>
+                <% end %>
+                <a href="<%= projects_path %>#<%= project.key %>" class="text-gray-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1 group/link">
+                  <span><%= t('home.projects.view_specs') %></span>
+                  <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
+                </a>
+              </div>
             </div>
-            <a href="<%= projects_path %>" class="text-violet-400 hover:text-violet-300 font-semibold text-sm flex items-center gap-1 group">
-              <span>Explore Technical Architecture</span>
-              <i class="mdi mdi-arrow-right transition-transform group-hover:translate-x-1"></i>
-            </a>
-          </div>
-          <!-- Graphics Placeholder -->
-          <div class="lg:col-span-5">
-            <div class="bg-gray-900/60 rounded-xl p-6 border border-white/5 flex flex-col justify-center items-center text-center min-h-[220px]">
-              <i class="mdi mdi-robot-industrial text-5xl text-violet-500 mb-3"></i>
-              <h4 class="text-white font-bold orbitron-font text-sm mb-1">OrdenApp Modernization</h4>
-              <span class="text-xs text-gray-500">25% Speed Boost & Solid Queue Jobs</span>
+
+            <!-- Screenshot / Live Preview Window -->
+            <div class="lg:col-span-5 <%= 'lg:order-1' if idx.odd? %>">
+              <% if project.live? %>
+                <a href="<%= project.url %>" target="_blank" rel="noopener noreferrer" class="block group/screen relative rounded-xl overflow-hidden border border-white/10 hover:border-teal-500/50 shadow-xl transition-all duration-300 hover:shadow-teal-500/10">
+              <% else %>
+                <div class="relative rounded-xl overflow-hidden border border-white/10 shadow-xl">
+              <% end %>
+                
+                <!-- Mockup browser bar -->
+                <div class="bg-gray-950/90 px-3 py-2 border-b border-white/5 flex items-center gap-2">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                  </div>
+                  <div class="flex-1 bg-gray-900/90 rounded px-2 py-0.5 text-[11px] text-gray-400 font-mono truncate text-center">
+                    <%= project.url.presence || "system://off-grid-controller" %>
+                  </div>
+                  <% if project.live? %>
+                    <i class="mdi mdi-open-in-new text-xs text-gray-500 group-hover/screen:text-teal-400"></i>
+                  <% end %>
+                </div>
+
+                <!-- Preview Image Frame -->
+                <div class="relative aspect-video bg-gray-950 overflow-hidden">
+                  <% if project.image.present? %>
+                    <%= image_tag project.image, alt: project.localized_title, class: "w-full h-full object-cover transition duration-700 ease-out group-hover/screen:scale-105" %>
+                  <% else %>
+                    <div class="w-full h-full flex flex-col items-center justify-center text-gray-600">
+                      <i class="mdi mdi-code-tags text-4xl mb-2"></i>
+                      <span class="text-xs font-mono">Live Service</span>
+                    </div>
+                  <% end %>
+
+                  <% if project.live? %>
+                    <!-- Floating overlay prompt -->
+                    <div class="absolute inset-0 bg-gray-950/40 opacity-0 group-hover/screen:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span class="inline-flex items-center gap-1.5 bg-teal-500 text-gray-950 font-bold text-xs px-3.5 py-2 rounded-lg shadow-xl">
+                        <i class="mdi mdi-open-in-new"></i>
+                        <span><%= t('home.projects.launch_live') %></span>
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
+
+              <% if project.live? %>
+                </a>
+              <% else %>
+                </div>
+              <% end %>
             </div>
+
           </div>
         </div>
-      </div>
+      <% end %>
+    </div>
+
+    <!-- Explore All Projects Button -->
+    <div class="text-center mt-16">
+      <a href="<%= projects_path %>" class="btn-primary inline-flex items-center gap-3 px-8 py-3.5 text-base">
+        <span><%= t('home.projects.explore_all') %></span>
+        <i class="mdi mdi-arrow-right text-xl"></i>
+      </a>
     </div>
   </div>
 </section>

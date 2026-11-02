@@ -8,14 +8,14 @@ class PagesController < ApplicationController
   RECAPTCHA_MIN_SCORE = 0.5  # Minimum score to consider the request valid
 
   def home
-    @projects = Project.all rescue []
+    @projects = Project.display_projects
   end
 
   def about
   end
 
   def projects
-    @projects = Project.all rescue []
+    @projects = Project.display_projects
   end
 
   def services

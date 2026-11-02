@@ -55,15 +55,15 @@ es:
         title: "Soluciones de Gestión Energética e IoT Inteligente"
         description: "Diseño e integración de extremo a extremo de hardware inteligente para el monitoreo de recursos, sistemas de red solar y automatización comercial. Convertimos datos físicos de sensores en tableros de control digitales en tiempo real."
     projects:
-      title: "Proyectos Destacados y Casos de Estudio"
+      title: "Proyectos en Producción y Casos Destacados"
+      subtitle: "Plataformas full-stack y sistemas inteligentes corriendo actualmente en vivo en Google Cloud."
       none: "Aún no hay proyectos disponibles."
       check_back: "¡Vuelve pronto para ver novedades!"
-      rv_energy:
-        title: "Sistema de Energía de Casa Rodante Autónoma (IoT y Sostenibilidad)"
-        description: "Diseño y construcción de un ecosistema de energía aislado (off-grid) utilizando ESP32/Raspberry Pi. Diseñé la integración completa de campo conectando múltiples sensores mediante protocolos Modbus/MQTT para el monitoreo en tiempo real de la carga solar, salud de la batería y reciclaje de agua."
-      ai_agency:
-        title: "Agencia de Software con Agentes de IA (Modernización de OrdenApp)"
-        description: "Lideré la modernización del sistema heredado de la plataforma empresarial OrdenApp utilizando Ruby on Rails 8 y Hotwire, reduciendo los tiempos de respuesta operativa en un 25% estimado y aumentando la eficiencia del despacho de técnicos de campo en más de 100 instalaciones activas."
+      explore_all: "Ver Todos los Proyectos y Arquitectura"
+      launch_live: "Abrir Proyecto"
+      view_specs: "Detalles Técnicos"
+      live_indicator: "En Vivo en Producción"
+      port_label: "Puerto"
     social_proof:
       title: "Certificaciones y Credenciales"
       subtitle: "Experiencia Técnica Verificada y Cumplimiento de Estándares"
@@ -147,3 +147,43 @@ es:
       whatsapp_desc: "Envía un mensaje de WhatsApp directo a mi perfil corporativo para una atención inmediata."
       whatsapp_btn: "Chatear por WhatsApp"
       calendly_btn: "Agendar en Calendly"
+
+  projects:
+    meta:
+      title: "Proyectos y Despliegues en Vivo | Nicolas Mahecha"
+      description: "Explora aplicaciones web en producción, sistemas de IA y plataformas IoT construidas y desplegadas por Nicolas Mahecha."
+    title: "Proyectos y Despliegues en Vivo"
+    subtitle: "Plataformas SaaS reales, agentes de voz con IA y software interactivo corriendo actualmente en producción en Google Cloud Platform."
+    none: "Aún no hay proyectos disponibles."
+    check_back: "¡Vuelve pronto para ver novedades!"
+    launch_live: "Abrir Proyecto"
+    view_details: "Detalles Técnicos"
+    running_on: "Puerto"
+    live_badge: "En Vivo Online"
+    filter_all: "Todos los Proyectos"
+    filter_ai: "IA y Multimodal"
+    filter_saas: "Web y SaaS"
+    filter_audio: "Audio y DSP"
+    filter_iot: "IoT y Hardware"
+
+  project_items:
+    backyard_ai:
+      title: "Backyard AI"
+      category: "Arquitectura Paisajística con IA Generativa"
+      description: "Plataforma de rediseño paisajístico de exteriores impulsada por Inteligencia Artificial generativa multimodal (Google Gemini Vision y Nano Banana). Analiza fotos del patio, condiciones de luz solar y suelo para generar propuestas fotorrealistas con flora nativa conservando las estructuras originales."
+    ordenapp:
+      title: "OrdenApp"
+      category: "SaaS Empresarial de Mantenimiento y Órdenes"
+      description: "Plataforma SaaS empresarial para la gestión integral de instalaciones, órdenes de trabajo y mantenimiento predictivo en tiempo real. Optimiza la coordinación y despacho de técnicos de campo, inventario y seguimiento de activos."
+    drumplay:
+      title: "DrumPlay"
+      category: "Plataforma Interactiva para Batería Electrónica"
+      description: "Plataforma interactiva de aprendizaje y práctica para batería electrónica (optimizada para Alesis Nitro Mesh). Destaca por su sistema de pentagrama doble en tiempo real que compara la partitura oficial con la transcripción DSP del audio y conectividad Web MIDI."
+    alarmtronics_voice_dispatch:
+      title: "Alarmtronics Voice Dispatch"
+      category: "Telefonía con IA Conversacional Multimodal"
+      description: "Recepcionista y despachador de voz con IA en tiempo real para llamadas de emergencia en alarmas de incendio e intrusión. Integrado vía WebSockets con telefonía Telnyx TeXML y la API Google Gemini Live con voz neuronal y detección de interrupciones."
+    autonomous_rv_off_grid_energy_grid:
+      title: "Red de Energía Autónoma Off-Grid para RV"
+      category: "Hardware IoT y Monitoreo de Energía Solar"
+      description: "Ecosistema de energía solar aislado (off-grid) con controladores ESP32 y Raspberry Pi. Integración de sensores industriales y controladores de carga vía Modbus RTU y broker MQTT para telemetría en tiempo real de baterías y paneles solares."

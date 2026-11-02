@@ -79,9 +79,11 @@ jobs:
           echo "Pulling latest images..."
           docker compose pull
 
-          # Run migrations
+          # Run migrations and seeds
           echo "Running database migrations..."
           docker compose run --rm web bundle exec rails db:migrate
+          echo "Running database seeds..."
+          docker compose run --rm web bundle exec rails db:seed
 
           # Start the containers in detached mode
           echo "Starting containers..."

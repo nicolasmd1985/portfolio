@@ -17,9 +17,11 @@ ENV=$ENV docker compose down
 echo "⬇️ Pulling latest images..."
 ENV=$ENV docker compose pull
 
-# Run migrations
+# Run migrations and seeds
 echo "🔄 Running database migrations..."
 ENV=$ENV docker compose run --rm web bundle exec rails db:migrate
+echo "🌱 Seeding database records..."
+ENV=$ENV docker compose run --rm web bundle exec rails db:seed
 
 # Start the containers in detached mode
 echo "🚀 Starting containers..."
