@@ -37,7 +37,7 @@ es:
         integration: "10+ Años en Integración de Sistemas e IoT"
         safety: "Certificación FASA/BASA de Seguridad (Florida)"
         software: "Desarrollo Full-Stack (Rails y Python)"
-        education: "Posgrado en Gerencia de Proyectos & BI (Verificado por WES)"
+        education: "Posgrado en Gerencia de Proyectos y BI (Verificado por WES)"
       buttons:
         about_me: "Sobre Mí"
         explore_projects: "Explorar Proyectos"
@@ -54,6 +54,12 @@ es:
       smart_iot:
         title: "IoT Inteligente, Baja Tensión y Gestión Energética"
         description: "Ingeniería e implementación integral en campo de infraestructura comercial de baja tensión, redes de seguridad electrónica, telemetría solar y automatización de edificios inteligentes, convirtiendo datos físicos en control digital en tiempo real."
+      learn_scope: "Ver Alcance y Especificaciones"
+    cta_banner:
+      title: "¿Listo para Optimizar tus Sistemas?"
+      description: "Ya sea que representes a una empresa que busca un ingeniero especialista bajo contrato en Florida, o un Hiring Manager interesado en integrar experiencia en SCADA, IoT y Rails a tu equipo principal — coordinemos una llamada."
+      btn_consultation: "Agendar Consulta Técnica"
+      btn_message: "Enviar Mensaje Directo"
     projects:
       title: "Proyectos en Producción y Casos Destacados"
       subtitle: "Plataformas full-stack y sistemas inteligentes corriendo actualmente en vivo en Google Cloud."
@@ -98,6 +104,8 @@ es:
     professional_summary:
       title: "Resumen Profesional"
       body: "Ingeniero Electrónico con más de 10 años de experiencia especializado en integración de sistemas, automatización de edificios y tecnología IoT. Trayectoria comprobada en el despliegue de redes de automatización avanzadas residenciales y comerciales (Domótica/Inmótica), configuración de infraestructura de red y ejecución de instalaciones de tecnología inteligente. Experto en cerrar la brecha entre el hardware de campo —incluyendo monitoreo de energía solar, paneles de control de bajo voltaje y redes de seguridad— con la infraestructura basada en la nube. Impulsado por una pasión por los espacios inteligentes, la eficiencia energética y la conexión de ecosistemas tecnológicos complejos."
+    fasa_basa_badge: "Licencia FASA/BASA Activa"
+    verified_credentials: "Credenciales Verificadas"
     expertise:
       title: "Experiencia Técnica Principal"
       security:
@@ -111,10 +119,10 @@ es:
         automation: "Redes MQTT y LoRaWAN"
         device_config: "Sistemas de Almacenamiento de Energía (ESS)"
       sustainable:
-        title: "Tecnología Sostenible"
-        renewable: "Sistemas de Energía Solar (Fotovoltaica)"
-        efficiency: "Auditorías de Eficiencia Energética"
-        green_tech: "Cumplimiento FASA/BASA en Florida"
+        title: "Baja Tensión, Seguridad y Protección contra Incendios"
+        renewable: "Certificación FASA/BASA de Florida y Normativa NEC"
+        efficiency: "Cableado Estructurado (Cat6) y Racks MDF/IDF"
+        green_tech: "DSC Neo, Alarm.com Z-Wave, Incendio (SLC/NAC) y Control de Acceso"
       software:
         title: "Desarrollo Full-Stack"
         web_apps: "Ruby on Rails 8 (Hotwire)"
@@ -122,6 +130,27 @@ es:
         custom: "Bases de Datos SQL e Integración de APIs"
     linkedin: "Ver Perfil Completo en LinkedIn"
     download_resume: "Descargar Currículum (PDF)"
+
+  services_page:
+    capabilities_heading: "Capacidades Técnicas"
+    industrial:
+      cap_plc: "Programación de PLCs (Allen Bradley, Siemens)"
+      cap_scada: "Diseño y Configuración de Tableros SCADA (Ignition)"
+      cap_protocols: "Comunicación de Protocolos Industriales (Modbus RTU/TCP, BACnet)"
+      cap_historian: "Configuración de Bases de Datos Históricas y Reportes"
+      cta: "Consultar por Proyectos SCADA"
+    software:
+      cap_rails: "Aplicaciones Web y APIs con Ruby on Rails 8"
+      cap_stimulus: "Stimulus y Turbo (Frontend reactivo tipo SPA)"
+      cap_db: "Administración de Bases de Datos (PostgreSQL, Caché Redis)"
+      cap_aws: "Despliegue en AWS (EC2, S3, RDS, Seguridad IAM)"
+      cta: "Consultar por Soluciones de Software"
+    iot:
+      cap_embedded: "Programación de Sistemas Embebidos (ESP32, Arduino, Raspberry Pi)"
+      cap_wireless: "Redes de Sensores Inalámbricos (MQTT, WebSocket, LoRaWAN)"
+      cap_solar: "Monitoreo de Arreglos Solares Off-Grid y Almacenamiento ESS"
+      cap_building: "Automatización Comercial de Edificios (BAS) y Home Assistant"
+      cta: "Consultar por Soluciones IoT y Baja Tensión"
 
   contact:
     meta:
@@ -173,6 +202,11 @@ es:
     filter_saas: "Web y SaaS"
     filter_audio: "Audio y DSP"
     filter_iot: "IoT y Hardware"
+    cta_banner:
+      title: "¿Tienes un Desafío Complejo de Ingeniería?"
+      description: "Desde microcontroladores en el edge (ESP32 / Modbus) y plataformas web full-stack en Rails hasta agentes de voz multimodales con Gemini."
+      btn_consultation: "Agendar Consulta Técnica"
+      btn_contact: "Contáctame"
 
   project_items:
     backyard_ai:
@@ -199,5 +233,6 @@ es:
       title: "Integración Comercial de Baja Tensión, Seguridad y Automatización"
       category: "Caso de Estudio 03"
       description: "Ejecución en campo, cableado estructurado y puesta en marcha de sistemas en Florida Central. Implementación de paneles de intrusión (DSC Neo, PowerSeries, Honeywell), lazos de detección de incendio (circuitos SLC y NAC, dispositivos direccionables y convencionales), hardware de control de acceso (electroimanes, cantoneras eléctricas, lógica de relés, fuentes Altronix) y racks MDF/IDF bajo normativas NEC y TIA/EIA-568, integrados con automatización Z-Wave en Alarm.com."
-      highlight_title: "Commercial & Life Safety"
-      highlight_subtitle: "NEC & Florida FASA/BASA Compliant Field Deployments"
+      tags: "Certificado FASA/BASA, Cat6 y Racks MDF/IDF, DSC Neo y Alarm.com, Incendio (SLC/NAC), Control de Acceso y Relés, Normativa NEC"
+      highlight_title: "Seguridad Comercial y Protección Vital"
+      highlight_subtitle: "Despliegues en Campo bajo Normativa NEC y FASA/BASA"

@@ -22,29 +22,29 @@
               <%= t('home.services.industrial_automation.description') %>
             </p>
             
-            <h4 class="text-sm font-bold text-teal-400 uppercase tracking-widest mb-3 orbitron-font">Technical Capabilities</h4>
+            <h4 class="text-sm font-bold text-teal-400 uppercase tracking-widest mb-3 orbitron-font"><%= t('services_page.capabilities_heading', default: 'Technical Capabilities') %></h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-teal-400"></i>
-                <span>PLC Programming (Allen Bradley, Siemens)</span>
+                <span><%= t('services_page.industrial.cap_plc') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-teal-400"></i>
-                <span>SCADA Dashboard Design & Configuration (Ignition)</span>
+                <span><%= t('services_page.industrial.cap_scada') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-teal-400"></i>
-                <span>Industrial Protocol Communication (Modbus RTU/TCP, BACnet)</span>
+                <span><%= t('services_page.industrial.cap_protocols') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-teal-400"></i>
-                <span>Historian Database Setup & Report Generation</span>
+                <span><%= t('services_page.industrial.cap_historian') %></span>
               </span>
             </div>
             
             <a href="<%= contact_path %>" class="btn-primary py-2 px-5 text-sm inline-flex items-center gap-2">
               <i class="mdi mdi-email-fast-outline text-lg"></i>
-              <span>Inquire for Industrial SCADA Contracts</span>
+              <span><%= t('services_page.industrial.cta') %></span>
             </a>
           </div>
         </div>
@@ -64,29 +64,29 @@
               <%= t('home.services.fullstack_apps.description') %>
             </p>
 
-            <h4 class="text-sm font-bold text-violet-400 uppercase tracking-widest mb-3 orbitron-font">Technical Capabilities</h4>
+            <h4 class="text-sm font-bold text-violet-400 uppercase tracking-widest mb-3 orbitron-font"><%= t('services_page.capabilities_heading', default: 'Technical Capabilities') %></h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-violet-400"></i>
-                <span>Ruby on Rails 8 Web Applications & APIs</span>
+                <span><%= t('services_page.software.cap_rails') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-violet-400"></i>
-                <span>Stimulus & Turbo (SPA-like reactive frontend)</span>
+                <span><%= t('services_page.software.cap_stimulus') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-violet-400"></i>
-                <span>Database Administration (PostgreSQL, Redis caching)</span>
+                <span><%= t('services_page.software.cap_db') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-violet-400"></i>
-                <span>AWS Deployment (EC2, S3, RDS, IAM Security)</span>
+                <span><%= t('services_page.software.cap_aws') %></span>
               </span>
             </div>
 
             <a href="<%= contact_path %>" class="btn-primary py-2 px-5 text-sm inline-flex items-center gap-2 !bg-violet-700 hover:!bg-violet-800">
               <i class="mdi mdi-email-fast-outline text-lg"></i>
-              <span>Inquire for Software Solutions</span>
+              <span><%= t('services_page.software.cta') %></span>
             </a>
           </div>
         </div>
@@ -106,29 +106,29 @@
               <%= t('home.services.smart_iot.description') %>
             </p>
 
-            <h4 class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3 orbitron-font">Technical Capabilities</h4>
+            <h4 class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3 orbitron-font"><%= t('services_page.capabilities_heading', default: 'Technical Capabilities') %></h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-emerald-400"></i>
-                <span>Embedded Systems Programming (ESP32, Arduino, Raspberry Pi)</span>
+                <span><%= t('services_page.iot.cap_embedded') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-emerald-400"></i>
-                <span>Wireless Sensor Networks (MQTT, WebSocket, LoRaWAN)</span>
+                <span><%= t('services_page.iot.cap_wireless') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-emerald-400"></i>
-                <span>Off-grid Solar Array & Battery Storage ESS Monitoring</span>
+                <span><%= t('services_page.iot.cap_solar') %></span>
               </span>
               <span class="flex items-center gap-2 text-gray-400 text-sm">
                 <i class="mdi mdi-circle-small text-emerald-400"></i>
-                <span>Commercial Smart Building Automation (BAS) & Home Assistant</span>
+                <span><%= t('services_page.iot.cap_building') %></span>
               </span>
             </div>
 
             <a href="<%= contact_path %>" class="btn-primary py-2 px-5 text-sm inline-flex items-center gap-2 !bg-emerald-700 hover:!bg-emerald-800">
               <i class="mdi mdi-email-fast-outline text-lg"></i>
-              <span>Inquire for Smart Home & IoT Solutions</span>
+              <span><%= t('services_page.iot.cta') %></span>
             </a>
           </div>
         </div>

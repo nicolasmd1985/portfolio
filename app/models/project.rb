@@ -6,6 +6,15 @@ class Project < ApplicationRecord
     (tags || "").split(",").map(&:strip).reject(&:blank?)
   end
 
+  def localized_tags_list
+    raw = I18n.t("project_items.#{key}.tags", default: "")
+    if raw.present?
+      raw.split(",").map(&:strip).reject(&:blank?)
+    else
+      tags_list
+    end
+  end
+
   def live?
     url.present? && url != "#"
   end

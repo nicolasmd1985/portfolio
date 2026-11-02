@@ -27,7 +27,7 @@
             </span>
             <span class="flex items-center gap-1">
               <i class="mdi mdi-briefcase-check text-teal-400"></i>
-              <span>FASA/BASA Active License</span>
+              <span><%= t('about.fasa_basa_badge', default: 'FASA/BASA Active License') %></span>
             </span>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <div>
           <h4 class="text-xl font-bold text-white mb-4 orbitron-font flex items-center gap-2">
             <i class="mdi mdi-shield-crown-outline text-teal-400 text-2xl"></i>
-            Verified Credentials
+            <%= t('about.verified_credentials', default: 'Verified Credentials') %>
           </h4>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- FASA/BASA -->
@@ -114,7 +114,7 @@
             <!-- Col 3 -->
             <div class="bg-gray-900/40 p-5 rounded-xl border border-white/5">
               <h5 class="text-teal-400 font-bold orbitron-font text-sm mb-3 flex items-center gap-1">
-                <i class="mdi mdi-solar-power text-lg"></i>
+                <i class="mdi mdi-shield-lock-outline text-lg"></i>
                 <span><%= t('about.expertise.sustainable.title') %></span>
               </h5>
               <ul class="text-gray-300 text-sm space-y-2 font-light">

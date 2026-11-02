@@ -194,7 +194,7 @@
 
                 <!-- Technology Pills -->
                 <div class="flex flex-wrap gap-1.5 mb-2">
-                  <% project.tags_list.each do |tag| %>
+                  <% project.localized_tags_list.each do |tag| %>
                     <span class="bg-gray-950/80 border border-white/5 text-gray-400 text-[11px] px-2.5 py-1 rounded-md font-medium">
                       <%= tag %>
                     </span>
@@ -242,17 +242,17 @@
 <section class="py-20 bg-gray-950 border-t border-gray-800 text-center relative overflow-hidden">
   <div class="container mx-auto px-6 max-w-4xl relative z-10">
     <h2 class="text-3xl md:text-4xl font-bold orbitron-font text-white mb-4">
-      Have a Complex Engineering Challenge?
+      <%= t('projects.cta_banner.title', default: 'Have a Complex Engineering Challenge?') %>
     </h2>
     <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-sm md:text-base leading-relaxed">
-      From edge microcontrollers (ESP32 / Modbus) and full-stack Rails web platforms to multimodal Gemini voice agents.
+      <%= t('projects.cta_banner.description', default: 'From edge microcontrollers (ESP32 / Modbus) and full-stack Rails web platforms to multimodal Gemini voice agents.') %>
     </p>
     <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
       <a href="<%= contact_path %>#calendly" class="btn-primary w-full sm:w-auto">
-        <i class="mdi mdi-calendar-check mr-2"></i> Book Technical Consultation
+        <i class="mdi mdi-calendar-check mr-2"></i> <%= t('projects.cta_banner.btn_consultation', default: 'Book Technical Consultation') %>
       </a>
       <a href="<%= contact_path %>" class="btn-secondary w-full sm:w-auto">
-        <i class="mdi mdi-email-outline mr-2"></i> Get in Touch
+        <i class="mdi mdi-email-outline mr-2"></i> <%= t('projects.cta_banner.btn_contact', default: 'Get in Touch') %>
       </a>
     </div>
   </div>

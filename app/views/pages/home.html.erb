@@ -140,7 +140,7 @@
           </p>
         </div>
         <a href="<%= services_path %>#industrial" class="text-teal-400 hover:text-teal-300 font-semibold text-sm flex items-center gap-1 group/link mt-auto">
-          <span>Learn Scope & Specs</span>
+          <span><%= t('home.services.learn_scope', default: 'Learn Scope & Specs') %></span>
           <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
         </a>
       </div>
@@ -159,7 +159,7 @@
           </p>
         </div>
         <a href="<%= services_path %>#software" class="text-violet-400 hover:text-violet-300 font-semibold text-sm flex items-center gap-1 group/link mt-auto">
-          <span>Learn Scope & Specs</span>
+          <span><%= t('home.services.learn_scope', default: 'Learn Scope & Specs') %></span>
           <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
         </a>
       </div>
@@ -178,7 +178,7 @@
           </p>
         </div>
         <a href="<%= services_path %>#iot" class="text-emerald-400 hover:text-emerald-300 font-semibold text-sm flex items-center gap-1 group/link mt-auto">
-          <span>Learn Scope & Specs</span>
+          <span><%= t('home.services.learn_scope', default: 'Learn Scope & Specs') %></span>
           <i class="mdi mdi-arrow-right transition-transform group-hover/link:translate-x-1"></i>
         </a>
       </div>
@@ -242,7 +242,7 @@
 
                 <!-- Tags -->
                 <div class="flex flex-wrap gap-2 mb-6">
-                  <% project.tags_list.each do |tag| %>
+                  <% project.localized_tags_list.each do |tag| %>
                     <span class="bg-gray-900/80 border border-white/5 text-gray-400 text-xs px-3 py-1 rounded-lg font-medium">
                       <%= tag %>
                     </span>
@@ -396,16 +396,16 @@
 <section class="py-20 bg-gradient-to-r from-teal-900/20 via-indigo-900/10 to-teal-900/20 border-t border-gray-800 text-center relative overflow-hidden">
   <div class="absolute inset-0 bg-gray-900/85"></div>
   <div class="container mx-auto px-6 max-w-4xl relative z-10">
-    <h2 class="text-3xl md:text-5xl font-bold orbitron-font text-white mb-6">Ready to Optimize Your Systems?</h2>
+    <h2 class="text-3xl md:text-5xl font-bold orbitron-font text-white mb-6"><%= t('home.cta_banner.title') %></h2>
     <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
-      Whether you are an enterprise looking for a contract engineer in Florida, or a hiring manager looking to add SCADA, IoT, and Rails expertise to your core team — let's arrange a call.
+      <%= t('home.cta_banner.description') %>
     </p>
     <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
       <a href="<%= contact_path %>#calendly" class="btn-primary w-full sm:w-auto">
-        <i class="mdi mdi-calendar-check mr-2"></i> Book Technical Consultation
+        <i class="mdi mdi-calendar-check mr-2"></i> <%= t('home.cta_banner.btn_consultation') %>
       </a>
       <a href="<%= contact_path %>" class="btn-secondary w-full sm:w-auto">
-        <i class="mdi mdi-email-outline mr-2"></i> Send Direct Message
+        <i class="mdi mdi-email-outline mr-2"></i> <%= t('home.cta_banner.btn_message') %>
       </a>
     </div>
   </div>

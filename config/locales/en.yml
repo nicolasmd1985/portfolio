@@ -54,6 +54,12 @@ en:
       smart_iot:
         title: "Smart IoT, Low-Voltage & Energy Management"
         description: "End-to-end engineering and field deployment of commercial low-voltage infrastructure, life safety/security networks, solar grid telemetry, and smart building automation—converting physical sensor data into actionable digital control."
+      learn_scope: "Learn Scope & Specs"
+    cta_banner:
+      title: "Ready to Optimize Your Systems?"
+      description: "Whether you are an enterprise looking for a contract engineer in Florida, or a hiring manager looking to add SCADA, IoT, and Rails expertise to your core team — let's arrange a call."
+      btn_consultation: "Book Technical Consultation"
+      btn_message: "Send Direct Message"
     projects:
       title: "Live Deployments & Featured Projects"
       subtitle: "Full-stack platforms and intelligent systems currently running live on Google Cloud."
@@ -98,6 +104,8 @@ en:
     professional_summary:
       title: "Professional Summary"
       body: "Electronic Engineer with over 10 years of experience specializing in systems integration, building automation, and IoT technology. Proven track record deploying advanced residential and commercial automation networks (Domotics/Inmotics), configuring network infrastructure, and executing smart technology installations. Expert at bridging the gap between field hardware—including solar energy monitoring, low-voltage control panels, and security networks—with cloud-based infrastructure. Driven by a passion for smart spaces, energy efficiency, and connecting complex technological ecosystems."
+    fasa_basa_badge: "FASA/BASA Active License"
+    verified_credentials: "Verified Credentials"
     expertise:
       title: "Core Technical Expertise"
       security:
@@ -111,10 +119,10 @@ en:
         automation: "MQTT & LoRaWAN Networks"
         device_config: "Energy Storage Systems (ESS)"
       sustainable:
-        title: "Sustainable Tech"
-        renewable: "Solar Power Systems (PV)"
-        efficiency: "Energy Efficiency Audits"
-        green_tech: "FASA/BASA Compliance"
+        title: "Low-Voltage, Security & Life Safety"
+        renewable: "Florida FASA/BASA Certified & NEC Compliance"
+        efficiency: "Structured Cabling (Cat6) & MDF/IDF Server Racks"
+        green_tech: "DSC Neo, Alarm.com Z-Wave, Fire (SLC/NAC) & Access Control"
       software:
         title: "Full-Stack Development"
         web_apps: "Ruby on Rails 8 (Hotwire)"
@@ -122,6 +130,27 @@ en:
         custom: "SQL Databases & API Integrations"
     linkedin: "View Full Profile on LinkedIn"
     download_resume: "Download Resume PDF"
+
+  services_page:
+    capabilities_heading: "Technical Capabilities"
+    industrial:
+      cap_plc: "PLC Programming (Allen Bradley, Siemens)"
+      cap_scada: "SCADA Dashboard Design & Configuration (Ignition)"
+      cap_protocols: "Industrial Protocol Communication (Modbus RTU/TCP, BACnet)"
+      cap_historian: "Historian Database Setup & Report Generation"
+      cta: "Inquire for Industrial SCADA Contracts"
+    software:
+      cap_rails: "Ruby on Rails 8 Web Applications & APIs"
+      cap_stimulus: "Stimulus & Turbo (SPA-like reactive frontend)"
+      cap_db: "Database Administration (PostgreSQL, Redis caching)"
+      cap_aws: "AWS Deployment (EC2, S3, RDS, IAM Security)"
+      cta: "Inquire for Software Solutions"
+    iot:
+      cap_embedded: "Embedded Systems Programming (ESP32, Arduino, Raspberry Pi)"
+      cap_wireless: "Wireless Sensor Networks (MQTT, WebSocket, LoRaWAN)"
+      cap_solar: "Off-grid Solar Array & Battery Storage ESS Monitoring"
+      cap_building: "Commercial Smart Building Automation (BAS) & Home Assistant"
+      cta: "Inquire for Smart Home & IoT Solutions"
 
   contact:
     meta:
@@ -173,6 +202,11 @@ en:
     filter_saas: "Web & SaaS"
     filter_audio: "Audio & DSP"
     filter_iot: "IoT & Hardware"
+    cta_banner:
+      title: "Have a Complex Engineering Challenge?"
+      description: "From edge microcontrollers (ESP32 / Modbus) and full-stack Rails web platforms to multimodal Gemini voice agents."
+      btn_consultation: "Book Technical Consultation"
+      btn_contact: "Get in Touch"
 
   project_items:
     backyard_ai:
@@ -199,5 +233,6 @@ en:
       title: "Commercial Low-Voltage, Life Safety & Smart Security Integration"
       category: "Case Study 03"
       description: "Field execution, structured cabling, and system commissioning across commercial and residential sites in Central Florida. Deployed intrusion panels (DSC Neo, PowerSeries, Honeywell), fire alarm loops (SLC & NAC wiring, addressable/conventional devices), access control hardware (maglocks, electric strikes, relay logic, Altronix power), and MDF/IDF server racks under strict NEC and TIA/EIA-568 compliance, integrated with Alarm.com Z-Wave automation."
+      tags: "FASA/BASA Certified, Cat6 & MDF/IDF Racks, DSC Neo & Alarm.com, Fire Alarm (SLC/NAC), Access Control & Relays, NEC Compliance"
       highlight_title: "Commercial & Life Safety"
       highlight_subtitle: "NEC & Florida FASA/BASA Compliant Field Deployments"
